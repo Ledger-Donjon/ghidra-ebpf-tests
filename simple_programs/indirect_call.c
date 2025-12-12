@@ -10,7 +10,7 @@ never finished and the standardized eBPF ISA does not define how the related
 instruction "CALL register" is encoded:
 https://www.rfc-editor.org/rfc/rfc9669.html
 
-Some eBPG compilers nonetheless implemented this instruction.
+Some eBPF compilers nonetheless implemented this instruction.
 
 LLVM (and clang) uses opcode {CALL, X, JMP} (also known as "CALLX") and
 was encoding the register in the immediate field:
