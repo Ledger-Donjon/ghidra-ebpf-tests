@@ -103,6 +103,15 @@ Some documentation were written:
 - [Getting Started instructions, PyGhidra Mode](https://github.com/NationalSecurityAgency/ghidra/blob/Ghidra_12.0_build/GhidraDocs/GettingStarted.md#pyghidra-mode)
 - [Example of PyGhidra-specific functionality (`PyGhidraBasics.py`)](https://github.com/NationalSecurityAgency/ghidra/blob/Ghidra_12.0_build/Ghidra/Features/PyGhidra/ghidra_scripts/PyGhidraBasics.py)
 
+PyGhidra is available as a [Python package published on PyPI](https://pypi.org/project/pyghidra/).
+This means it can be installed with:
+
+```sh
+pip install pyghidra
+```
+
+This nonetheless requires a working Ghidra installation, referenced with environment variable `GHIDRA_INSTALL_DIR`.
+
 To install PyGhidra in a Debian 13 container, the following commands can be used:
 
 ```sh
@@ -116,7 +125,7 @@ SHA256=af43e8cfb2fa4490cf6020c3a2bde25c159d83f45236a0542688a024e8fc1941
 echo "${SHA256}  ghidra_12.0_PUBLIC_20251205.zip" | sha256sum --check
 unzip ghidra_12.0_PUBLIC_20251205.zip
 
-# Install PyGhidra
+# Install PyGhidra from the downloaded release
 echo y | ./ghidra_12.0_PUBLIC/support/pyghidraRun
 
 # Export to a variable Ghidra's location
@@ -169,6 +178,13 @@ print(decomp_result.getDecompiledFunction().getC())
 ```
 
 This repository includes a Python script which automates analyzing some eBPF programs and saving the disassembler and decompiler outputs: [`simple_programs/ghidra_analyze_and_export_programs.py`](./simple_programs/ghidra_analyze_and_export_programs.py).
+
+This script is compatible with [uv](https://docs.astral.sh/uv/), meaning it can be launch with:
+
+```sh
+export GHIDRA_INSTALL_DIR=/path/to/ghidra_12.0_PUBLIC
+uv run simple_programs/ghidra_analyze_and_export_programs.py
+```
 
 ## Merged Pull Requests
 

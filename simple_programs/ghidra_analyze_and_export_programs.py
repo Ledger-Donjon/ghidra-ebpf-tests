@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.10"
+# dependencies = [
+#     "pyghidra>=2.1.0",
+# ]
+# ///
 
 # SPDX-FileCopyrightText: 2025 LEDGER SAS
 #
