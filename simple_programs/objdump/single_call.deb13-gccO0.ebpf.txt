@@ -1,0 +1,15 @@
+
+compiled/single_call.deb13-gccO0.ebpf:     file format elf64-bpfle
+
+
+Disassembly of section .text:
+
+0000000000000000 <one>:
+   0:	b7 00 00 00 01 00 00 00 	mov %r0,1
+   8:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000010 <call_one>:
+  10:	85 10 00 00 fd ff ff ff 	call -3
+  18:	67 00 00 00 20 00 00 00 	lsh %r0,32
+  20:	c7 00 00 00 20 00 00 00 	arsh %r0,32
+  28:	95 00 00 00 00 00 00 00 	exit

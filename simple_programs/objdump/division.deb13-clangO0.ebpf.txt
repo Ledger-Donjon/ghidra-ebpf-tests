@@ -1,0 +1,10 @@
+
+compiled/division.deb13-clangO0.ebpf:	file format elf64-bpf
+
+Disassembly of section .text:
+
+0000000000000000 <div_by_1000>:
+       0:	63 1a fc ff 00 00 00 00	*(u32 *)(r10 - 0x4) = r1
+       1:	61 a0 fc ff 00 00 00 00	r0 = *(u32 *)(r10 - 0x4)
+       2:	37 00 00 00 e8 03 00 00	r0 /= 0x3e8
+       3:	95 00 00 00 00 00 00 00	exit

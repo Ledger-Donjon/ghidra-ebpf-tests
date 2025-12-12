@@ -1,0 +1,35 @@
+Export of compiled/single_call.deb13-gccO0.ebpf by Ghidra 11.4.2 PUBLIC
+
+Symbols:
+  ram:00100000 one
+  ram:00100010 call_one
+
+Listing:
+  Memory Block .text @ram:00100000..ram:0010002f
+    one:
+      ram:00100000 b700000001000000 MOV R0,0x1
+      ram:00100008 9500000000000000 EXIT
+    call_one:
+      ram:00100010 85100000fdffffff CALL 0x00100000
+      ram:00100018 6700000020000000 LSH R0,0x20
+      ram:00100020 c700000020000000 ARSH R0,0x20
+      ram:00100028 9500000000000000 EXIT
+
+Decompiled functions:
+
+/* Function one at ram:00100000 */
+undefined8 one(void)
+
+{
+  return 1;
+}
+
+/* Function call_one at ram:00100010 */
+longlong call_one(void)
+
+{
+  int iVar1;
+  
+  iVar1 = one();
+  return (longlong)iVar1;
+}

@@ -1,0 +1,9 @@
+version = 1
+SPDX-PackageName = "ghidra-ebpf-tests"
+SPDX-PackageSupplier = "LEDGER SAS <hello@ledger.fr>"
+SPDX-PackageDownloadLocation = "http://github.com/Ledger-Donjon/ghidra-ebpf-tests"
+
+[[annotations]]
+path = ["**/*.ebpf", "**/*.ebpf.txt"]
+SPDX-FileCopyrightText = "2025 LEDGER SAS"
+SPDX-License-Identifier = "MIT"

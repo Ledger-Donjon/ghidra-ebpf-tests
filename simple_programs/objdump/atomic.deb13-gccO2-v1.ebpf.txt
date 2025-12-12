@@ -1,0 +1,215 @@
+
+compiled/atomic.deb13-gccO2-v1.ebpf:     file format elf64-bpfle
+
+
+Disassembly of section .text:
+
+0000000000000000 <atomic_load32>:
+   0:	61 10 00 00 00 00 00 00 	ldxw %r0,[%r1+0]
+   8:	63 02 00 00 00 00 00 00 	stxw [%r2+0],%r0
+  10:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000018 <atomic_load_n32>:
+  18:	61 10 00 00 00 00 00 00 	ldxw %r0,[%r1+0]
+  20:	bf 00 00 00 00 00 00 00 	mov %r0,%r0
+  28:	57 00 00 00 ff ff ff ff 	and %r0,-1
+  30:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000038 <atomic_load64>:
+  38:	79 10 00 00 00 00 00 00 	ldxdw %r0,[%r1+0]
+  40:	7b 02 00 00 00 00 00 00 	stxdw [%r2+0],%r0
+  48:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000050 <atomic_load_n64>:
+  50:	79 10 00 00 00 00 00 00 	ldxdw %r0,[%r1+0]
+  58:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000060 <atomic_store32>:
+  60:	61 20 00 00 00 00 00 00 	ldxw %r0,[%r2+0]
+  68:	63 01 00 00 00 00 00 00 	stxw [%r1+0],%r0
+  70:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000078 <atomic_store_n32>:
+  78:	bf 22 00 00 00 00 00 00 	mov %r2,%r2
+  80:	57 02 00 00 ff ff ff ff 	and %r2,-1
+  88:	63 21 00 00 00 00 00 00 	stxw [%r1+0],%r2
+  90:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000098 <atomic_store64>:
+  98:	79 20 00 00 00 00 00 00 	ldxdw %r0,[%r2+0]
+  a0:	7b 01 00 00 00 00 00 00 	stxdw [%r1+0],%r0
+  a8:	95 00 00 00 00 00 00 00 	exit
+
+00000000000000b0 <atomic_store_n64>:
+  b0:	7b 21 00 00 00 00 00 00 	stxdw [%r1+0],%r2
+  b8:	95 00 00 00 00 00 00 00 	exit
+
+00000000000000c0 <atomic_exchange64>:
+  c0:	bf 36 00 00 00 00 00 00 	mov %r6,%r3
+  c8:	79 22 00 00 00 00 00 00 	ldxdw %r2,[%r2+0]
+  d0:	b7 03 00 00 00 00 00 00 	mov %r3,0
+  d8:	85 10 00 00 ff ff ff ff 	call -1
+			d8: R_BPF_64_32	__atomic_exchange_8
+  e0:	7b 06 00 00 00 00 00 00 	stxdw [%r6+0],%r0
+  e8:	95 00 00 00 00 00 00 00 	exit
+
+00000000000000f0 <atomic_exchange_n64>:
+  f0:	b7 03 00 00 00 00 00 00 	mov %r3,0
+  f8:	85 10 00 00 ff ff ff ff 	call -1
+			f8: R_BPF_64_32	__atomic_exchange_8
+ 100:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000108 <atomic_compare_exchange64>:
+ 108:	b7 05 00 00 00 00 00 00 	mov %r5,0
+ 110:	79 33 00 00 00 00 00 00 	ldxdw %r3,[%r3+0]
+ 118:	bf 54 00 00 00 00 00 00 	mov %r4,%r5
+ 120:	85 10 00 00 ff ff ff ff 	call -1
+			120: R_BPF_64_32	__atomic_compare_exchange_8
+ 128:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000130 <atomic_compare_exchange_n64>:
+ 130:	b7 05 00 00 00 00 00 00 	mov %r5,0
+ 138:	bf 54 00 00 00 00 00 00 	mov %r4,%r5
+ 140:	85 10 00 00 ff ff ff ff 	call -1
+			140: R_BPF_64_32	__atomic_compare_exchange_8
+ 148:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000150 <atomic_fetch_add64_legacy>:
+ 150:	db 21 00 00 00 00 00 00 	aadd [%r1+0],%r2
+ 158:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000160 <atomic_add_fetch64_legacy>:
+ 160:	db 21 00 00 00 00 00 00 	aadd [%r1+0],%r2
+ 168:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000170 <atomic_fetch_sub64_legacy>:
+ 170:	87 02 00 00 00 00 00 00 	neg %r2
+ 178:	db 21 00 00 00 00 00 00 	aadd [%r1+0],%r2
+ 180:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000188 <atomic_sub_fetch64_legacy>:
+ 188:	87 02 00 00 00 00 00 00 	neg %r2
+ 190:	db 21 00 00 00 00 00 00 	aadd [%r1+0],%r2
+ 198:	95 00 00 00 00 00 00 00 	exit
+
+00000000000001a0 <atomic_fetch_and64_legacy>:
+ 1a0:	b7 03 00 00 00 00 00 00 	mov %r3,0
+ 1a8:	85 10 00 00 ff ff ff ff 	call -1
+			1a8: R_BPF_64_32	__atomic_fetch_and_8
+ 1b0:	95 00 00 00 00 00 00 00 	exit
+
+00000000000001b8 <atomic_and_fetch64_legacy>:
+ 1b8:	b7 03 00 00 00 00 00 00 	mov %r3,0
+ 1c0:	85 10 00 00 ff ff ff ff 	call -1
+			1c0: R_BPF_64_32	__atomic_fetch_and_8
+ 1c8:	95 00 00 00 00 00 00 00 	exit
+
+00000000000001d0 <atomic_fetch_xor64_legacy>:
+ 1d0:	b7 03 00 00 00 00 00 00 	mov %r3,0
+ 1d8:	85 10 00 00 ff ff ff ff 	call -1
+			1d8: R_BPF_64_32	__atomic_fetch_xor_8
+ 1e0:	95 00 00 00 00 00 00 00 	exit
+
+00000000000001e8 <atomic_xor_fetch64_legacy>:
+ 1e8:	b7 03 00 00 00 00 00 00 	mov %r3,0
+ 1f0:	85 10 00 00 ff ff ff ff 	call -1
+			1f0: R_BPF_64_32	__atomic_fetch_xor_8
+ 1f8:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000200 <atomic_fetch_or64_legacy>:
+ 200:	b7 03 00 00 00 00 00 00 	mov %r3,0
+ 208:	85 10 00 00 ff ff ff ff 	call -1
+			208: R_BPF_64_32	__atomic_fetch_or_8
+ 210:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000218 <atomic_or_fetch64_legacy>:
+ 218:	b7 03 00 00 00 00 00 00 	mov %r3,0
+ 220:	85 10 00 00 ff ff ff ff 	call -1
+			220: R_BPF_64_32	__atomic_fetch_or_8
+ 228:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000230 <atomic_fetch_nand64_legacy>:
+ 230:	b7 03 00 00 00 00 00 00 	mov %r3,0
+ 238:	85 10 00 00 ff ff ff ff 	call -1
+			238: R_BPF_64_32	__atomic_fetch_nand_8
+ 240:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000248 <atomic_nand_fetch64_legacy>:
+ 248:	b7 03 00 00 00 00 00 00 	mov %r3,0
+ 250:	85 10 00 00 ff ff ff ff 	call -1
+			250: R_BPF_64_32	__atomic_fetch_nand_8
+ 258:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000260 <atomic_fetch_add32_legacy>:
+ 260:	bf 22 00 00 00 00 00 00 	mov %r2,%r2
+ 268:	57 02 00 00 ff ff ff ff 	and %r2,-1
+ 270:	c3 21 00 00 00 00 00 00 	aadd32 [%r1+0],%r2
+ 278:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000280 <atomic_add_fetch32_legacy>:
+ 280:	bf 22 00 00 00 00 00 00 	mov %r2,%r2
+ 288:	57 02 00 00 ff ff ff ff 	and %r2,-1
+ 290:	c3 21 00 00 00 00 00 00 	aadd32 [%r1+0],%r2
+ 298:	95 00 00 00 00 00 00 00 	exit
+
+00000000000002a0 <atomic_fetch_sub32_legacy>:
+ 2a0:	bf 22 00 00 00 00 00 00 	mov %r2,%r2
+ 2a8:	57 02 00 00 ff ff ff ff 	and %r2,-1
+ 2b0:	87 02 00 00 00 00 00 00 	neg %r2
+ 2b8:	c3 21 00 00 00 00 00 00 	aadd32 [%r1+0],%r2
+ 2c0:	95 00 00 00 00 00 00 00 	exit
+
+00000000000002c8 <atomic_sub_fetch32_legacy>:
+ 2c8:	bf 22 00 00 00 00 00 00 	mov %r2,%r2
+ 2d0:	57 02 00 00 ff ff ff ff 	and %r2,-1
+ 2d8:	87 02 00 00 00 00 00 00 	neg %r2
+ 2e0:	c3 21 00 00 00 00 00 00 	aadd32 [%r1+0],%r2
+ 2e8:	95 00 00 00 00 00 00 00 	exit
+
+00000000000002f0 <atomic_fetch_and32_legacy>:
+ 2f0:	b7 03 00 00 00 00 00 00 	mov %r3,0
+ 2f8:	85 10 00 00 ff ff ff ff 	call -1
+			2f8: R_BPF_64_32	__atomic_fetch_and_4
+ 300:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000308 <atomic_and_fetch32_legacy>:
+ 308:	b7 03 00 00 00 00 00 00 	mov %r3,0
+ 310:	85 10 00 00 ff ff ff ff 	call -1
+			310: R_BPF_64_32	__atomic_fetch_and_4
+ 318:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000320 <atomic_fetch_xor32_legacy>:
+ 320:	b7 03 00 00 00 00 00 00 	mov %r3,0
+ 328:	85 10 00 00 ff ff ff ff 	call -1
+			328: R_BPF_64_32	__atomic_fetch_xor_4
+ 330:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000338 <atomic_xor_fetch32_legacy>:
+ 338:	b7 03 00 00 00 00 00 00 	mov %r3,0
+ 340:	85 10 00 00 ff ff ff ff 	call -1
+			340: R_BPF_64_32	__atomic_fetch_xor_4
+ 348:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000350 <atomic_fetch_or32_legacy>:
+ 350:	b7 03 00 00 00 00 00 00 	mov %r3,0
+ 358:	85 10 00 00 ff ff ff ff 	call -1
+			358: R_BPF_64_32	__atomic_fetch_or_4
+ 360:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000368 <atomic_or_fetch32_legacy>:
+ 368:	b7 03 00 00 00 00 00 00 	mov %r3,0
+ 370:	85 10 00 00 ff ff ff ff 	call -1
+			370: R_BPF_64_32	__atomic_fetch_or_4
+ 378:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000380 <atomic_fetch_nand32_legacy>:
+ 380:	b7 03 00 00 00 00 00 00 	mov %r3,0
+ 388:	85 10 00 00 ff ff ff ff 	call -1
+			388: R_BPF_64_32	__atomic_fetch_nand_4
+ 390:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000398 <atomic_nand_fetch32_legacy>:
+ 398:	b7 03 00 00 00 00 00 00 	mov %r3,0
+ 3a0:	85 10 00 00 ff ff ff ff 	call -1
+			3a0: R_BPF_64_32	__atomic_fetch_nand_4
+ 3a8:	95 00 00 00 00 00 00 00 	exit

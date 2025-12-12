@@ -1,0 +1,12 @@
+
+compiled/many_args.deb13-clangO2.ebpf:	file format elf64-bpf
+
+Disassembly of section .text:
+
+0000000000000000 <fct_5args>:
+       0:	bf 20 00 00 00 00 00 00	r0 = r2
+       1:	0f 10 00 00 00 00 00 00	r0 += r1
+       2:	1f 30 00 00 00 00 00 00	r0 -= r3
+       3:	2f 40 00 00 00 00 00 00	r0 *= r4
+       4:	0f 50 00 00 00 00 00 00	r0 += r5
+       5:	95 00 00 00 00 00 00 00	exit

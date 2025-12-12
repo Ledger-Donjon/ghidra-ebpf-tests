@@ -1,0 +1,12 @@
+
+compiled/division.deb13-gccO0.ebpf:     file format elf64-bpfle
+
+
+Disassembly of section .text:
+
+0000000000000000 <div_by_1000>:
+   0:	63 1a fc ff 00 00 00 00 	stxw [%r10-4],%r1
+   8:	61 a0 fc ff 00 00 00 00 	ldxw %r0,[%r10-4]
+  10:	34 00 00 00 e8 03 00 00 	div32 %r0,1000
+  18:	bf 00 00 00 00 00 00 00 	mov %r0,%r0
+  20:	95 00 00 00 00 00 00 00 	exit

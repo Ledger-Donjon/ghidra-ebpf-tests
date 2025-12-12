@@ -1,0 +1,122 @@
+Export of compiled/byte_swap.deb13-gccO2-be.ebpf by Ghidra 11.4.2 PUBLIC
+
+Symbols:
+  ram:00100000 do_be16
+  ram:00100018 do_be32
+  ram:00100030 do_be64
+  ram:00100048 do_le16
+  ram:00100060 do_le32
+  ram:00100078 do_le64
+  ram:00100090 do_bswap16
+  ram:001000a8 do_bswap32
+  ram:001000c0 do_bswap64
+
+Listing:
+  Memory Block .text @ram:00100000..ram:001000d7
+    do_be16:
+      ram:00100000 dc10000000000010 BE16 R1
+      ram:00100008 bf01000000000000 MOV R0,R1
+      ram:00100010 9500000000000000 EXIT
+    do_be32:
+      ram:00100018 dc10000000000020 BE32 R1
+      ram:00100020 bf01000000000000 MOV R0,R1
+      ram:00100028 9500000000000000 EXIT
+    do_be64:
+      ram:00100030 bf01000000000000 MOV R0,R1
+      ram:00100038 dc00000000000040 BE64 R0
+      ram:00100040 9500000000000000 EXIT
+    do_le16:
+      ram:00100048 d410000000000010 LE16 R1
+      ram:00100050 bf01000000000000 MOV R0,R1
+      ram:00100058 9500000000000000 EXIT
+    do_le32:
+      ram:00100060 d410000000000020 LE32 R1
+      ram:00100068 bf01000000000000 MOV R0,R1
+      ram:00100070 9500000000000000 EXIT
+    do_le64:
+      ram:00100078 bf01000000000000 MOV R0,R1
+      ram:00100080 d400000000000040 LE64 R0
+      ram:00100088 9500000000000000 EXIT
+    do_bswap16:
+      ram:00100090 bf01000000000000 MOV R0,R1
+      ram:00100098 d700000000000010 BSWAP16 R0
+      ram:001000a0 9500000000000000 EXIT
+    do_bswap32:
+      ram:001000a8 bf01000000000000 MOV R0,R1
+      ram:001000b0 d700000000000020 BSWAP32 R0
+      ram:001000b8 9500000000000000 EXIT
+    do_bswap64:
+      ram:001000c0 bf01000000000000 MOV R0,R1
+      ram:001000c8 d700000000000040 BSWAP64 R0
+      ram:001000d0 9500000000000000 EXIT
+
+Decompiled functions:
+
+/* Function do_be16 at ram:00100000 */
+undefined2 do_be16(undefined2 param_1)
+
+{
+  return param_1;
+}
+
+/* Function do_be32 at ram:00100018 */
+undefined4 do_be32(undefined4 param_1)
+
+{
+  return param_1;
+}
+
+/* Function do_be64 at ram:00100030 */
+undefined8 do_be64(undefined8 param_1)
+
+{
+  return param_1;
+}
+
+/* Function do_le16 at ram:00100048 */
+ulonglong do_le16(ulonglong param_1)
+
+{
+  return (param_1 & 0xff00) >> 8 | (param_1 & 0xff) << 8;
+}
+
+/* Function do_le32 at ram:00100060 */
+ulonglong do_le32(ulonglong param_1)
+
+{
+  return (param_1 & 0xff000000) >> 0x18 | (param_1 & 0xff0000) >> 8 | (param_1 & 0xff00) << 8 |
+         (param_1 & 0xff) << 0x18;
+}
+
+/* Function do_le64 at ram:00100078 */
+ulonglong do_le64(ulonglong param_1)
+
+{
+  return param_1 << 0x38 | (param_1 & 0xff00) << 0x28 | (param_1 & 0xff0000) << 0x18 |
+         (param_1 & 0xff000000) << 8 | param_1 >> 8 & 0xff000000 | param_1 >> 0x18 & 0xff0000 |
+         param_1 >> 0x28 & 0xff00 | param_1 >> 0x38;
+}
+
+/* Function do_bswap16 at ram:00100090 */
+ulonglong do_bswap16(ulonglong param_1)
+
+{
+  return (param_1 & 0xff00) >> 8 | (param_1 & 0xff) << 8;
+}
+
+/* Function do_bswap32 at ram:001000a8 */
+ulonglong do_bswap32(ulonglong param_1)
+
+{
+  return (param_1 & 0xff000000) >> 0x18 | (param_1 & 0xff0000) >> 8 | (param_1 & 0xff00) << 8 |
+         (param_1 & 0xff) << 0x18;
+}
+
+/* Function do_bswap64 at ram:001000c0 */
+ulonglong do_bswap64(ulonglong param_1)
+
+{
+  return param_1 << 0x38 | (param_1 & 0xff00) << 0x28 | (param_1 & 0xff0000) << 0x18 |
+         (param_1 & 0xff000000) << 8 | param_1 >> 8 & 0xff000000 | param_1 >> 0x18 & 0xff0000 |
+         param_1 >> 0x28 & 0xff00 | param_1 >> 0x38;
+}

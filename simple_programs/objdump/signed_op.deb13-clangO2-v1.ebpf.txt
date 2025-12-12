@@ -1,0 +1,18 @@
+
+compiled/signed_op.deb13-clangO2-v1.ebpf:	file format elf64-bpf
+
+Disassembly of section .text:
+
+0000000000000000 <sext_8bit>:
+       0:	bf 10 00 00 00 00 00 00	r0 = r1
+       1:	95 00 00 00 00 00 00 00	exit
+
+0000000000000010 <sext_16bit>:
+       2:	bf 10 00 00 00 00 00 00	r0 = r1
+       3:	95 00 00 00 00 00 00 00	exit
+
+0000000000000020 <sext_32bit>:
+       4:	bf 10 00 00 00 00 00 00	r0 = r1
+       5:	67 00 00 00 20 00 00 00	r0 <<= 0x20
+       6:	c7 00 00 00 20 00 00 00	r0 s>>= 0x20
+       7:	95 00 00 00 00 00 00 00	exit

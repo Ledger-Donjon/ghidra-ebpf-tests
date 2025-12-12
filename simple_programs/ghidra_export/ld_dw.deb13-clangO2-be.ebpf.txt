@@ -1,0 +1,63 @@
+Export of compiled/ld_dw.deb13-clangO2-be.ebpf by Ghidra 11.4.2 PUBLIC
+
+Symbols:
+  ram:00100000 get_1
+  ram:00100010 get_min1
+  ram:00100020 get_min1_32bit
+  ram:00100038 get_min_min1_32bit
+  ram:00100050 get_value
+
+Listing:
+  Memory Block .text @ram:00100000..ram:00100067
+    get_1:
+      ram:00100000 b700000000000001 MOV R0,0x1
+      ram:00100008 9500000000000000 EXIT
+    get_min1:
+      ram:00100010 b7000000ffffffff MOV R0,-0x1
+      ram:00100018 9500000000000000 EXIT
+    get_min1_32bit:
+      ram:00100020 18000000ffffffff0000000000000000 LDDW R0,0xffffffff
+      ram:00100030 9500000000000000 EXIT
+    get_min_min1_32bit:
+      ram:00100038 180000000000000100000000ffffffff LDDW R0,-0xffffffff
+      ram:00100048 9500000000000000 EXIT
+    get_value:
+      ram:00100050 180000009abcdef00000000012345678 LDDW R0,0x123456789abcdef0
+      ram:00100060 9500000000000000 EXIT
+
+Decompiled functions:
+
+/* Function get_1 at ram:00100000 */
+undefined8 get_1(void)
+
+{
+  return 1;
+}
+
+/* Function get_min1 at ram:00100010 */
+undefined8 get_min1(void)
+
+{
+  return 0xffffffffffffffff;
+}
+
+/* Function get_min1_32bit at ram:00100020 */
+undefined8 get_min1_32bit(void)
+
+{
+  return 0xffffffff;
+}
+
+/* Function get_min_min1_32bit at ram:00100038 */
+undefined8 get_min_min1_32bit(void)
+
+{
+  return 0xffffffff00000001;
+}
+
+/* Function get_value at ram:00100050 */
+undefined8 get_value(void)
+
+{
+  return 0x123456789abcdef0;
+}

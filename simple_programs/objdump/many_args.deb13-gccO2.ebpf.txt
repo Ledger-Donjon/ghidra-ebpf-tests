@@ -1,0 +1,13 @@
+
+compiled/many_args.deb13-gccO2.ebpf:     file format elf64-bpfle
+
+
+Disassembly of section .text:
+
+0000000000000000 <fct_5args>:
+   0:	1c 32 00 00 00 00 00 00 	sub32 %r2,%r3
+   8:	bf 50 00 00 00 00 00 00 	mov %r0,%r5
+  10:	0c 21 00 00 00 00 00 00 	add32 %r1,%r2
+  18:	2c 14 00 00 00 00 00 00 	mul32 %r4,%r1
+  20:	0c 40 00 00 00 00 00 00 	add32 %r0,%r4
+  28:	95 00 00 00 00 00 00 00 	exit

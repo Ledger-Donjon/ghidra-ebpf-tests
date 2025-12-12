@@ -1,0 +1,196 @@
+Export of compiled/signed_op.deb13-clangO2-v4.ebpf by Ghidra 11.4.2 PUBLIC
+
+Symbols:
+  ram:00100000 sext_8bit
+  ram:00100018 sext_16bit
+  ram:00100030 sext_32bit
+  ram:00100048 signed_div64
+  ram:00100060 unsigned_div64
+  ram:00100078 signed_div32
+  ram:00100090 unsigned_div32
+  ram:001000a8 signed_mod64
+  ram:001000c0 unsigned_mod64
+  ram:001000d8 signed_mod32
+  ram:001000f0 unsigned_mod32
+  ram:00100108 signed_mov_s8s64
+  ram:00100118 signed_mov_s16s64
+  ram:00100128 signed_mov_s32s64
+  ram:00100140 signed_mov_s8s32
+  ram:00100150 signed_mov_s16s32
+
+Listing:
+  Memory Block .text @ram:00100000..ram:0010015f
+    sext_8bit:
+      ram:00100000 bc11000000000000 MOV R1,R1
+      ram:00100008 bf10200000000000 MOVSW R0,R1
+      ram:00100010 9500000000000000 EXIT
+    sext_16bit:
+      ram:00100018 bc11000000000000 MOV R1,R1
+      ram:00100020 bf10200000000000 MOVSW R0,R1
+      ram:00100028 9500000000000000 EXIT
+    sext_32bit:
+      ram:00100030 bc11000000000000 MOV R1,R1
+      ram:00100038 bf10200000000000 MOVSW R0,R1
+      ram:00100040 9500000000000000 EXIT
+    signed_div64:
+      ram:00100048 bf10000000000000 MOV R0,R1
+      ram:00100050 37000100e8030000 SDIV R0,0x3e8
+      ram:00100058 9500000000000000 EXIT
+    unsigned_div64:
+      ram:00100060 bf10000000000000 MOV R0,R1
+      ram:00100068 37000000e8030000 DIV R0,0x3e8
+      ram:00100070 9500000000000000 EXIT
+    signed_div32:
+      ram:00100078 bc10000000000000 MOV R0,R1
+      ram:00100080 34000100e8030000 SDIV R0,0x3e8
+      ram:00100088 9500000000000000 EXIT
+    unsigned_div32:
+      ram:00100090 bc10000000000000 MOV R0,R1
+      ram:00100098 34000000e8030000 DIV R0,0x3e8
+      ram:001000a0 9500000000000000 EXIT
+    signed_mod64:
+      ram:001000a8 bf10000000000000 MOV R0,R1
+      ram:001000b0 97000100e8030000 SMOD R0,0x3e8
+      ram:001000b8 9500000000000000 EXIT
+    unsigned_mod64:
+      ram:001000c0 bf10000000000000 MOV R0,R1
+      ram:001000c8 97000000e8030000 MOD R0,0x3e8
+      ram:001000d0 9500000000000000 EXIT
+    signed_mod32:
+      ram:001000d8 bc10000000000000 MOV R0,R1
+      ram:001000e0 94000100e8030000 SMOD R0,0x3e8
+      ram:001000e8 9500000000000000 EXIT
+    unsigned_mod32:
+      ram:001000f0 bc10000000000000 MOV R0,R1
+      ram:001000f8 94000000e8030000 MOD R0,0x3e8
+      ram:00100100 9500000000000000 EXIT
+    signed_mov_s8s64:
+      ram:00100108 bf10080000000000 MOVSB R0,R1
+      ram:00100110 9500000000000000 EXIT
+    signed_mov_s16s64:
+      ram:00100118 bf10100000000000 MOVSH R0,R1
+      ram:00100120 9500000000000000 EXIT
+    signed_mov_s32s64:
+      ram:00100128 bc11000000000000 MOV R1,R1
+      ram:00100130 bf10200000000000 MOVSW R0,R1
+      ram:00100138 9500000000000000 EXIT
+    signed_mov_s8s32:
+      ram:00100140 bc10080000000000 MOVSB R0,R1
+      ram:00100148 9500000000000000 EXIT
+    signed_mov_s16s32:
+      ram:00100150 bc10100000000000 MOVSH R0,R1
+      ram:00100158 9500000000000000 EXIT
+
+Decompiled functions:
+
+/* Function sext_8bit at ram:00100000 */
+longlong sext_8bit(int param_1)
+
+{
+  return (longlong)param_1;
+}
+
+/* Function sext_16bit at ram:00100018 */
+longlong sext_16bit(int param_1)
+
+{
+  return (longlong)param_1;
+}
+
+/* Function sext_32bit at ram:00100030 */
+longlong sext_32bit(int param_1)
+
+{
+  return (longlong)param_1;
+}
+
+/* Function signed_div64 at ram:00100048 */
+longlong signed_div64(longlong param_1)
+
+{
+  return param_1 / 1000;
+}
+
+/* Function unsigned_div64 at ram:00100060 */
+ulonglong unsigned_div64(ulonglong param_1)
+
+{
+  return param_1 / 1000;
+}
+
+/* Function signed_div32 at ram:00100078 */
+int signed_div32(int param_1)
+
+{
+  return param_1 / 1000;
+}
+
+/* Function unsigned_div32 at ram:00100090 */
+uint unsigned_div32(uint param_1)
+
+{
+  return param_1 / 1000;
+}
+
+/* Function signed_mod64 at ram:001000a8 */
+longlong signed_mod64(longlong param_1)
+
+{
+  return param_1 % 1000;
+}
+
+/* Function unsigned_mod64 at ram:001000c0 */
+ulonglong unsigned_mod64(ulonglong param_1)
+
+{
+  return param_1 % 1000;
+}
+
+/* Function signed_mod32 at ram:001000d8 */
+int signed_mod32(int param_1)
+
+{
+  return param_1 % 1000;
+}
+
+/* Function unsigned_mod32 at ram:001000f0 */
+uint unsigned_mod32(uint param_1)
+
+{
+  return param_1 % 1000;
+}
+
+/* Function signed_mov_s8s64 at ram:00100108 */
+longlong signed_mov_s8s64(char param_1)
+
+{
+  return (longlong)param_1;
+}
+
+/* Function signed_mov_s16s64 at ram:00100118 */
+longlong signed_mov_s16s64(short param_1)
+
+{
+  return (longlong)param_1;
+}
+
+/* Function signed_mov_s32s64 at ram:00100128 */
+longlong signed_mov_s32s64(int param_1)
+
+{
+  return (longlong)param_1;
+}
+
+/* Function signed_mov_s8s32 at ram:00100140 */
+int signed_mov_s8s32(char param_1)
+
+{
+  return (int)param_1;
+}
+
+/* Function signed_mov_s16s32 at ram:00100150 */
+int signed_mov_s16s32(short param_1)
+
+{
+  return (int)param_1;
+}

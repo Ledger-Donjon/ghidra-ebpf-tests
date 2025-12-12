@@ -1,0 +1,23 @@
+
+compiled/indirect_call.deb13-gccO2-be.ebpf:     file format elf64-bpfbe
+
+
+Disassembly of section .text:
+
+0000000000000000 <call_ptr_to_some_function>:
+   0:	18 00 00 00 00 00 00 00 	lddw %r0,0
+   8:	00 00 00 00 00 00 00 00 
+			0: R_BPF_64_64	ptr_to_some_function
+  10:	79 10 00 00 00 00 00 00 	ldxdw %r1,[%r0+0]
+  18:	8d 10 00 00 00 00 00 00 	call %r1
+  20:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000028 <call_first_arg>:
+  28:	bf 01 00 00 00 00 00 00 	mov %r0,%r1
+  30:	bf 12 00 00 00 00 00 00 	mov %r1,%r2
+  38:	8d 00 00 00 00 00 00 00 	call %r0
+  40:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000048 <call_last_arg>:
+  48:	8d 20 00 00 00 00 00 00 	call %r2
+  50:	95 00 00 00 00 00 00 00 	exit

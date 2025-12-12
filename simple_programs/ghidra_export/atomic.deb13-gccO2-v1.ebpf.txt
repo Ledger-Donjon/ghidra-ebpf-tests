@@ -1,0 +1,723 @@
+Export of compiled/atomic.deb13-gccO2-v1.ebpf by Ghidra 11.4.2 PUBLIC
+
+Symbols:
+  ram:00100000 atomic_load32
+  ram:00100018 atomic_load_n32
+  ram:00100038 atomic_load64
+  ram:00100050 atomic_load_n64
+  ram:00100060 atomic_store32
+  ram:00100078 atomic_store_n32
+  ram:00100098 atomic_store64
+  ram:001000b0 atomic_store_n64
+  ram:001000c0 atomic_exchange64
+  ram:001000d8 FUN_ram_001000d8
+  ram:001000f0 atomic_exchange_n64
+  ram:001000f8 FUN_ram_001000f8
+  ram:00100108 atomic_compare_exchange64
+  ram:00100120 FUN_ram_00100120
+  ram:00100130 atomic_compare_exchange_n64
+  ram:00100140 FUN_ram_00100140
+  ram:00100150 atomic_fetch_add64_legacy
+  ram:00100160 atomic_add_fetch64_legacy
+  ram:00100170 atomic_fetch_sub64_legacy
+  ram:00100188 atomic_sub_fetch64_legacy
+  ram:001001a0 atomic_fetch_and64_legacy
+  ram:001001a8 FUN_ram_001001a8
+  ram:001001b8 atomic_and_fetch64_legacy
+  ram:001001c0 FUN_ram_001001c0
+  ram:001001d0 atomic_fetch_xor64_legacy
+  ram:001001d8 FUN_ram_001001d8
+  ram:001001e8 atomic_xor_fetch64_legacy
+  ram:001001f0 FUN_ram_001001f0
+  ram:00100200 atomic_fetch_or64_legacy
+  ram:00100208 FUN_ram_00100208
+  ram:00100218 atomic_or_fetch64_legacy
+  ram:00100220 FUN_ram_00100220
+  ram:00100230 atomic_fetch_nand64_legacy
+  ram:00100238 FUN_ram_00100238
+  ram:00100248 atomic_nand_fetch64_legacy
+  ram:00100250 FUN_ram_00100250
+  ram:00100260 atomic_fetch_add32_legacy
+  ram:00100280 atomic_add_fetch32_legacy
+  ram:001002a0 atomic_fetch_sub32_legacy
+  ram:001002c8 atomic_sub_fetch32_legacy
+  ram:001002f0 atomic_fetch_and32_legacy
+  ram:001002f8 FUN_ram_001002f8
+  ram:00100308 atomic_and_fetch32_legacy
+  ram:00100310 FUN_ram_00100310
+  ram:00100320 atomic_fetch_xor32_legacy
+  ram:00100328 FUN_ram_00100328
+  ram:00100338 atomic_xor_fetch32_legacy
+  ram:00100340 FUN_ram_00100340
+  ram:00100350 atomic_fetch_or32_legacy
+  ram:00100358 FUN_ram_00100358
+  ram:00100368 atomic_or_fetch32_legacy
+  ram:00100370 FUN_ram_00100370
+  ram:00100380 atomic_fetch_nand32_legacy
+  ram:00100388 FUN_ram_00100388
+  ram:00100398 atomic_nand_fetch32_legacy
+  ram:001003a0 FUN_ram_001003a0
+  ram:00101000 __atomic_exchange_8
+  ram:00101008 __atomic_compare_exchange_8
+  ram:00101010 __atomic_fetch_and_8
+  ram:00101018 __atomic_fetch_xor_8
+  ram:00101020 __atomic_fetch_or_8
+  ram:00101028 __atomic_fetch_nand_8
+  ram:00101030 __atomic_fetch_and_4
+  ram:00101038 __atomic_fetch_xor_4
+  ram:00101040 __atomic_fetch_or_4
+  ram:00101048 __atomic_fetch_nand_4
+
+Listing:
+  Memory Block .text @ram:00100000..ram:001003af
+    atomic_load32:
+      ram:00100000 6110000000000000 LDXW R0,[R1 + 0x0]
+      ram:00100008 6302000000000000 STXW [R2 + 0x0],R0
+      ram:00100010 9500000000000000 EXIT
+    atomic_load_n32:
+      ram:00100018 6110000000000000 LDXW R0,[R1 + 0x0]
+      ram:00100020 bf00000000000000 MOV R0,R0
+      ram:00100028 57000000ffffffff AND R0,-0x1
+      ram:00100030 9500000000000000 EXIT
+    atomic_load64:
+      ram:00100038 7910000000000000 LDXDW R0,[R1 + 0x0]
+      ram:00100040 7b02000000000000 STXDW [R2 + 0x0],R0
+      ram:00100048 9500000000000000 EXIT
+    atomic_load_n64:
+      ram:00100050 7910000000000000 LDXDW R0,[R1 + 0x0]
+      ram:00100058 9500000000000000 EXIT
+    atomic_store32:
+      ram:00100060 6120000000000000 LDXW R0,[R2 + 0x0]
+      ram:00100068 6301000000000000 STXW [R1 + 0x0],R0
+      ram:00100070 9500000000000000 EXIT
+    atomic_store_n32:
+      ram:00100078 bf22000000000000 MOV R2,R2
+      ram:00100080 57020000ffffffff AND R2,-0x1
+      ram:00100088 6321000000000000 STXW [R1 + 0x0],R2
+      ram:00100090 9500000000000000 EXIT
+    atomic_store64:
+      ram:00100098 7920000000000000 LDXDW R0,[R2 + 0x0]
+      ram:001000a0 7b01000000000000 STXDW [R1 + 0x0],R0
+      ram:001000a8 9500000000000000 EXIT
+    atomic_store_n64:
+      ram:001000b0 7b21000000000000 STXDW [R1 + 0x0],R2
+      ram:001000b8 9500000000000000 EXIT
+    atomic_exchange64:
+      ram:001000c0 bf36000000000000 MOV R6,R3
+      ram:001000c8 7922000000000000 LDXDW R2,[R2 + 0x0]
+      ram:001000d0 b703000000000000 MOV R3,0x0
+    FUN_ram_001000d8:
+      ram:001000d8 85100000ffffffff CALL 0x001000d8
+      ram:001000e0 7b06000000000000 STXDW [R6 + 0x0],R0
+      ram:001000e8 9500000000000000 EXIT
+    atomic_exchange_n64:
+      ram:001000f0 b703000000000000 MOV R3,0x0
+    FUN_ram_001000f8:
+      ram:001000f8 85100000ffffffff CALL 0x001000f8
+      ram:00100100 9500000000000000 EXIT
+    atomic_compare_exchange64:
+      ram:00100108 b705000000000000 MOV R5,0x0
+      ram:00100110 7933000000000000 LDXDW R3,[R3 + 0x0]
+      ram:00100118 bf54000000000000 MOV R4,R5
+    FUN_ram_00100120:
+      ram:00100120 85100000ffffffff CALL 0x00100120
+      ram:00100128 9500000000000000 EXIT
+    atomic_compare_exchange_n64:
+      ram:00100130 b705000000000000 MOV R5,0x0
+      ram:00100138 bf54000000000000 MOV R4,R5
+    FUN_ram_00100140:
+      ram:00100140 85100000ffffffff CALL 0x00100140
+      ram:00100148 9500000000000000 EXIT
+    atomic_fetch_add64_legacy:
+      ram:00100150 db21000000000000 STXXADDDW [R1 + 0x0],R2
+      ram:00100158 9500000000000000 EXIT
+    atomic_add_fetch64_legacy:
+      ram:00100160 db21000000000000 STXXADDDW [R1 + 0x0],R2
+      ram:00100168 9500000000000000 EXIT
+    atomic_fetch_sub64_legacy:
+      ram:00100170 8702000000000000 NEG R2
+      ram:00100178 db21000000000000 STXXADDDW [R1 + 0x0],R2
+      ram:00100180 9500000000000000 EXIT
+    atomic_sub_fetch64_legacy:
+      ram:00100188 8702000000000000 NEG R2
+      ram:00100190 db21000000000000 STXXADDDW [R1 + 0x0],R2
+      ram:00100198 9500000000000000 EXIT
+    atomic_fetch_and64_legacy:
+      ram:001001a0 b703000000000000 MOV R3,0x0
+    FUN_ram_001001a8:
+      ram:001001a8 85100000ffffffff CALL 0x001001a8
+      ram:001001b0 9500000000000000 EXIT
+    atomic_and_fetch64_legacy:
+      ram:001001b8 b703000000000000 MOV R3,0x0
+    FUN_ram_001001c0:
+      ram:001001c0 85100000ffffffff CALL 0x001001c0
+      ram:001001c8 9500000000000000 EXIT
+    atomic_fetch_xor64_legacy:
+      ram:001001d0 b703000000000000 MOV R3,0x0
+    FUN_ram_001001d8:
+      ram:001001d8 85100000ffffffff CALL 0x001001d8
+      ram:001001e0 9500000000000000 EXIT
+    atomic_xor_fetch64_legacy:
+      ram:001001e8 b703000000000000 MOV R3,0x0
+    FUN_ram_001001f0:
+      ram:001001f0 85100000ffffffff CALL 0x001001f0
+      ram:001001f8 9500000000000000 EXIT
+    atomic_fetch_or64_legacy:
+      ram:00100200 b703000000000000 MOV R3,0x0
+    FUN_ram_00100208:
+      ram:00100208 85100000ffffffff CALL 0x00100208
+      ram:00100210 9500000000000000 EXIT
+    atomic_or_fetch64_legacy:
+      ram:00100218 b703000000000000 MOV R3,0x0
+    FUN_ram_00100220:
+      ram:00100220 85100000ffffffff CALL 0x00100220
+      ram:00100228 9500000000000000 EXIT
+    atomic_fetch_nand64_legacy:
+      ram:00100230 b703000000000000 MOV R3,0x0
+    FUN_ram_00100238:
+      ram:00100238 85100000ffffffff CALL 0x00100238
+      ram:00100240 9500000000000000 EXIT
+    atomic_nand_fetch64_legacy:
+      ram:00100248 b703000000000000 MOV R3,0x0
+    FUN_ram_00100250:
+      ram:00100250 85100000ffffffff CALL 0x00100250
+      ram:00100258 9500000000000000 EXIT
+    atomic_fetch_add32_legacy:
+      ram:00100260 bf22000000000000 MOV R2,R2
+      ram:00100268 57020000ffffffff AND R2,-0x1
+      ram:00100270 c321000000000000 STXXADDW [R1 + 0x0],R2
+      ram:00100278 9500000000000000 EXIT
+    atomic_add_fetch32_legacy:
+      ram:00100280 bf22000000000000 MOV R2,R2
+      ram:00100288 57020000ffffffff AND R2,-0x1
+      ram:00100290 c321000000000000 STXXADDW [R1 + 0x0],R2
+      ram:00100298 9500000000000000 EXIT
+    atomic_fetch_sub32_legacy:
+      ram:001002a0 bf22000000000000 MOV R2,R2
+      ram:001002a8 57020000ffffffff AND R2,-0x1
+      ram:001002b0 8702000000000000 NEG R2
+      ram:001002b8 c321000000000000 STXXADDW [R1 + 0x0],R2
+      ram:001002c0 9500000000000000 EXIT
+    atomic_sub_fetch32_legacy:
+      ram:001002c8 bf22000000000000 MOV R2,R2
+      ram:001002d0 57020000ffffffff AND R2,-0x1
+      ram:001002d8 8702000000000000 NEG R2
+      ram:001002e0 c321000000000000 STXXADDW [R1 + 0x0],R2
+      ram:001002e8 9500000000000000 EXIT
+    atomic_fetch_and32_legacy:
+      ram:001002f0 b703000000000000 MOV R3,0x0
+    FUN_ram_001002f8:
+      ram:001002f8 85100000ffffffff CALL 0x001002f8
+      ram:00100300 9500000000000000 EXIT
+    atomic_and_fetch32_legacy:
+      ram:00100308 b703000000000000 MOV R3,0x0
+    FUN_ram_00100310:
+      ram:00100310 85100000ffffffff CALL 0x00100310
+      ram:00100318 9500000000000000 EXIT
+    atomic_fetch_xor32_legacy:
+      ram:00100320 b703000000000000 MOV R3,0x0
+    FUN_ram_00100328:
+      ram:00100328 85100000ffffffff CALL 0x00100328
+      ram:00100330 9500000000000000 EXIT
+    atomic_xor_fetch32_legacy:
+      ram:00100338 b703000000000000 MOV R3,0x0
+    FUN_ram_00100340:
+      ram:00100340 85100000ffffffff CALL 0x00100340
+      ram:00100348 9500000000000000 EXIT
+    atomic_fetch_or32_legacy:
+      ram:00100350 b703000000000000 MOV R3,0x0
+    FUN_ram_00100358:
+      ram:00100358 85100000ffffffff CALL 0x00100358
+      ram:00100360 9500000000000000 EXIT
+    atomic_or_fetch32_legacy:
+      ram:00100368 b703000000000000 MOV R3,0x0
+    FUN_ram_00100370:
+      ram:00100370 85100000ffffffff CALL 0x00100370
+      ram:00100378 9500000000000000 EXIT
+    atomic_fetch_nand32_legacy:
+      ram:00100380 b703000000000000 MOV R3,0x0
+    FUN_ram_00100388:
+      ram:00100388 85100000ffffffff CALL 0x00100388
+      ram:00100390 9500000000000000 EXIT
+    atomic_nand_fetch32_legacy:
+      ram:00100398 b703000000000000 MOV R3,0x0
+    FUN_ram_001003a0:
+      ram:001003a0 85100000ffffffff CALL 0x001003a0
+      ram:001003a8 9500000000000000 EXIT
+
+  Memory Block EXTERNAL @ram:00101000..ram:0010104f
+    __atomic_exchange_8:
+      ram:00101000 (external) ?? ??
+    __atomic_compare_exchange_8:
+      ram:00101008 (external) ?? ??
+    __atomic_fetch_and_8:
+      ram:00101010 (external) ?? ??
+    __atomic_fetch_xor_8:
+      ram:00101018 (external) ?? ??
+    __atomic_fetch_or_8:
+      ram:00101020 (external) ?? ??
+    __atomic_fetch_nand_8:
+      ram:00101028 (external) ?? ??
+    __atomic_fetch_and_4:
+      ram:00101030 (external) ?? ??
+    __atomic_fetch_xor_4:
+      ram:00101038 (external) ?? ??
+    __atomic_fetch_or_4:
+      ram:00101040 (external) ?? ??
+    __atomic_fetch_nand_4:
+      ram:00101048 (external) ?? ??
+
+Decompiled functions:
+
+/* Function atomic_load32 at ram:00100000 */
+void atomic_load32(undefined4 *param_1,undefined4 *param_2)
+
+{
+  *param_2 = *param_1;
+  return;
+}
+
+/* Function atomic_load_n32 at ram:00100018 */
+undefined4 atomic_load_n32(undefined4 *param_1)
+
+{
+  return *param_1;
+}
+
+/* Function atomic_load64 at ram:00100038 */
+void atomic_load64(undefined8 *param_1,undefined8 *param_2)
+
+{
+  *param_2 = *param_1;
+  return;
+}
+
+/* Function atomic_load_n64 at ram:00100050 */
+undefined8 atomic_load_n64(undefined8 *param_1)
+
+{
+  return *param_1;
+}
+
+/* Function atomic_store32 at ram:00100060 */
+void atomic_store32(undefined4 *param_1,undefined4 *param_2)
+
+{
+  *param_1 = *param_2;
+  return;
+}
+
+/* Function atomic_store_n32 at ram:00100078 */
+void atomic_store_n32(undefined4 *param_1,undefined4 param_2)
+
+{
+  *param_1 = param_2;
+  return;
+}
+
+/* Function atomic_store64 at ram:00100098 */
+void atomic_store64(undefined8 *param_1,undefined8 *param_2)
+
+{
+  *param_1 = *param_2;
+  return;
+}
+
+/* Function atomic_store_n64 at ram:001000b0 */
+void atomic_store_n64(undefined8 *param_1,undefined8 param_2)
+
+{
+  *param_1 = param_2;
+  return;
+}
+
+/* Function atomic_exchange64 at ram:001000c0 */
+void atomic_exchange64(undefined8 param_1,undefined8 *param_2,undefined8 *param_3)
+
+{
+  undefined8 uVar1;
+  
+  uVar1 = FUN_ram_001000d8(param_1,*param_2,0);
+  *param_3 = uVar1;
+  return;
+}
+
+/* Function FUN_ram_001000d8 at ram:001000d8 */
+void FUN_ram_001000d8(void)
+
+{
+  undefined8 uVar1;
+  undefined8 *unaff_R6;
+  
+  uVar1 = FUN_ram_001000d8();
+  *unaff_R6 = uVar1;
+  return;
+}
+
+/* Function atomic_exchange_n64 at ram:001000f0 */
+void atomic_exchange_n64(undefined8 param_1,undefined8 param_2)
+
+{
+  FUN_ram_001000f8(param_1,param_2,0);
+  return;
+}
+
+/* Function FUN_ram_001000f8 at ram:001000f8 */
+void FUN_ram_001000f8(void)
+
+{
+  FUN_ram_001000f8();
+  return;
+}
+
+/* Function atomic_compare_exchange64 at ram:00100108 */
+void atomic_compare_exchange64(undefined8 param_1,undefined8 param_2,undefined8 *param_3)
+
+{
+  FUN_ram_00100120(param_1,param_2,*param_3,0);
+  return;
+}
+
+/* Function FUN_ram_00100120 at ram:00100120 */
+void FUN_ram_00100120(void)
+
+{
+  FUN_ram_00100120();
+  return;
+}
+
+/* Function atomic_compare_exchange_n64 at ram:00100130 */
+void atomic_compare_exchange_n64(void)
+
+{
+  FUN_ram_00100140();
+  return;
+}
+
+/* Function FUN_ram_00100140 at ram:00100140 */
+void FUN_ram_00100140(void)
+
+{
+  FUN_ram_00100140();
+  return;
+}
+
+/* Function atomic_fetch_add64_legacy at ram:00100150 */
+void atomic_fetch_add64_legacy(longlong *param_1,longlong param_2)
+
+{
+  *param_1 = *param_1 + param_2;
+  return;
+}
+
+/* Function atomic_add_fetch64_legacy at ram:00100160 */
+void atomic_add_fetch64_legacy(longlong *param_1,longlong param_2)
+
+{
+  *param_1 = *param_1 + param_2;
+  return;
+}
+
+/* Function atomic_fetch_sub64_legacy at ram:00100170 */
+void atomic_fetch_sub64_legacy(longlong *param_1,longlong param_2)
+
+{
+  *param_1 = *param_1 - param_2;
+  return;
+}
+
+/* Function atomic_sub_fetch64_legacy at ram:00100188 */
+void atomic_sub_fetch64_legacy(longlong *param_1,longlong param_2)
+
+{
+  *param_1 = *param_1 - param_2;
+  return;
+}
+
+/* Function atomic_fetch_and64_legacy at ram:001001a0 */
+void atomic_fetch_and64_legacy(undefined8 param_1,undefined8 param_2)
+
+{
+  FUN_ram_001001a8(param_1,param_2,0);
+  return;
+}
+
+/* Function FUN_ram_001001a8 at ram:001001a8 */
+void FUN_ram_001001a8(void)
+
+{
+  FUN_ram_001001a8();
+  return;
+}
+
+/* Function atomic_and_fetch64_legacy at ram:001001b8 */
+void atomic_and_fetch64_legacy(undefined8 param_1,undefined8 param_2)
+
+{
+  FUN_ram_001001c0(param_1,param_2,0);
+  return;
+}
+
+/* Function FUN_ram_001001c0 at ram:001001c0 */
+void FUN_ram_001001c0(void)
+
+{
+  FUN_ram_001001c0();
+  return;
+}
+
+/* Function atomic_fetch_xor64_legacy at ram:001001d0 */
+void atomic_fetch_xor64_legacy(undefined8 param_1,undefined8 param_2)
+
+{
+  FUN_ram_001001d8(param_1,param_2,0);
+  return;
+}
+
+/* Function FUN_ram_001001d8 at ram:001001d8 */
+void FUN_ram_001001d8(void)
+
+{
+  FUN_ram_001001d8();
+  return;
+}
+
+/* Function atomic_xor_fetch64_legacy at ram:001001e8 */
+void atomic_xor_fetch64_legacy(undefined8 param_1,undefined8 param_2)
+
+{
+  FUN_ram_001001f0(param_1,param_2,0);
+  return;
+}
+
+/* Function FUN_ram_001001f0 at ram:001001f0 */
+void FUN_ram_001001f0(void)
+
+{
+  FUN_ram_001001f0();
+  return;
+}
+
+/* Function atomic_fetch_or64_legacy at ram:00100200 */
+void atomic_fetch_or64_legacy(undefined8 param_1,undefined8 param_2)
+
+{
+  FUN_ram_00100208(param_1,param_2,0);
+  return;
+}
+
+/* Function FUN_ram_00100208 at ram:00100208 */
+void FUN_ram_00100208(void)
+
+{
+  FUN_ram_00100208();
+  return;
+}
+
+/* Function atomic_or_fetch64_legacy at ram:00100218 */
+void atomic_or_fetch64_legacy(undefined8 param_1,undefined8 param_2)
+
+{
+  FUN_ram_00100220(param_1,param_2,0);
+  return;
+}
+
+/* Function FUN_ram_00100220 at ram:00100220 */
+void FUN_ram_00100220(void)
+
+{
+  FUN_ram_00100220();
+  return;
+}
+
+/* Function atomic_fetch_nand64_legacy at ram:00100230 */
+void atomic_fetch_nand64_legacy(undefined8 param_1,undefined8 param_2)
+
+{
+  FUN_ram_00100238(param_1,param_2,0);
+  return;
+}
+
+/* Function FUN_ram_00100238 at ram:00100238 */
+void FUN_ram_00100238(void)
+
+{
+  FUN_ram_00100238();
+  return;
+}
+
+/* Function atomic_nand_fetch64_legacy at ram:00100248 */
+void atomic_nand_fetch64_legacy(undefined8 param_1,undefined8 param_2)
+
+{
+  FUN_ram_00100250(param_1,param_2,0);
+  return;
+}
+
+/* Function FUN_ram_00100250 at ram:00100250 */
+void FUN_ram_00100250(void)
+
+{
+  FUN_ram_00100250();
+  return;
+}
+
+/* Function atomic_fetch_add32_legacy at ram:00100260 */
+void atomic_fetch_add32_legacy(int *param_1,int param_2)
+
+{
+  *param_1 = *param_1 + param_2;
+  return;
+}
+
+/* Function atomic_add_fetch32_legacy at ram:00100280 */
+void atomic_add_fetch32_legacy(int *param_1,int param_2)
+
+{
+  *param_1 = *param_1 + param_2;
+  return;
+}
+
+/* Function atomic_fetch_sub32_legacy at ram:001002a0 */
+void atomic_fetch_sub32_legacy(int *param_1,int param_2)
+
+{
+  *param_1 = *param_1 - param_2;
+  return;
+}
+
+/* Function atomic_sub_fetch32_legacy at ram:001002c8 */
+void atomic_sub_fetch32_legacy(int *param_1,int param_2)
+
+{
+  *param_1 = *param_1 - param_2;
+  return;
+}
+
+/* Function atomic_fetch_and32_legacy at ram:001002f0 */
+void atomic_fetch_and32_legacy(undefined8 param_1,undefined8 param_2)
+
+{
+  FUN_ram_001002f8(param_1,param_2,0);
+  return;
+}
+
+/* Function FUN_ram_001002f8 at ram:001002f8 */
+void FUN_ram_001002f8(void)
+
+{
+  FUN_ram_001002f8();
+  return;
+}
+
+/* Function atomic_and_fetch32_legacy at ram:00100308 */
+void atomic_and_fetch32_legacy(undefined8 param_1,undefined8 param_2)
+
+{
+  FUN_ram_00100310(param_1,param_2,0);
+  return;
+}
+
+/* Function FUN_ram_00100310 at ram:00100310 */
+void FUN_ram_00100310(void)
+
+{
+  FUN_ram_00100310();
+  return;
+}
+
+/* Function atomic_fetch_xor32_legacy at ram:00100320 */
+void atomic_fetch_xor32_legacy(undefined8 param_1,undefined8 param_2)
+
+{
+  FUN_ram_00100328(param_1,param_2,0);
+  return;
+}
+
+/* Function FUN_ram_00100328 at ram:00100328 */
+void FUN_ram_00100328(void)
+
+{
+  FUN_ram_00100328();
+  return;
+}
+
+/* Function atomic_xor_fetch32_legacy at ram:00100338 */
+void atomic_xor_fetch32_legacy(undefined8 param_1,undefined8 param_2)
+
+{
+  FUN_ram_00100340(param_1,param_2,0);
+  return;
+}
+
+/* Function FUN_ram_00100340 at ram:00100340 */
+void FUN_ram_00100340(void)
+
+{
+  FUN_ram_00100340();
+  return;
+}
+
+/* Function atomic_fetch_or32_legacy at ram:00100350 */
+void atomic_fetch_or32_legacy(undefined8 param_1,undefined8 param_2)
+
+{
+  FUN_ram_00100358(param_1,param_2,0);
+  return;
+}
+
+/* Function FUN_ram_00100358 at ram:00100358 */
+void FUN_ram_00100358(void)
+
+{
+  FUN_ram_00100358();
+  return;
+}
+
+/* Function atomic_or_fetch32_legacy at ram:00100368 */
+void atomic_or_fetch32_legacy(undefined8 param_1,undefined8 param_2)
+
+{
+  FUN_ram_00100370(param_1,param_2,0);
+  return;
+}
+
+/* Function FUN_ram_00100370 at ram:00100370 */
+void FUN_ram_00100370(void)
+
+{
+  FUN_ram_00100370();
+  return;
+}
+
+/* Function atomic_fetch_nand32_legacy at ram:00100380 */
+void atomic_fetch_nand32_legacy(undefined8 param_1,undefined8 param_2)
+
+{
+  FUN_ram_00100388(param_1,param_2,0);
+  return;
+}
+
+/* Function FUN_ram_00100388 at ram:00100388 */
+void FUN_ram_00100388(void)
+
+{
+  FUN_ram_00100388();
+  return;
+}
+
+/* Function atomic_nand_fetch32_legacy at ram:00100398 */
+void atomic_nand_fetch32_legacy(undefined8 param_1,undefined8 param_2)
+
+{
+  FUN_ram_001003a0(param_1,param_2,0);
+  return;
+}
+
+/* Function FUN_ram_001003a0 at ram:001003a0 */
+void FUN_ram_001003a0(void)
+
+{
+  FUN_ram_001003a0();
+  return;
+}

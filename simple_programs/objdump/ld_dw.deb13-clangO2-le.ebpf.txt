@@ -1,0 +1,24 @@
+
+compiled/ld_dw.deb13-clangO2-le.ebpf:	file format elf64-bpf
+
+Disassembly of section .text:
+
+0000000000000000 <get_1>:
+       0:	b7 00 00 00 01 00 00 00	r0 = 0x1
+       1:	95 00 00 00 00 00 00 00	exit
+
+0000000000000010 <get_min1>:
+       2:	b7 00 00 00 ff ff ff ff	r0 = -0x1
+       3:	95 00 00 00 00 00 00 00	exit
+
+0000000000000020 <get_min1_32bit>:
+       4:	18 00 00 00 ff ff ff ff 00 00 00 00 00 00 00 00	r0 = 0xffffffff ll
+       6:	95 00 00 00 00 00 00 00	exit
+
+0000000000000038 <get_min_min1_32bit>:
+       7:	18 00 00 00 01 00 00 00 00 00 00 00 ff ff ff ff	r0 = -0xffffffff ll
+       9:	95 00 00 00 00 00 00 00	exit
+
+0000000000000050 <get_value>:
+      10:	18 00 00 00 f0 de bc 9a 00 00 00 00 78 56 34 12	r0 = 0x123456789abcdef0 ll
+      12:	95 00 00 00 00 00 00 00	exit

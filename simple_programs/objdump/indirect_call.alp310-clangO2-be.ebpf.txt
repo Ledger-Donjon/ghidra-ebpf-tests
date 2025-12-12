@@ -1,0 +1,20 @@
+
+compiled/indirect_call.alp310-clangO2-be.ebpf:	file format ELF64-BPF
+
+Disassembly of section .text:
+0000000000000000 call_ptr_to_some_function:
+       0:	18 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 	r1 = 0 ll
+		0000000000000000:  R_BPF_64_64	ptr_to_some_function
+       2:	79 11 00 00 00 00 00 00 	r1 = *(u64 *)(r1 + 0)
+       3:	8d 00 00 00 00 00 00 01 	callx 1
+       4:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000028 call_first_arg:
+       5:	bf 31 00 00 00 00 00 00 	r3 = r1
+       6:	bf 12 00 00 00 00 00 00 	r1 = r2
+       7:	8d 00 00 00 00 00 00 03 	callx 3
+       8:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000048 call_last_arg:
+       9:	8d 00 00 00 00 00 00 02 	callx 2
+      10:	95 00 00 00 00 00 00 00 	exit

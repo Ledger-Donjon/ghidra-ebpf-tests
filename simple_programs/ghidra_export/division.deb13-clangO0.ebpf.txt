@@ -1,0 +1,21 @@
+Export of compiled/division.deb13-clangO0.ebpf by Ghidra 11.4.2 PUBLIC
+
+Symbols:
+  ram:00100000 div_by_1000
+
+Listing:
+  Memory Block .text @ram:00100000..ram:0010001f
+    div_by_1000:
+      ram:00100000 631afcff00000000 STXW [R10 + -0x4],R1
+      ram:00100008 61a0fcff00000000 LDXW R0,[R10 + -0x4]
+      ram:00100010 37000000e8030000 DIV R0,0x3e8
+      ram:00100018 9500000000000000 EXIT
+
+Decompiled functions:
+
+/* Function div_by_1000 at ram:00100000 */
+ulonglong div_by_1000(uint param_1)
+
+{
+  return (ulonglong)param_1 / 1000;
+}

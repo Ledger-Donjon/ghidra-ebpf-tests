@@ -1,0 +1,23 @@
+Export of compiled/many_args.deb13-gccO2.ebpf by Ghidra 11.4.2 PUBLIC
+
+Symbols:
+  ram:00100000 fct_5args
+
+Listing:
+  Memory Block .text @ram:00100000..ram:0010002f
+    fct_5args:
+      ram:00100000 1c32000000000000 SUB R2,R3
+      ram:00100008 bf50000000000000 MOV R0,R5
+      ram:00100010 0c21000000000000 ADD R1,R2
+      ram:00100018 2c14000000000000 MUL R4,R1
+      ram:00100020 0c40000000000000 ADD R0,R4
+      ram:00100028 9500000000000000 EXIT
+
+Decompiled functions:
+
+/* Function fct_5args at ram:00100000 */
+int fct_5args(int param_1,int param_2,int param_3,int param_4,int param_5)
+
+{
+  return param_5 + param_4 * (param_1 + (param_2 - param_3));
+}

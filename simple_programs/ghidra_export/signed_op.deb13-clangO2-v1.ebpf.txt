@@ -1,0 +1,43 @@
+Export of compiled/signed_op.deb13-clangO2-v1.ebpf by Ghidra 11.4.2 PUBLIC
+
+Symbols:
+  ram:00100000 sext_8bit
+  ram:00100010 sext_16bit
+  ram:00100020 sext_32bit
+
+Listing:
+  Memory Block .text @ram:00100000..ram:0010003f
+    sext_8bit:
+      ram:00100000 bf10000000000000 MOV R0,R1
+      ram:00100008 9500000000000000 EXIT
+    sext_16bit:
+      ram:00100010 bf10000000000000 MOV R0,R1
+      ram:00100018 9500000000000000 EXIT
+    sext_32bit:
+      ram:00100020 bf10000000000000 MOV R0,R1
+      ram:00100028 6700000020000000 LSH R0,0x20
+      ram:00100030 c700000020000000 ARSH R0,0x20
+      ram:00100038 9500000000000000 EXIT
+
+Decompiled functions:
+
+/* Function sext_8bit at ram:00100000 */
+undefined8 sext_8bit(undefined8 param_1)
+
+{
+  return param_1;
+}
+
+/* Function sext_16bit at ram:00100010 */
+undefined8 sext_16bit(undefined8 param_1)
+
+{
+  return param_1;
+}
+
+/* Function sext_32bit at ram:00100020 */
+longlong sext_32bit(int param_1)
+
+{
+  return (longlong)param_1;
+}
