@@ -1,4 +1,4 @@
-Export of compiled/byte_swap.deb13-clangO2-be.ebpf by Ghidra 11.4.2 PUBLIC
+Export of compiled/byte_swap.deb13-clangO2-be.ebpf by Ghidra 12.0 PUBLIC
 
 Symbols:
   ram:00100000 do_be16

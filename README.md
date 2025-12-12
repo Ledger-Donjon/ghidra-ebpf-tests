@@ -99,9 +99,9 @@ Since Ghidra 11.3, a Python library named pyghidra has been provided to help per
 Some documentation were written:
 
 - [PyGhidra feature README file](https://github.com/NationalSecurityAgency/ghidra/blob/Ghidra_11.3.1_build/Ghidra/Features/PyGhidra/README.md)
-- [PyGhidra py README file](https://github.com/NationalSecurityAgency/ghidra/blob/Ghidra_11.4.2_build/Ghidra/Features/PyGhidra/src/main/py/README.md)
-- [Getting Started instructions, PyGhidra Mode](https://github.com/NationalSecurityAgency/ghidra/blob/Ghidra_11.4_build/GhidraDocs/GettingStarted.md#pyghidra-mode)
-- [Example of PyGhidra-specific functionality (`PyGhidraBasics.py`)](https://github.com/NationalSecurityAgency/ghidra/blob/Ghidra_11.4.2_build/Ghidra/Features/PyGhidra/ghidra_scripts/PyGhidraBasics.py)
+- [PyGhidra py README file](https://github.com/NationalSecurityAgency/ghidra/blob/Ghidra_12.0_build/Ghidra/Features/PyGhidra/src/main/py/README.md)
+- [Getting Started instructions, PyGhidra Mode](https://github.com/NationalSecurityAgency/ghidra/blob/Ghidra_12.0_build/GhidraDocs/GettingStarted.md#pyghidra-mode)
+- [Example of PyGhidra-specific functionality (`PyGhidraBasics.py`)](https://github.com/NationalSecurityAgency/ghidra/blob/Ghidra_12.0_build/Ghidra/Features/PyGhidra/ghidra_scripts/PyGhidraBasics.py)
 
 To install PyGhidra in a Debian 13 container, the following commands can be used:
 
@@ -111,23 +111,23 @@ sudo apt-get update
 sudo apt-get install openjdk-25-jdk-headless python3 python3-pip python3-venv unzip wget
 
 # Download Ghidra from https://github.com/NationalSecurityAgency/ghidra/releases
-wget https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_11.4.2_build/ghidra_11.4.2_PUBLIC_20250826.zip
-SHA256=795a02076af16257bd6f3f4736c4fc152ce9ff1f95df35cd47e2adc086e037a6
-echo "${SHA256}  ghidra_11.4.2_PUBLIC_20250826.zip" | sha256sum --check
-unzip ghidra_11.4.2_PUBLIC_20250826.zip
+wget https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.0_build/ghidra_12.0_PUBLIC_20251205.zip
+SHA256=af43e8cfb2fa4490cf6020c3a2bde25c159d83f45236a0542688a024e8fc1941
+echo "${SHA256}  ghidra_12.0_PUBLIC_20251205.zip" | sha256sum --check
+unzip ghidra_12.0_PUBLIC_20251205.zip
 
 # Install PyGhidra
-echo y | ./ghidra_11.4.2_PUBLIC/support/pyghidraRun
+echo y | ./ghidra_12.0_PUBLIC/support/pyghidraRun
 
 # Export to a variable Ghidra's location
-export GHIDRA_INSTALL_DIR="$(pwd)/ghidra_11.4.2_PUBLIC"
+export GHIDRA_INSTALL_DIR="$(pwd)/ghidra_12.0_PUBLIC"
 ```
 
-This installed PyGhidra in a Python virtual environment located in `~/.config/ghidra/ghidra_11.4.2_PUBLIC/venv`.
+This installed PyGhidra in a Python virtual environment located in `~/.config/ghidra/ghidra_12.0_PUBLIC/venv`.
 It can be used to launch an interactive Python:
 
 ```sh
-~/.config/ghidra/ghidra_11.4.2_PUBLIC/venv/bin/python3
+~/.config/ghidra/ghidra_12.0_PUBLIC/venv/bin/python3
 ```
 
 From there, analyzing an eBPF program can be done with few lines of code:
@@ -142,30 +142,20 @@ pyghidra.start()
 GHIDRA_PRJ_PATH = Path("/tmp/ghidra-test-prj")
 GHIDRA_PRJ_PATH.mkdir(exist_ok=True)
 
-if hasattr(pyghidra, "open_project"):
-    # Ghidra 12.0 new API
-    project = pyghidra.open_project(str(GHIDRA_PRJ_PATH), "test-project", create=True)
-    loaded_program = pyghidra.program_loader().project(project).source("my_program.ebpf").load()
-    program = loaded_program.getPrimaryDomainObject()
-    from ghidra.program.flatapi import FlatProgramAPI
-    flat_api = FlatProgramAPI(program)
+project = pyghidra.open_project(str(GHIDRA_PRJ_PATH), "test-project", create=True)
+loaded_program = pyghidra.program_loader().project(project).source("my_program.ebpf").load()
+program = loaded_program.getPrimaryDomainObject()
+from ghidra.program.flatapi import FlatProgramAPI
+flat_api = FlatProgramAPI(program)
 
-    # Analyze the program
-    pyghidra.analyze(program)
-else:
-    # Old API before Ghidra 12.0
-    # It should be used by a with block, which does not play well with inline scripting
-    # So call __enter__ directly
-    program_context = pyghidra.open_program("my_program.ebpf", project_location=GHIDRA_PRJ_PATH)
-    flat_api = program_context.__enter__()
-    program = flat_api.getCurrentProgram()
-
-listing = program.getListing()
+# Analyze the program
+pyghidra.analyze(program)
 
 # List all available symbols
 print(list(program.getSymbolTable().getSymbolIterator()))
 
 # Disassemble a function, showing its code units (assembly statements)
+listing = program.getListing()
 fct = listing.getFunctionAt(program.getSymbolTable().getGlobalSymbols("some_function")[0].getAddress())
 for cu in listing.getCodeUnits(fct.getBody(), True):
     print(f"{cu.getAddress()} {bytes(cu.getBytes()).hex()} {cu.toString()}")
@@ -178,6 +168,8 @@ decomp_result = decomp.decompileFunction(fct, 10000, None)
 print(decomp_result.getDecompiledFunction().getC())
 ```
 
+This repository includes a Python script which automates analyzing some eBPF programs and saving the disassembler and decompiler outputs: [`simple_programs/ghidra_analyze_and_export_programs.py`](./simple_programs/ghidra_analyze_and_export_programs.py).
+
 ## Merged Pull Requests
 
 Here are some Pull Requests I did to Ghidra:
@@ -189,7 +181,7 @@ Merged in [Ghidra 11.4.1](https://github.com/NationalSecurityAgency/ghidra/relea
 - [#7982: Add eBPF v4 signed extension](https://github.com/NationalSecurityAgency/ghidra/pull/7982) 
 - [#7985: Fix the semantics of eBPF byte swap instructions](https://github.com/NationalSecurityAgency/ghidra/pull/7985)
 
-Merged in to-be-released Ghidra 12.0:
+Merged in [Ghidra 12.0](https://github.com/NationalSecurityAgency/ghidra/releases/tag/Ghidra_12.0_build) (2025-08-12):
 
 - [#7972: Add eBPF instruction CALLX for indirect calls](https://github.com/NationalSecurityAgency/ghidra/pull/7972)
 

@@ -1,4 +1,4 @@
-Export of compiled/indirect_call.deb13-clangO2-be.ebpf by Ghidra 11.4.2 PUBLIC
+Export of compiled/indirect_call.deb13-clangO2-be.ebpf by Ghidra 12.0 PUBLIC
 
 Symbols:
   ram:00100000 call_ptr_to_some_function
@@ -11,58 +11,16 @@ Listing:
     call_ptr_to_some_function:
       ram:00100000 18200000000000000010100000000000 LDDW R2,0x0
       ram:00100010 7911000000000000 LDXDW R1,[R1 + 0x0]
-      ram:00100018 8d ?? 8Dh
-      ram:00100019 10 ?? 10h
-      ram:0010001a 00 ?? 00h
-      ram:0010001b 00 ?? 00h
-      ram:0010001c 00 ?? 00h
-      ram:0010001d 00 ?? 00h
-      ram:0010001e 00 ?? 00h
-      ram:0010001f 00 ?? 00h
-      ram:00100020 95 ?? 95h
-      ram:00100021 00 ?? 00h
-      ram:00100022 00 ?? 00h
-      ram:00100023 00 ?? 00h
-      ram:00100024 00 ?? 00h
-      ram:00100025 00 ?? 00h
-      ram:00100026 00 ?? 00h
-      ram:00100027 00 ?? 00h
+      ram:00100018 8d10000000000000 CALLX R1
+      ram:00100020 9500000000000000 EXIT
     call_first_arg:
       ram:00100028 bf31000000000000 MOV R3,R1
       ram:00100030 bf12000000000000 MOV R1,R2
-      ram:00100038 8d ?? 8Dh
-      ram:00100039 30 ?? 30h    0
-      ram:0010003a 00 ?? 00h
-      ram:0010003b 00 ?? 00h
-      ram:0010003c 00 ?? 00h
-      ram:0010003d 00 ?? 00h
-      ram:0010003e 00 ?? 00h
-      ram:0010003f 00 ?? 00h
-      ram:00100040 95 ?? 95h
-      ram:00100041 00 ?? 00h
-      ram:00100042 00 ?? 00h
-      ram:00100043 00 ?? 00h
-      ram:00100044 00 ?? 00h
-      ram:00100045 00 ?? 00h
-      ram:00100046 00 ?? 00h
-      ram:00100047 00 ?? 00h
+      ram:00100038 8d30000000000000 CALLX R3
+      ram:00100040 9500000000000000 EXIT
     call_last_arg:
-      ram:00100048 8d ?? 8Dh
-      ram:00100049 20 ?? 20h     
-      ram:0010004a 00 ?? 00h
-      ram:0010004b 00 ?? 00h
-      ram:0010004c 00 ?? 00h
-      ram:0010004d 00 ?? 00h
-      ram:0010004e 00 ?? 00h
-      ram:0010004f 00 ?? 00h
-      ram:00100050 95 ?? 95h
-      ram:00100051 00 ?? 00h
-      ram:00100052 00 ?? 00h
-      ram:00100053 00 ?? 00h
-      ram:00100054 00 ?? 00h
-      ram:00100055 00 ?? 00h
-      ram:00100056 00 ?? 00h
-      ram:00100057 00 ?? 00h
+      ram:00100048 8d20000000000000 CALLX R2
+      ram:00100050 9500000000000000 EXIT
 
   Memory Block EXTERNAL @ram:00101000..ram:00101007
     ptr_to_some_function:
@@ -71,31 +29,25 @@ Listing:
 Decompiled functions:
 
 /* Function call_ptr_to_some_function at ram:00100000 */
-/* WARNING: Control flow encountered bad instruction data */
-
-void call_ptr_to_some_function(void)
+void call_ptr_to_some_function(undefined8 *param_1)
 
 {
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  (*(code *)*param_1)((code *)*param_1,0);
+  return;
 }
 
 /* Function call_first_arg at ram:00100028 */
-/* WARNING: Control flow encountered bad instruction data */
-
-void call_first_arg(void)
+void call_first_arg(code *param_1,undefined8 param_2)
 
 {
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  (*param_1)(param_2,param_2,param_1);
+  return;
 }
 
 /* Function call_last_arg at ram:00100048 */
-/* WARNING: Control flow encountered bad instruction data */
-
-void call_last_arg(void)
+void call_last_arg(undefined8 param_1,code *param_2)
 
 {
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  (*param_2)();
+  return;
 }
