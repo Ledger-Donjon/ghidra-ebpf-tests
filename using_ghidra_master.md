@@ -17,7 +17,7 @@ git clone https://github.com/NationalSecurityAgency/ghidra
 ```
 
 2. Install the build dependencies.
-  For example in a container using [`docker.io/library/openjdk:21-slim`](https://hub.docker.com/_/openjdk):
+  For example in a container using [`docker.io/library/debian:13-slim`](https://hub.docker.com/_/debian):
 
 ```sh
 apt-get update
@@ -42,7 +42,7 @@ apt-get install --no-install-recommends --no-install-suggests -y \
     libxi6 \
     libxrender1 \
     libxtst6 \
-    openjdk-21-jdk
+    openjdk-25-jdk
 
 (cd /opt && \
     curl -sSL --output gradle.zip https://services.gradle.org/distributions/gradle-8.11.1-bin.zip && \
