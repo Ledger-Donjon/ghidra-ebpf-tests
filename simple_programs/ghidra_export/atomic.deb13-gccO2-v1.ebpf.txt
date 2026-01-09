@@ -267,6 +267,29 @@ Listing:
     __atomic_fetch_nand_4:
       ram:00101048 (external) ?? ??
 
+  Memory Block .rel.text @.rel.text::00000000...rel.text::0000013f
+    Elf64_Rel_ARRAY_.rel.text__00000000:
+      offset=0xd8 info=0xf0000000a (R_BPF_64_32)
+      offset=0xf8 info=0xf0000000a (R_BPF_64_32)
+      offset=0x120 info=0x120000000a (R_BPF_64_32)
+      offset=0x140 info=0x120000000a (R_BPF_64_32)
+      offset=0x1a8 info=0x190000000a (R_BPF_64_32)
+      offset=0x1c0 info=0x190000000a (R_BPF_64_32)
+      offset=0x1d8 info=0x1c0000000a (R_BPF_64_32)
+      offset=0x1f0 info=0x1c0000000a (R_BPF_64_32)
+      offset=0x208 info=0x1f0000000a (R_BPF_64_32)
+      offset=0x220 info=0x1f0000000a (R_BPF_64_32)
+      offset=0x238 info=0x220000000a (R_BPF_64_32)
+      offset=0x250 info=0x220000000a (R_BPF_64_32)
+      offset=0x2f8 info=0x290000000a (R_BPF_64_32)
+      offset=0x310 info=0x290000000a (R_BPF_64_32)
+      offset=0x328 info=0x2c0000000a (R_BPF_64_32)
+      offset=0x340 info=0x2c0000000a (R_BPF_64_32)
+      offset=0x358 info=0x2f0000000a (R_BPF_64_32)
+      offset=0x370 info=0x2f0000000a (R_BPF_64_32)
+      offset=0x388 info=0x320000000a (R_BPF_64_32)
+      offset=0x3a0 info=0x320000000a (R_BPF_64_32)
+
 Decompiled functions:
 
 /* Function atomic_load32 at ram:00100000 */

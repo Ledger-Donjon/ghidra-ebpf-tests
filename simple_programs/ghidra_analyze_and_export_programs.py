@@ -55,7 +55,7 @@ def export_program(compiled_path: Path, flat_api: FlatProgramAPI, program: Progr
     assert compiled_path.parent.name == "compiled"
     export_dir = compiled_path.parent.parent / "ghidra_export"
     export_dir.mkdir(exist_ok=True)
-    with (export_dir / f"{compiled_path.name}.txt").open('w') as fout:
+    with (export_dir / f"{compiled_path.name}.txt").open("w") as fout:
         print(f"Export of {compiled_path.relative_to(ROOT_DIR)} by Ghidra {GHIDRA_VERSION}", file=fout)
         print("", file=fout)
         print("Symbols:", file=fout)
@@ -87,16 +87,6 @@ def export_program(compiled_path: Path, flat_api: FlatProgramAPI, program: Progr
                 ".debug_str",
                 ".debug_str_offsets",
                 ".llvm_addrsig",
-                ".rel.BTF.ext",
-                ".rel.debug_addr",
-                ".rel.debug_aranges",
-                ".rel.debug_frame",
-                ".rel.debug_info",
-                ".rel.debug_line",
-                ".rel.debug_loclists",
-                ".rel.debug_rnglists",
-                ".rel.debug_str_offsets",
-                ".rel.text",
                 ".shstrtab",
                 ".strtab",
                 ".symtab",
@@ -115,6 +105,27 @@ def export_program(compiled_path: Path, flat_api: FlatProgramAPI, program: Progr
                     if symbols_at_addr:
                         # Only show EXTERNAL address when a symbol is defined
                         print(f"      {cu.getAddress()} (external) {cu.toString()}", file=fout)
+                elif mem_blk.getName().startswith(".rel") and cu.isArray() and cu.getAddress().getOffset() == 0:
+                    # Decode relocations
+                    for i_rel in range(cu.getNumComponents()):
+                        reloc = cu.getComponent(i_rel)
+                        if reloc.getDataType().getName() != "Elf64_Rel" or reloc.getNumComponents() != 2:
+                            print(
+                                f"Warning: at {cu.getAddress()} unexpected relocation data type {reloc.getDataType().getName()!r}",
+                                file=fout,
+                            )
+                            continue
+                        r_offset = reloc.getComponent(0).getValue().getUnsignedValue()
+                        r_info = reloc.getComponent(1).getValue().getUnsignedValue()
+                        r_type = {
+                            1: "R_BPF_64_64",
+                            2: "R_BPF_64_ABS64",
+                            3: "R_BPF_64_ABS32",
+                            4: "R_BPF_64_NODYLD32",
+                            8: "R_BPF_64_RELATIVE",
+                            10: "R_BPF_64_32",
+                        }[r_info & 0xFF]
+                        print(f"      offset={r_offset:#x} info={r_info:#x} ({r_type})", file=fout)
                 else:
                     print(f"      {cu.getAddress()} {bytes(cu.getBytes()).hex()} {cu.toString()}", file=fout)
             print("", file=fout)
@@ -125,7 +136,6 @@ def export_program(compiled_path: Path, flat_api: FlatProgramAPI, program: Progr
             print(f"/* Function {fct.getName()} at {fct.getEntryPoint()} */", file=fout)
             decomp_result = decomp.decompileFunction(fct, 10000, None)
             print(decomp_result.getDecompiledFunction().getC().strip("\n"), file=fout)
-
 
 
 def analyze_and_export_all_programs() -> None:
@@ -141,6 +151,7 @@ def analyze_and_export_all_programs() -> None:
                 loaded_program = pyghidra.program_loader().project(project).source(str(compiled_path)).load()
                 program = loaded_program.getPrimaryDomainObject()
                 from ghidra.program.flatapi import FlatProgramAPI
+
                 flat_api = FlatProgramAPI(program)
 
                 # Analyze the program

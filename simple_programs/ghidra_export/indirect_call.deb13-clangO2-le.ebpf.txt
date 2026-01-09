@@ -26,6 +26,10 @@ Listing:
     ptr_to_some_function:
       ram:00101000 (external) ?? ??
 
+  Memory Block .rel.text @.rel.text::00000000...rel.text::0000000f
+    Elf64_Rel_ARRAY_.rel.text__00000000:
+      offset=0x0 info=0x300000001 (R_BPF_64_64)
+
 Decompiled functions:
 
 /* Function call_ptr_to_some_function at ram:00100000 */
