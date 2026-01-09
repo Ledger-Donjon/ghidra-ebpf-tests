@@ -204,3 +204,4 @@ Merged in [Ghidra 12.0](https://github.com/NationalSecurityAgency/ghidra/release
 Not merged yet:
 
 - [#8721: Fix disassembly of eBPF atomic instructions and semantics of compare-and-exchange](https://github.com/NationalSecurityAgency/ghidra/pull/8721)
+- [#8860: Process more ELF relocation kinds for eBPF programs](https://github.com/NationalSecurityAgency/ghidra/pull/8860)

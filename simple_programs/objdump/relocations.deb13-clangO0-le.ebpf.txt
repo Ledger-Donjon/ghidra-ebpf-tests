@@ -1,0 +1,45 @@
+
+compiled/relocations.deb13-clangO0-le.ebpf:	file format elf64-bpf
+
+Disassembly of section .text:
+
+0000000000000000 <get_some_int>:
+       0:	18 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00	r1 = 0x0 ll
+		0000000000000000:  R_BPF_64_64	.data
+       2:	79 11 00 00 00 00 00 00	r1 = *(u64 *)(r1 + 0x0)
+       3:	61 10 00 00 00 00 00 00	r0 = *(u32 *)(r1 + 0x0)
+       4:	95 00 00 00 00 00 00 00	exit
+
+0000000000000028 <get_some_extern_int>:
+       5:	18 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00	r1 = 0x0 ll
+		0000000000000028:  R_BPF_64_64	some_extern_int
+       7:	61 10 00 00 00 00 00 00	r0 = *(u32 *)(r1 + 0x0)
+       8:	95 00 00 00 00 00 00 00	exit
+
+0000000000000048 <get_some_int_static>:
+       9:	b7 00 00 00 d2 04 00 00	r0 = 0x4d2
+      10:	95 00 00 00 00 00 00 00	exit
+
+0000000000000058 <call_some_external_function>:
+      11:	85 10 00 00 ff ff ff ff	call -0x1
+		0000000000000058:  R_BPF_64_32	some_external_function
+      12:	95 00 00 00 00 00 00 00	exit
+
+0000000000000068 <call_ptr_to_some_function>:
+      13:	18 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00	r1 = 0x0 ll
+		0000000000000068:  R_BPF_64_64	ptr_to_some_function
+      15:	79 11 00 00 00 00 00 00	r1 = *(u64 *)(r1 + 0x0)
+      16:	8d 01 00 00 00 00 00 00	callx r1
+      17:	95 00 00 00 00 00 00 00	exit
+
+Disassembly of section prog:
+
+0000000000000000 <get_some_int_from_section>:
+       0:	85 10 00 00 ff ff ff ff	call -0x1
+		0000000000000000:  R_BPF_64_32	get_some_int
+       1:	95 00 00 00 00 00 00 00	exit
+
+0000000000000010 <get_some_int_static_from_section>:
+       2:	85 10 00 00 08 00 00 00	call 0x8
+		0000000000000010:  R_BPF_64_32	.text
+       3:	95 00 00 00 00 00 00 00	exit

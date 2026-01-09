@@ -1,0 +1,111 @@
+Export of compiled/bpf_map.deb13-gccO2.ebpf by Ghidra 12.0 PUBLIC
+
+Symbols:
+  ram:00100000 sys_enter_count
+  ram:001000a8 my_counter
+  ram:001000c8 my_counter_legacy
+
+Listing:
+  Memory Block tp_btf/sys_enter @ram:00100000..ram:001000a7
+    sys_enter_count:
+      ram:00100000 bfa2000000000000 MOV R2,R10
+      ram:00100008 620afcff00000000 STW [R10 + -0x4],0x0
+      ram:00100010 07020000fcffffff ADD R2,-0x4
+      ram:00100018 18110000c80010000000000000000000 LDDW R1,0x1000c8
+      ram:00100028 8500000001000000 CALL 0x00000001
+      ram:00100030 1500030000000000 JEQ R0,0x0,0x00100050
+      ram:00100038 7901000000000000 LDXDW R1,[R0 + 0x0]
+      ram:00100040 0701000001000000 ADD R1,0x1
+      ram:00100048 7b10000000000000 STXDW [R0 + 0x0],R1
+    LAB_ram_00100050:
+      ram:00100050 bfa2000000000000 MOV R2,R10
+      ram:00100058 18110000a80010000000000000000000 LDDW R1,0x1000a8
+      ram:00100068 07020000fcffffff ADD R2,-0x4
+      ram:00100070 8500000001000000 CALL 0x00000001
+      ram:00100078 1500030000000000 JEQ R0,0x0,0x00100098
+      ram:00100080 7902000000000000 LDXDW R2,[R0 + 0x0]
+      ram:00100088 0702000001000000 ADD R2,0x1
+      ram:00100090 7b20000000000000 STXDW [R0 + 0x0],R2
+    LAB_ram_00100098:
+      ram:00100098 b700000000000000 MOV R0,0x0
+      ram:001000a0 9500000000000000 EXIT
+
+  Memory Block .maps @ram:001000a8..ram:001000c7
+    my_counter:
+      ram:001000a8 0000000000000000 undefined8 0000000000000000h
+      ram:001000b0 00 ?? 00h
+      ram:001000b1 00 ?? 00h
+      ram:001000b2 00 ?? 00h
+      ram:001000b3 00 ?? 00h
+      ram:001000b4 00 ?? 00h
+      ram:001000b5 00 ?? 00h
+      ram:001000b6 00 ?? 00h
+      ram:001000b7 00 ?? 00h
+      ram:001000b8 00 ?? 00h
+      ram:001000b9 00 ?? 00h
+      ram:001000ba 00 ?? 00h
+      ram:001000bb 00 ?? 00h
+      ram:001000bc 00 ?? 00h
+      ram:001000bd 00 ?? 00h
+      ram:001000be 00 ?? 00h
+      ram:001000bf 00 ?? 00h
+      ram:001000c0 00 ?? 00h
+      ram:001000c1 00 ?? 00h
+      ram:001000c2 00 ?? 00h
+      ram:001000c3 00 ?? 00h
+      ram:001000c4 00 ?? 00h
+      ram:001000c5 00 ?? 00h
+      ram:001000c6 00 ?? 00h
+      ram:001000c7 00 ?? 00h
+
+  Memory Block maps @ram:001000c8..ram:001000db
+    my_counter_legacy:
+      ram:001000c8 0600000004000000 undefined8 0000000400000006h
+      ram:001000d0 08 ?? 08h
+      ram:001000d1 00 ?? 00h
+      ram:001000d2 00 ?? 00h
+      ram:001000d3 00 ?? 00h
+      ram:001000d4 01 ?? 01h
+      ram:001000d5 00 ?? 00h
+      ram:001000d6 00 ?? 00h
+      ram:001000d7 00 ?? 00h
+      ram:001000d8 00 ?? 00h
+      ram:001000d9 00 ?? 00h
+      ram:001000da 00 ?? 00h
+      ram:001000db 00 ?? 00h
+
+  Memory Block .reltp_btf/sys_enter @.reltp_btf/sys_enter::00000000...reltp_btf/sys_enter::0000001f
+    Elf64_Rel_ARRAY_.reltp_btf/sys_enter__00000000:
+      offset=0x18 info=0xa00000001 (R_BPF_64_64)
+      offset=0x58 info=0xb00000001 (R_BPF_64_64)
+
+Decompiled functions:
+
+/* Function sys_enter_count at ram:00100000 */
+undefined8 sys_enter_count(void)
+
+{
+  longlong *plVar1;
+  undefined4 local_4;
+  
+  local_4 = 0;
+  plVar1 = (longlong *)bpf_map_lookup_elem(my_counter_legacy,&local_4);
+  if (plVar1 != (longlong *)0x0) {
+    *plVar1 = *plVar1 + 1;
+  }
+  plVar1 = (longlong *)bpf_map_lookup_elem(my_counter,&local_4);
+  if (plVar1 != (longlong *)0x0) {
+    *plVar1 = *plVar1 + 1;
+  }
+  return 0;
+}
+
+/* Function bpf_map_lookup_elem at syscall:00000001 */
+/* WARNING: Control flow encountered bad instruction data */
+
+void bpf_map_lookup_elem(void)
+
+{
+                    /* WARNING: Bad instruction - Truncating control flow here */
+  halt_baddata();
+}

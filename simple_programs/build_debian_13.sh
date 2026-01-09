@@ -64,6 +64,9 @@ compile_clang -O2 -mcpu=v4 -c atomic.c -o compiled/atomic.deb13-clangO2-v4.ebpf
 compile_gcc -O2 -mcpu=v1 -c atomic.c -o compiled/atomic.deb13-gccO2-v1.ebpf
 compile_gcc -O2 -mcpu=v4 -c atomic.c -o compiled/atomic.deb13-gccO2-v4.ebpf
 
+compile_clang -O2 -c bpf_map.c -o compiled/bpf_map.deb13-clangO2.ebpf
+compile_gcc -O2 -c bpf_map.c -o compiled/bpf_map.deb13-gccO2.ebpf
+
 compile_clang -O2 -mcpu=v4 -mlittle-endian -c byte_swap.c -o compiled/byte_swap.deb13-clangO2-le.ebpf
 compile_clang -O2 -mcpu=v4 -mbig-endian -c byte_swap.c -o compiled/byte_swap.deb13-clangO2-be.ebpf
 compile_gcc -O2 -mcpu=v4 -masm=normal -mlittle-endian -c byte_swap.c -o compiled/byte_swap.deb13-gccO2-le.ebpf
@@ -84,6 +87,11 @@ compile_gcc -O2 -mbig-endian -masm=normal -mxbpf -c ld_dw.c -o compiled/ld_dw.de
 
 compile_clang -O2 -c many_args.c -o compiled/many_args.deb13-clangO2.ebpf
 compile_gcc -O2 -c many_args.c -o compiled/many_args.deb13-gccO2.ebpf
+
+compile_clang -O0 -mlittle-endian -c relocations.c -o compiled/relocations.deb13-clangO0-le.ebpf
+compile_clang -O0 -mbig-endian  -c relocations.c -o compiled/relocations.deb13-clangO0-be.ebpf
+compile_gcc -O0 -mlittle-endian -masm=normal -mxbpf -c relocations.c -o compiled/relocations.deb13-gccO0-le.ebpf
+compile_gcc -O0 -mbig-endian  -masm=normal -mxbpf -c relocations.c -o compiled/relocations.deb13-gccO0-be.ebpf
 
 compile_clang -O2 -mcpu=v1 -c signed_op.c -o compiled/signed_op.deb13-clangO2-v1.ebpf
 compile_clang -O2 -mcpu=v4 -c signed_op.c -o compiled/signed_op.deb13-clangO2-v4.ebpf

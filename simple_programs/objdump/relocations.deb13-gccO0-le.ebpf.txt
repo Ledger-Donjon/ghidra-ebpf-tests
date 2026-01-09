@@ -1,0 +1,59 @@
+
+compiled/relocations.deb13-gccO0-le.ebpf:     file format elf64-bpfle
+
+
+Disassembly of section .text:
+
+0000000000000000 <get_some_int>:
+   0:	18 00 00 00 08 00 00 00 	lddw %r0,8
+   8:	00 00 00 00 00 00 00 00 
+			0: R_BPF_64_64	.data
+  10:	79 00 00 00 00 00 00 00 	ldxdw %r0,[%r0+0]
+  18:	61 00 00 00 00 00 00 00 	ldxw %r0,[%r0+0]
+  20:	67 00 00 00 20 00 00 00 	lsh %r0,32
+  28:	c7 00 00 00 20 00 00 00 	arsh %r0,32
+  30:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000038 <get_some_extern_int>:
+  38:	18 00 00 00 00 00 00 00 	lddw %r0,0
+  40:	00 00 00 00 00 00 00 00 
+			38: R_BPF_64_64	some_extern_int
+  48:	61 00 00 00 00 00 00 00 	ldxw %r0,[%r0+0]
+  50:	67 00 00 00 20 00 00 00 	lsh %r0,32
+  58:	c7 00 00 00 20 00 00 00 	arsh %r0,32
+  60:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000068 <get_some_int_static>:
+  68:	b7 00 00 00 d2 04 00 00 	mov %r0,1234
+  70:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000078 <call_some_external_function>:
+  78:	85 10 00 00 ff ff ff ff 	call -1
+			78: R_BPF_64_32	some_external_function
+  80:	05 00 00 00 00 00 00 00 	ja 0
+  88:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000090 <call_ptr_to_some_function>:
+  90:	18 00 00 00 00 00 00 00 	lddw %r0,0
+  98:	00 00 00 00 00 00 00 00 
+			90: R_BPF_64_64	ptr_to_some_function
+  a0:	79 00 00 00 00 00 00 00 	ldxdw %r0,[%r0+0]
+  a8:	8d 00 00 00 00 00 00 00 	call %r0
+  b0:	05 00 00 00 00 00 00 00 	ja 0
+  b8:	95 00 00 00 00 00 00 00 	exit
+
+Disassembly of section prog:
+
+0000000000000000 <get_some_int_from_section>:
+   0:	85 10 00 00 ff ff ff ff 	call -1
+			0: R_BPF_64_32	get_some_int
+   8:	67 00 00 00 20 00 00 00 	lsh %r0,32
+  10:	c7 00 00 00 20 00 00 00 	arsh %r0,32
+  18:	95 00 00 00 00 00 00 00 	exit
+
+0000000000000020 <get_some_int_static_from_section>:
+  20:	85 10 00 00 0c 00 00 00 	call 12
+			20: R_BPF_64_32	.text
+  28:	67 00 00 00 20 00 00 00 	lsh %r0,32
+  30:	c7 00 00 00 20 00 00 00 	arsh %r0,32
+  38:	95 00 00 00 00 00 00 00 	exit

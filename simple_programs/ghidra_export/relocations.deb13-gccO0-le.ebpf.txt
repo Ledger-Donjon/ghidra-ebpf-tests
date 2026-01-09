@@ -1,0 +1,151 @@
+Export of compiled/relocations.deb13-gccO0-le.ebpf by Ghidra 12.0 PUBLIC
+
+Symbols:
+  ram:00100000 get_some_int
+  ram:00100038 get_some_extern_int
+  ram:00100068 get_some_int_static
+  ram:00100078 call_some_external_function
+  ram:00100090 call_ptr_to_some_function
+  ram:001000c0 some_int
+  ram:001000c8 int_pointer
+  ram:001000d0 get_some_int_from_section
+  ram:001000f0 get_some_int_static_from_section
+  ram:00101000 some_extern_int
+  ram:00101008 some_external_function
+  ram:00101010 ptr_to_some_function
+
+Listing:
+  Memory Block .text @ram:00100000..ram:001000bf
+    get_some_int:
+      ram:00100000 18100000c00010000000000000000000 LDDW R0,0x1000c0
+      ram:00100010 7900000000000000 LDXDW R0,[R0 + 0x0]
+      ram:00100018 6100000000000000 LDXW R0,[R0 + 0x0]
+      ram:00100020 6700000020000000 LSH R0,0x20
+      ram:00100028 c700000020000000 ARSH R0,0x20
+      ram:00100030 9500000000000000 EXIT
+    get_some_extern_int:
+      ram:00100038 18100000001010000000000000000000 LDDW R0,0x101000
+      ram:00100048 6100000000000000 LDXW R0,[R0 + 0x0]
+      ram:00100050 6700000020000000 LSH R0,0x20
+      ram:00100058 c700000020000000 ARSH R0,0x20
+      ram:00100060 9500000000000000 EXIT
+    get_some_int_static:
+      ram:00100068 b7000000d2040000 MOV R0,0x4d2
+      ram:00100070 9500000000000000 EXIT
+    call_some_external_function:
+      ram:00100078 85100000ffffffff CALL 0x00100078
+      ram:00100080 0500000000000000 JA 0x00100088
+    LAB_ram_00100088:
+      ram:00100088 9500000000000000 EXIT
+    call_ptr_to_some_function:
+      ram:00100090 18100000101010000000000000000000 LDDW R0,0x101010
+      ram:001000a0 7900000000000000 LDXDW R0,[R0 + 0x0]
+      ram:001000a8 8d00000000000000 CALLX R0
+      ram:001000b0 0500000000000000 JA 0x001000b8
+    LAB_ram_001000b8:
+      ram:001000b8 9500000000000000 EXIT
+
+  Memory Block .data @ram:001000c0..ram:001000cf
+    some_int:
+      ram:001000c0 2a00000000000000 undefined8 000000000000002Ah
+    int_pointer:
+      ram:001000c8 0000000000000000 undefined8 0000000000000000h
+
+  Memory Block prog @ram:001000d0..ram:0010010f
+    get_some_int_from_section:
+      ram:001000d0 85100000e5ffffff CALL 0x00100000
+      ram:001000d8 6700000020000000 LSH R0,0x20
+      ram:001000e0 c700000020000000 ARSH R0,0x20
+      ram:001000e8 9500000000000000 EXIT
+    get_some_int_static_from_section:
+      ram:001000f0 85100000eeffffff CALL 0x00100068
+      ram:001000f8 6700000020000000 LSH R0,0x20
+      ram:00100100 c700000020000000 ARSH R0,0x20
+      ram:00100108 9500000000000000 EXIT
+
+  Memory Block EXTERNAL @ram:00101000..ram:00101017
+    some_extern_int:
+      ram:00101000 (external) ?? ??
+    some_external_function:
+      ram:00101008 (external) ?? ??
+    ptr_to_some_function:
+      ram:00101010 (external) ?? ??
+
+  Memory Block .rel.data @.rel.data::00000000...rel.data::0000000f
+    Elf64_Rel_ARRAY_.rel.data__00000000:
+      offset=0x8 info=0x300000002 (R_BPF_64_ABS64)
+
+  Memory Block .rel.text @.rel.text::00000000...rel.text::0000003f
+    Elf64_Rel_ARRAY_.rel.text__00000000:
+      offset=0x0 info=0x300000001 (R_BPF_64_64)
+      offset=0x38 info=0xc00000001 (R_BPF_64_64)
+      offset=0x78 info=0x100000000a (R_BPF_64_32)
+      offset=0x90 info=0x1200000001 (R_BPF_64_64)
+
+  Memory Block .relprog @.relprog::00000000...relprog::0000001f
+    Elf64_Rel_ARRAY_.relprog__00000000:
+      offset=0x0 info=0xa0000000a (R_BPF_64_32)
+      offset=0x20 info=0x20000000a (R_BPF_64_32)
+
+Decompiled functions:
+
+/* Function get_some_int at ram:00100000 */
+longlong get_some_int(void)
+
+{
+  return (longlong)*(int *)*some_int;
+}
+
+/* Function get_some_extern_int at ram:00100038 */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+longlong get_some_extern_int(void)
+
+{
+  return (longlong)*_some_extern_int;
+}
+
+/* Function get_some_int_static at ram:00100068 */
+undefined8 get_some_int_static(void)
+
+{
+  return 0x4d2;
+}
+
+/* Function call_some_external_function at ram:00100078 */
+void call_some_external_function(void)
+
+{
+  call_some_external_function();
+  return;
+}
+
+/* Function call_ptr_to_some_function at ram:00100090 */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void call_ptr_to_some_function(void)
+
+{
+  (*(code *)*_ptr_to_some_function)();
+  return;
+}
+
+/* Function get_some_int_from_section at ram:001000d0 */
+longlong get_some_int_from_section(void)
+
+{
+  int iVar1;
+  
+  iVar1 = get_some_int();
+  return (longlong)iVar1;
+}
+
+/* Function get_some_int_static_from_section at ram:001000f0 */
+longlong get_some_int_static_from_section(void)
+
+{
+  int iVar1;
+  
+  iVar1 = get_some_int_static();
+  return (longlong)iVar1;
+}
