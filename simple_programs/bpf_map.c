@@ -36,13 +36,21 @@ relocation kinds for eBPF programs")
 typedef unsigned int u32;
 typedef unsigned long u64;
 
-// Macro from https://github.com/libbpf/libbpf/blob/v1.6.2/src/bpf_helpers.h#L41
-#define SEC(name) __attribute__((section(name), used))
+// These definitions are based on Linux:include/uapi/linux/bpf.h
+// Copyright (c) 2011-2014 PLUMgrid, http://plumgrid.com
+// SPDX-License-Identifier: GPL-2.0-only WITH Linux-syscall-note
 
-// Constant from https://github.com/libbpf/libbpf/blob/v1.6.2/include/uapi/linux/bpf.h#L980
+// Constant from https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/include/uapi/linux/bpf.h?h=v6.18#n980
+// and https://github.com/libbpf/libbpf/blob/v1.6.2/include/uapi/linux/bpf.h#L979
 enum bpf_map_type {
     BPF_MAP_TYPE_PERCPU_ARRAY = 6,
 };
+
+// The following lines are derived from libbpf (v1.6.2)
+// SPDX-License-Identifier: LGPL-2.1-only OR BSD-2-Clause
+
+// Macro from https://github.com/libbpf/libbpf/blob/v1.6.2/src/bpf_helpers.h#L41
+#define SEC(name) __attribute__((section(name), used))
 
 // Structure from https://github.com/libbpf/libbpf/blob/v1.6.2/src/libbpf.c#L537
 struct bpf_map_def {
