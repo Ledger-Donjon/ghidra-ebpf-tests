@@ -205,3 +205,19 @@ Not merged yet:
 
 - [#8721: Fix disassembly of eBPF atomic instructions and semantics of compare-and-exchange](https://github.com/NationalSecurityAgency/ghidra/pull/8721)
 - [#8860: Process more ELF relocation kinds for eBPF programs](https://github.com/NationalSecurityAgency/ghidra/pull/8860)
+
+## License
+
+This project is primarily licensed under the **MIT License**. This applies to the core source code and all documentation.
+
+### Third-Party Components & Licenses
+
+To ensure compatibility and respect for upstream work, some components are included or used under different permissive licenses:
+
+* **`bpf_maps.c`**: Licensed under **MIT License**, **GPL-2.0-only WITH Linux-syscall-note License** and **LGPL-2.1-only OR BSD-2-Clause License**.
+* **`ghidra_analyze_and_export_programs.py`**: This component relies on [PyGhidra](https://pypi.org/project/pyghidra/), which is licensed under the **Apache-2.0 License** (consistent with the Ghidra project).
+
+### Compliance
+
+* Full license texts are available in the [LICENSES/](./LICENSES) directory.
+* In accordance with best practices, individual files contain **SPDX-License-Identifier** headers to clarify their specific licensing terms.
