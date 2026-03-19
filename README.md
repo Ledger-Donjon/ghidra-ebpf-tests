@@ -214,7 +214,7 @@ This project is primarily licensed under the **MIT License**. This applies to th
 
 To ensure compatibility and respect for upstream work, some components are included or used under different permissive licenses:
 
-* **`bpf_maps.c`**: Licensed under **LGPL-2.1 OR BSD-2-Clause**.
+* **`bpf_maps.c`**: Licensed under **MIT License**, **GPL-2.0-only WITH Linux-syscall-note License** and **LGPL-2.1-only OR BSD-2-Clause License**.
 * **`ghidra_analyze_and_export_programs.py`**: This component relies on [PyGhidra](https://pypi.org/project/pyghidra/), which is licensed under the **Apache-2.0 License** (consistent with the Ghidra project).
 
 ### Compliance
