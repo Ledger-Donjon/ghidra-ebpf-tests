@@ -9,7 +9,7 @@ https://gcc.gnu.org/onlinedocs/gcc/_005f_005fatomic-Builtins.html
 Ghidra used the same mnemonic for all atomic instructions and the implementation
 of compare-and-exchange was buggy.
 
-This is being fixed with:
+This was fixed in Ghidra 12.0.4:
 https://github.com/NationalSecurityAgency/ghidra/pull/8721 ("Fix disassembly of eBPF atomic
 instructions and semantics of compare-and-exchange")
 */
