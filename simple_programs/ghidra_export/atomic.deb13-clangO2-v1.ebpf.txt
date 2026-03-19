@@ -1,4 +1,4 @@
-Export of compiled/atomic.deb13-clangO2-v1.ebpf by Ghidra 12.0 PUBLIC
+Export of compiled/atomic.deb13-clangO2-v1.ebpf by Ghidra 12.0.4 PUBLIC
 
 Symbols:
   ram:00100000 atomic_exchange64
@@ -22,18 +22,18 @@ Listing:
   Memory Block .text @ram:00100000..ram:001001cf
     atomic_exchange64:
       ram:00100000 7922000000000000 LDXDW R2,[R2 + 0x0]
-      ram:00100008 db210000e1000000 STXXADDDW [R1 + 0x0],R2
+      ram:00100008 db210000e1000000 AXCHG [R1 + 0x0],R2
       ram:00100010 7b23000000000000 STXDW [R3 + 0x0],R2
       ram:00100018 9500000000000000 EXIT
     atomic_exchange_n64:
       ram:00100020 bf20000000000000 MOV R0,R2
-      ram:00100028 db010000e1000000 STXXADDDW [R1 + 0x0],R0
+      ram:00100028 db010000e1000000 AXCHG [R1 + 0x0],R0
       ram:00100030 9500000000000000 EXIT
     atomic_compare_exchange64:
       ram:00100038 7934000000000000 LDXDW R4,[R3 + 0x0]
       ram:00100040 7923000000000000 LDXDW R3,[R2 + 0x0]
       ram:00100048 bf30000000000000 MOV R0,R3
-      ram:00100050 db410000f1000000 STXXADDDW [R1 + 0x0],R4
+      ram:00100050 db410000f1000000 ACMP [R1 + 0x0],R4
       ram:00100058 b701000001000000 MOV R1,0x1
       ram:00100060 1d30010000000000 JEQ R0,R3,0x00100070
       ram:00100068 b701000000000000 MOV R1,0x0
@@ -48,7 +48,7 @@ Listing:
     atomic_compare_exchange_n64:
       ram:001000a0 7924000000000000 LDXDW R4,[R2 + 0x0]
       ram:001000a8 bf40000000000000 MOV R0,R4
-      ram:001000b0 db310000f1000000 STXXADDDW [R1 + 0x0],R3
+      ram:001000b0 db310000f1000000 ACMP [R1 + 0x0],R3
       ram:001000b8 b701000001000000 MOV R1,0x1
       ram:001000c0 1d40010000000000 JEQ R0,R4,0x001000d0
       ram:001000c8 b701000000000000 MOV R1,0x0
@@ -61,42 +61,42 @@ Listing:
       ram:001000f0 bf10000000000000 MOV R0,R1
       ram:001000f8 9500000000000000 EXIT
     atomic_fetch_add64_legacy:
-      ram:00100100 db21000000000000 STXXADDDW [R1 + 0x0],R2
+      ram:00100100 db21000000000000 AADD [R1 + 0x0],R2
       ram:00100108 9500000000000000 EXIT
     atomic_add_fetch64_legacy:
-      ram:00100110 db21000000000000 STXXADDDW [R1 + 0x0],R2
+      ram:00100110 db21000000000000 AADD [R1 + 0x0],R2
       ram:00100118 9500000000000000 EXIT
     atomic_fetch_sub64_legacy:
       ram:00100120 8702000000000000 NEG R2
-      ram:00100128 db21000000000000 STXXADDDW [R1 + 0x0],R2
+      ram:00100128 db21000000000000 AADD [R1 + 0x0],R2
       ram:00100130 9500000000000000 EXIT
     atomic_sub_fetch64_legacy:
       ram:00100138 8702000000000000 NEG R2
-      ram:00100140 db21000000000000 STXXADDDW [R1 + 0x0],R2
+      ram:00100140 db21000000000000 AADD [R1 + 0x0],R2
       ram:00100148 9500000000000000 EXIT
     atomic_fetch_and64_legacy:
-      ram:00100150 db21000050000000 STXXADDDW [R1 + 0x0],R2
+      ram:00100150 db21000050000000 AAND [R1 + 0x0],R2
       ram:00100158 9500000000000000 EXIT
     atomic_and_fetch64_legacy:
-      ram:00100160 db21000050000000 STXXADDDW [R1 + 0x0],R2
+      ram:00100160 db21000050000000 AAND [R1 + 0x0],R2
       ram:00100168 9500000000000000 EXIT
     atomic_fetch_xor64_legacy:
-      ram:00100170 db210000a0000000 STXXADDDW [R1 + 0x0],R2
+      ram:00100170 db210000a0000000 AXOR [R1 + 0x0],R2
       ram:00100178 9500000000000000 EXIT
     atomic_xor_fetch64_legacy:
-      ram:00100180 db210000a0000000 STXXADDDW [R1 + 0x0],R2
+      ram:00100180 db210000a0000000 AXOR [R1 + 0x0],R2
       ram:00100188 9500000000000000 EXIT
     atomic_fetch_or64_legacy:
-      ram:00100190 db21000040000000 STXXADDDW [R1 + 0x0],R2
+      ram:00100190 db21000040000000 AOR [R1 + 0x0],R2
       ram:00100198 9500000000000000 EXIT
     atomic_or_fetch64_legacy:
-      ram:001001a0 db21000040000000 STXXADDDW [R1 + 0x0],R2
+      ram:001001a0 db21000040000000 AOR [R1 + 0x0],R2
       ram:001001a8 9500000000000000 EXIT
     atomic_fetch_add32_legacy:
-      ram:001001b0 c321000000000000 STXXADDW [R1 + 0x0],R2
+      ram:001001b0 c321000000000000 AADD32 [R1 + 0x0],R2
       ram:001001b8 9500000000000000 EXIT
     atomic_add_fetch32_legacy:
-      ram:001001c0 c321000000000000 STXXADDW [R1 + 0x0],R2
+      ram:001001c0 c321000000000000 AADD32 [R1 + 0x0],R2
       ram:001001c8 9500000000000000 EXIT
 
 Decompiled functions:
@@ -132,11 +132,11 @@ bool atomic_compare_exchange64(longlong *param_1,longlong *param_2,longlong *par
   longlong lVar2;
   
   lVar2 = *param_2;
-  lVar1 = lVar2;
-  if (lVar2 != *param_1) {
-    lVar1 = *param_1;
+  lVar1 = *param_1;
+  if (lVar2 == lVar1) {
+    *param_1 = *param_3;
+    lVar1 = lVar2;
   }
-  *param_1 = *param_3;
   if (lVar1 != lVar2) {
     *param_2 = lVar1;
   }
@@ -151,11 +151,11 @@ bool atomic_compare_exchange_n64(longlong *param_1,longlong *param_2,longlong pa
   longlong lVar2;
   
   lVar2 = *param_2;
-  lVar1 = lVar2;
-  if (lVar2 != *param_1) {
-    lVar1 = *param_1;
+  lVar1 = *param_1;
+  if (lVar2 == lVar1) {
+    *param_1 = param_3;
+    lVar1 = lVar2;
   }
-  *param_1 = param_3;
   if (lVar1 != lVar2) {
     *param_2 = lVar1;
   }

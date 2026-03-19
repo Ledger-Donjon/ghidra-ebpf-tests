@@ -112,7 +112,7 @@ pip install pyghidra
 
 This nonetheless requires a working Ghidra installation, referenced with environment variable `GHIDRA_INSTALL_DIR`.
 
-To install PyGhidra in a Debian 13 container, the following commands can be used:
+To install PyGhidra in a Debian 13 container (for example using image [`docker.io/library/debian:13-slim`](https://hub.docker.com/_/debian/tags?name=13-slim)), the following commands can be used:
 
 ```sh
 # Install dependencies
@@ -120,23 +120,23 @@ sudo apt-get update
 sudo apt-get install openjdk-25-jdk-headless python3 python3-pip python3-venv unzip wget
 
 # Download Ghidra from https://github.com/NationalSecurityAgency/ghidra/releases
-wget https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.0_build/ghidra_12.0_PUBLIC_20251205.zip
-SHA256=af43e8cfb2fa4490cf6020c3a2bde25c159d83f45236a0542688a024e8fc1941
-echo "${SHA256}  ghidra_12.0_PUBLIC_20251205.zip" | sha256sum --check
-unzip ghidra_12.0_PUBLIC_20251205.zip
+wget https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.0.4_build/ghidra_12.0.4_PUBLIC_20260303.zip
+SHA256=c3b458661d69e26e203d739c0c82d143cc8a4a29d9e571f099c2cf4bda62a120
+echo "${SHA256}  ghidra_12.0.4_PUBLIC_20260303.zip" | sha256sum --check
+unzip ghidra_12.0.4_PUBLIC_20260303.zip
 
 # Install PyGhidra from the downloaded release
-echo y | ./ghidra_12.0_PUBLIC/support/pyghidraRun
+echo y | ./ghidra_12.0.4_PUBLIC/support/pyghidraRun
 
 # Export to a variable Ghidra's location
-export GHIDRA_INSTALL_DIR="$(pwd)/ghidra_12.0_PUBLIC"
+export GHIDRA_INSTALL_DIR="$(pwd)/ghidra_12.0.4_PUBLIC"
 ```
 
-This installed PyGhidra in a Python virtual environment located in `~/.config/ghidra/ghidra_12.0_PUBLIC/venv`.
+This installed PyGhidra in a Python virtual environment located in `~/.config/ghidra/ghidra_12.0.4_PUBLIC/venv`.
 It can be used to launch an interactive Python:
 
 ```sh
-~/.config/ghidra/ghidra_12.0_PUBLIC/venv/bin/python3
+~/.config/ghidra/ghidra_12.0.4_PUBLIC/venv/bin/python3
 ```
 
 From there, analyzing an eBPF program can be done with few lines of code:
@@ -179,10 +179,10 @@ print(decomp_result.getDecompiledFunction().getC())
 
 This repository includes a Python script which automates analyzing some eBPF programs and saving the disassembler and decompiler outputs: [`simple_programs/ghidra_analyze_and_export_programs.py`](./simple_programs/ghidra_analyze_and_export_programs.py).
 
-This script is compatible with [uv](https://docs.astral.sh/uv/), meaning it can be launch with:
+This script is compatible with [uv](https://docs.astral.sh/uv/), meaning it can be launched with:
 
 ```sh
-export GHIDRA_INSTALL_DIR=/path/to/ghidra_12.0_PUBLIC
+export GHIDRA_INSTALL_DIR=/path/to/ghidra_12.0.4_PUBLIC
 uv run simple_programs/ghidra_analyze_and_export_programs.py
 ```
 
@@ -201,9 +201,12 @@ Merged in [Ghidra 12.0](https://github.com/NationalSecurityAgency/ghidra/release
 
 - [#7972: Add eBPF instruction CALLX for indirect calls](https://github.com/NationalSecurityAgency/ghidra/pull/7972)
 
-Not merged yet:
+Merged in [Ghidra 12.0.4](https://github.com/NationalSecurityAgency/ghidra/releases/tag/Ghidra_12.0.4_build) (2026-03-04):
 
 - [#8721: Fix disassembly of eBPF atomic instructions and semantics of compare-and-exchange](https://github.com/NationalSecurityAgency/ghidra/pull/8721)
+
+Not merged yet:
+
 - [#8860: Process more ELF relocation kinds for eBPF programs](https://github.com/NationalSecurityAgency/ghidra/pull/8860)
 
 ## License

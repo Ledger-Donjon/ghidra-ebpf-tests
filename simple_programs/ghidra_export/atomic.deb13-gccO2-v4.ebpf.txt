@@ -1,4 +1,4 @@
-Export of compiled/atomic.deb13-gccO2-v4.ebpf by Ghidra 12.0 PUBLIC
+Export of compiled/atomic.deb13-gccO2-v4.ebpf by Ghidra 12.0.4 PUBLIC
 
 Symbols:
   ram:00100000 atomic_load32
@@ -76,18 +76,18 @@ Listing:
       ram:001000a8 9500000000000000 EXIT
     atomic_exchange64:
       ram:001000b0 7920000000000000 LDXDW R0,[R2 + 0x0]
-      ram:001000b8 db010000e1000000 STXXADDDW [R1 + 0x0],R0
+      ram:001000b8 db010000e1000000 AXCHG [R1 + 0x0],R0
       ram:001000c0 7b03000000000000 STXDW [R3 + 0x0],R0
       ram:001000c8 9500000000000000 EXIT
     atomic_exchange_n64:
       ram:001000d0 bf20000000000000 MOV R0,R2
-      ram:001000d8 db010000e1000000 STXXADDDW [R1 + 0x0],R0
+      ram:001000d8 db010000e1000000 AXCHG [R1 + 0x0],R0
       ram:001000e0 9500000000000000 EXIT
     atomic_compare_exchange64:
       ram:001000e8 7924000000000000 LDXDW R4,[R2 + 0x0]
       ram:001000f0 7933000000000000 LDXDW R3,[R3 + 0x0]
       ram:001000f8 bf40000000000000 MOV R0,R4
-      ram:00100100 db310000f1000000 STXXADDDW [R1 + 0x0],R3
+      ram:00100100 db310000f1000000 ACMP [R1 + 0x0],R3
       ram:00100108 b701000001000000 MOV R1,0x1
       ram:00100110 1d40020000000000 JEQ R0,R4,0x00100128
       ram:00100118 b701000000000000 MOV R1,0x0
@@ -98,7 +98,7 @@ Listing:
     atomic_compare_exchange_n64:
       ram:00100138 7920000000000000 LDXDW R0,[R2 + 0x0]
       ram:00100140 bf04000000000000 MOV R4,R0
-      ram:00100148 db310000f1000000 STXXADDDW [R1 + 0x0],R3
+      ram:00100148 db310000f1000000 ACMP [R1 + 0x0],R3
       ram:00100150 b701000001000000 MOV R1,0x1
       ram:00100158 1d40020000000000 JEQ R0,R4,0x00100170
       ram:00100160 b701000000000000 MOV R1,0x0
@@ -108,18 +108,18 @@ Listing:
       ram:00100178 9500000000000000 EXIT
     atomic_exchange32:
       ram:00100180 6120000000000000 LDXW R0,[R2 + 0x0]
-      ram:00100188 c3010000e1000000 STXXADDW [R1 + 0x0],R0
+      ram:00100188 c3010000e1000000 AXCHG32 [R1 + 0x0],R0
       ram:00100190 6303000000000000 STXW [R3 + 0x0],R0
       ram:00100198 9500000000000000 EXIT
     atomic_exchange_n32:
       ram:001001a0 bf20000000000000 MOV R0,R2
-      ram:001001a8 c3010000e1000000 STXXADDW [R1 + 0x0],R0
+      ram:001001a8 c3010000e1000000 AXCHG32 [R1 + 0x0],R0
       ram:001001b0 9500000000000000 EXIT
     atomic_compare_exchange32:
       ram:001001b8 6124000000000000 LDXW R4,[R2 + 0x0]
       ram:001001c0 6133000000000000 LDXW R3,[R3 + 0x0]
       ram:001001c8 bf40000000000000 MOV R0,R4
-      ram:001001d0 c3310000f1000000 STXXADDW [R1 + 0x0],R3
+      ram:001001d0 c3310000f1000000 ACMP32 [R1 + 0x0],R3
       ram:001001d8 b701000001000000 MOV R1,0x1
       ram:001001e0 1e40020000000000 JEQ R0,R4,0x001001f8
       ram:001001e8 b701000000000000 MOV R1,0x0
@@ -131,7 +131,7 @@ Listing:
       ram:00100208 6120000000000000 LDXW R0,[R2 + 0x0]
       ram:00100210 bf33000000000000 MOV R3,R3
       ram:00100218 bf04000000000000 MOV R4,R0
-      ram:00100220 c3310000f1000000 STXXADDW [R1 + 0x0],R3
+      ram:00100220 c3310000f1000000 ACMP32 [R1 + 0x0],R3
       ram:00100228 b701000001000000 MOV R1,0x1
       ram:00100230 1e40020000000000 JEQ R0,R4,0x00100248
       ram:00100238 b701000000000000 MOV R1,0x0
@@ -141,100 +141,100 @@ Listing:
       ram:00100250 9500000000000000 EXIT
     atomic_fetch_add32:
       ram:00100258 bf20000000000000 MOV R0,R2
-      ram:00100260 c301000001000000 STXXADDW [R1 + 0x0],R0
+      ram:00100260 c301000001000000 AFADD32 [R1 + 0x0],R0
       ram:00100268 9500000000000000 EXIT
     atomic_add_fetch32:
       ram:00100270 bf22000000000000 MOV R2,R2
       ram:00100278 bf20000000000000 MOV R0,R2
-      ram:00100280 c301000001000000 STXXADDW [R1 + 0x0],R0
+      ram:00100280 c301000001000000 AFADD32 [R1 + 0x0],R0
       ram:00100288 0c20000000000000 ADD R0,R2
       ram:00100290 9500000000000000 EXIT
     atomic_fetch_add64:
       ram:00100298 bf20000000000000 MOV R0,R2
-      ram:001002a0 db01000001000000 STXXADDDW [R1 + 0x0],R0
+      ram:001002a0 db01000001000000 AFADD [R1 + 0x0],R0
       ram:001002a8 9500000000000000 EXIT
     atomic_add_fetch64:
       ram:001002b0 bf20000000000000 MOV R0,R2
-      ram:001002b8 db01000001000000 STXXADDDW [R1 + 0x0],R0
+      ram:001002b8 db01000001000000 AFADD [R1 + 0x0],R0
       ram:001002c0 0f20000000000000 ADD R0,R2
       ram:001002c8 9500000000000000 EXIT
     atomic_fetch_sub32:
       ram:001002d0 8402000000000000 NEG R2
       ram:001002d8 bf20000000000000 MOV R0,R2
-      ram:001002e0 c301000001000000 STXXADDW [R1 + 0x0],R0
+      ram:001002e0 c301000001000000 AFADD32 [R1 + 0x0],R0
       ram:001002e8 9500000000000000 EXIT
     atomic_sub_fetch32:
       ram:001002f0 8402000000000000 NEG R2
       ram:001002f8 bf20000000000000 MOV R0,R2
-      ram:00100300 c301000001000000 STXXADDW [R1 + 0x0],R0
+      ram:00100300 c301000001000000 AFADD32 [R1 + 0x0],R0
       ram:00100308 0c20000000000000 ADD R0,R2
       ram:00100310 9500000000000000 EXIT
     atomic_fetch_sub64:
       ram:00100318 8702000000000000 NEG R2
       ram:00100320 bf20000000000000 MOV R0,R2
-      ram:00100328 db01000001000000 STXXADDDW [R1 + 0x0],R0
+      ram:00100328 db01000001000000 AFADD [R1 + 0x0],R0
       ram:00100330 9500000000000000 EXIT
     atomic_sub_fetch64:
       ram:00100338 8702000000000000 NEG R2
       ram:00100340 bf20000000000000 MOV R0,R2
-      ram:00100348 db01000001000000 STXXADDDW [R1 + 0x0],R0
+      ram:00100348 db01000001000000 AFADD [R1 + 0x0],R0
       ram:00100350 0f20000000000000 ADD R0,R2
       ram:00100358 9500000000000000 EXIT
     atomic_fetch_and32:
       ram:00100360 bf20000000000000 MOV R0,R2
-      ram:00100368 c301000051000000 STXXADDW [R1 + 0x0],R0
+      ram:00100368 c301000051000000 AFAND32 [R1 + 0x0],R0
       ram:00100370 9500000000000000 EXIT
     atomic_and_fetch32:
       ram:00100378 bf22000000000000 MOV R2,R2
       ram:00100380 bf20000000000000 MOV R0,R2
-      ram:00100388 c301000051000000 STXXADDW [R1 + 0x0],R0
+      ram:00100388 c301000051000000 AFAND32 [R1 + 0x0],R0
       ram:00100390 5c20000000000000 AND R0,R2
       ram:00100398 9500000000000000 EXIT
     atomic_fetch_and64:
       ram:001003a0 bf20000000000000 MOV R0,R2
-      ram:001003a8 db01000051000000 STXXADDDW [R1 + 0x0],R0
+      ram:001003a8 db01000051000000 AFAND [R1 + 0x0],R0
       ram:001003b0 9500000000000000 EXIT
     atomic_and_fetch64:
       ram:001003b8 bf20000000000000 MOV R0,R2
-      ram:001003c0 db01000051000000 STXXADDDW [R1 + 0x0],R0
+      ram:001003c0 db01000051000000 AFAND [R1 + 0x0],R0
       ram:001003c8 5f20000000000000 AND R0,R2
       ram:001003d0 9500000000000000 EXIT
     atomic_fetch_xor32:
       ram:001003d8 bf20000000000000 MOV R0,R2
-      ram:001003e0 c3010000a1000000 STXXADDW [R1 + 0x0],R0
+      ram:001003e0 c3010000a1000000 AFXOR32 [R1 + 0x0],R0
       ram:001003e8 9500000000000000 EXIT
     atomic_xor_fetch32:
       ram:001003f0 bf22000000000000 MOV R2,R2
       ram:001003f8 bf20000000000000 MOV R0,R2
-      ram:00100400 c3010000a1000000 STXXADDW [R1 + 0x0],R0
+      ram:00100400 c3010000a1000000 AFXOR32 [R1 + 0x0],R0
       ram:00100408 ac20000000000000 XOR R0,R2
       ram:00100410 9500000000000000 EXIT
     atomic_fetch_xor64:
       ram:00100418 bf20000000000000 MOV R0,R2
-      ram:00100420 db010000a1000000 STXXADDDW [R1 + 0x0],R0
+      ram:00100420 db010000a1000000 AFXOR [R1 + 0x0],R0
       ram:00100428 9500000000000000 EXIT
     atomic_xor_fetch64:
       ram:00100430 bf20000000000000 MOV R0,R2
-      ram:00100438 db010000a1000000 STXXADDDW [R1 + 0x0],R0
+      ram:00100438 db010000a1000000 AFXOR [R1 + 0x0],R0
       ram:00100440 af20000000000000 XOR R0,R2
       ram:00100448 9500000000000000 EXIT
     atomic_fetch_or32:
       ram:00100450 bf20000000000000 MOV R0,R2
-      ram:00100458 c301000041000000 STXXADDW [R1 + 0x0],R0
+      ram:00100458 c301000041000000 AFOR32 [R1 + 0x0],R0
       ram:00100460 9500000000000000 EXIT
     atomic_or_fetch32:
       ram:00100468 bf22000000000000 MOV R2,R2
       ram:00100470 bf20000000000000 MOV R0,R2
-      ram:00100478 c301000041000000 STXXADDW [R1 + 0x0],R0
+      ram:00100478 c301000041000000 AFOR32 [R1 + 0x0],R0
       ram:00100480 4c20000000000000 OR R0,R2
       ram:00100488 9500000000000000 EXIT
     atomic_fetch_or64:
       ram:00100490 bf20000000000000 MOV R0,R2
-      ram:00100498 db01000041000000 STXXADDDW [R1 + 0x0],R0
+      ram:00100498 db01000041000000 AFOR [R1 + 0x0],R0
       ram:001004a0 9500000000000000 EXIT
     atomic_or_fetch64:
       ram:001004a8 bf20000000000000 MOV R0,R2
-      ram:001004b0 db01000041000000 STXXADDDW [R1 + 0x0],R0
+      ram:001004b0 db01000041000000 AFOR [R1 + 0x0],R0
       ram:001004b8 4f20000000000000 OR R0,R2
       ram:001004c0 9500000000000000 EXIT
     atomic_fetch_nand32:
@@ -246,56 +246,56 @@ Listing:
       ram:001004e8 5c23000000000000 AND R3,R2
       ram:001004f0 bf04000000000000 MOV R4,R0
       ram:001004f8 a4030000ffffffff XOR R3,-0x1
-      ram:00100500 c3310000f1000000 STXXADDW [R1 + 0x0],R3
+      ram:00100500 c3310000f1000000 ACMP32 [R1 + 0x0],R3
       ram:00100508 1e50310000000000 JEQ R0,R5,0x00100698
       ram:00100510 bf03000000000000 MOV R3,R0
       ram:00100518 bf09000000000000 MOV R9,R0
       ram:00100520 5c23000000000000 AND R3,R2
       ram:00100528 bf04000000000000 MOV R4,R0
       ram:00100530 a4030000ffffffff XOR R3,-0x1
-      ram:00100538 c3310000f1000000 STXXADDW [R1 + 0x0],R3
+      ram:00100538 c3310000f1000000 ACMP32 [R1 + 0x0],R3
       ram:00100540 1e902a0000000000 JEQ R0,R9,0x00100698
       ram:00100548 bf03000000000000 MOV R3,R0
       ram:00100550 bf05000000000000 MOV R5,R0
       ram:00100558 5c23000000000000 AND R3,R2
       ram:00100560 bf04000000000000 MOV R4,R0
       ram:00100568 a4030000ffffffff XOR R3,-0x1
-      ram:00100570 c3310000f1000000 STXXADDW [R1 + 0x0],R3
+      ram:00100570 c3310000f1000000 ACMP32 [R1 + 0x0],R3
       ram:00100578 1e50230000000000 JEQ R0,R5,0x00100698
       ram:00100580 bf03000000000000 MOV R3,R0
       ram:00100588 bf09000000000000 MOV R9,R0
       ram:00100590 5c23000000000000 AND R3,R2
       ram:00100598 bf04000000000000 MOV R4,R0
       ram:001005a0 a4030000ffffffff XOR R3,-0x1
-      ram:001005a8 c3310000f1000000 STXXADDW [R1 + 0x0],R3
+      ram:001005a8 c3310000f1000000 ACMP32 [R1 + 0x0],R3
       ram:001005b0 1e901c0000000000 JEQ R0,R9,0x00100698
       ram:001005b8 bf03000000000000 MOV R3,R0
       ram:001005c0 bf05000000000000 MOV R5,R0
       ram:001005c8 5c23000000000000 AND R3,R2
       ram:001005d0 bf04000000000000 MOV R4,R0
       ram:001005d8 a4030000ffffffff XOR R3,-0x1
-      ram:001005e0 c3310000f1000000 STXXADDW [R1 + 0x0],R3
+      ram:001005e0 c3310000f1000000 ACMP32 [R1 + 0x0],R3
       ram:001005e8 1e50150000000000 JEQ R0,R5,0x00100698
       ram:001005f0 bf03000000000000 MOV R3,R0
       ram:001005f8 bf09000000000000 MOV R9,R0
       ram:00100600 5c23000000000000 AND R3,R2
       ram:00100608 bf04000000000000 MOV R4,R0
       ram:00100610 a4030000ffffffff XOR R3,-0x1
-      ram:00100618 c3310000f1000000 STXXADDW [R1 + 0x0],R3
+      ram:00100618 c3310000f1000000 ACMP32 [R1 + 0x0],R3
       ram:00100620 1e900e0000000000 JEQ R0,R9,0x00100698
       ram:00100628 bf03000000000000 MOV R3,R0
       ram:00100630 bf05000000000000 MOV R5,R0
       ram:00100638 5c23000000000000 AND R3,R2
       ram:00100640 bf04000000000000 MOV R4,R0
       ram:00100648 a4030000ffffffff XOR R3,-0x1
-      ram:00100650 c3310000f1000000 STXXADDW [R1 + 0x0],R3
+      ram:00100650 c3310000f1000000 ACMP32 [R1 + 0x0],R3
       ram:00100658 1e50070000000000 JEQ R0,R5,0x00100698
       ram:00100660 bf03000000000000 MOV R3,R0
       ram:00100668 bf09000000000000 MOV R9,R0
       ram:00100670 5c23000000000000 AND R3,R2
       ram:00100678 bf04000000000000 MOV R4,R0
       ram:00100680 a4030000ffffffff XOR R3,-0x1
-      ram:00100688 c3310000f1000000 STXXADDW [R1 + 0x0],R3
+      ram:00100688 c3310000f1000000 ACMP32 [R1 + 0x0],R3
       ram:00100690 5e90c8ff00000000 JNE R0,R9,0x001004d8
     LAB_ram_00100698:
       ram:00100698 bf40000000000000 MOV R0,R4
@@ -308,49 +308,49 @@ Listing:
       ram:001006c0 bf04000000000000 MOV R4,R0
       ram:001006c8 5c23000000000000 AND R3,R2
       ram:001006d0 a4030000ffffffff XOR R3,-0x1
-      ram:001006d8 c3310000f1000000 STXXADDW [R1 + 0x0],R3
+      ram:001006d8 c3310000f1000000 ACMP32 [R1 + 0x0],R3
       ram:001006e0 1e402a0000000000 JEQ R0,R4,0x00100838
       ram:001006e8 bf03000000000000 MOV R3,R0
       ram:001006f0 bf05000000000000 MOV R5,R0
       ram:001006f8 5c23000000000000 AND R3,R2
       ram:00100700 a4030000ffffffff XOR R3,-0x1
-      ram:00100708 c3310000f1000000 STXXADDW [R1 + 0x0],R3
+      ram:00100708 c3310000f1000000 ACMP32 [R1 + 0x0],R3
       ram:00100710 1e50240000000000 JEQ R0,R5,0x00100838
       ram:00100718 bf03000000000000 MOV R3,R0
       ram:00100720 bf09000000000000 MOV R9,R0
       ram:00100728 5c23000000000000 AND R3,R2
       ram:00100730 a4030000ffffffff XOR R3,-0x1
-      ram:00100738 c3310000f1000000 STXXADDW [R1 + 0x0],R3
+      ram:00100738 c3310000f1000000 ACMP32 [R1 + 0x0],R3
       ram:00100740 1e901e0000000000 JEQ R0,R9,0x00100838
       ram:00100748 bf03000000000000 MOV R3,R0
       ram:00100750 bf04000000000000 MOV R4,R0
       ram:00100758 5c23000000000000 AND R3,R2
       ram:00100760 a4030000ffffffff XOR R3,-0x1
-      ram:00100768 c3310000f1000000 STXXADDW [R1 + 0x0],R3
+      ram:00100768 c3310000f1000000 ACMP32 [R1 + 0x0],R3
       ram:00100770 1e40180000000000 JEQ R0,R4,0x00100838
       ram:00100778 bf03000000000000 MOV R3,R0
       ram:00100780 bf05000000000000 MOV R5,R0
       ram:00100788 5c23000000000000 AND R3,R2
       ram:00100790 a4030000ffffffff XOR R3,-0x1
-      ram:00100798 c3310000f1000000 STXXADDW [R1 + 0x0],R3
+      ram:00100798 c3310000f1000000 ACMP32 [R1 + 0x0],R3
       ram:001007a0 1e50120000000000 JEQ R0,R5,0x00100838
       ram:001007a8 bf03000000000000 MOV R3,R0
       ram:001007b0 bf09000000000000 MOV R9,R0
       ram:001007b8 5c23000000000000 AND R3,R2
       ram:001007c0 a4030000ffffffff XOR R3,-0x1
-      ram:001007c8 c3310000f1000000 STXXADDW [R1 + 0x0],R3
+      ram:001007c8 c3310000f1000000 ACMP32 [R1 + 0x0],R3
       ram:001007d0 1e900c0000000000 JEQ R0,R9,0x00100838
       ram:001007d8 bf03000000000000 MOV R3,R0
       ram:001007e0 bf04000000000000 MOV R4,R0
       ram:001007e8 5c23000000000000 AND R3,R2
       ram:001007f0 a4030000ffffffff XOR R3,-0x1
-      ram:001007f8 c3310000f1000000 STXXADDW [R1 + 0x0],R3
+      ram:001007f8 c3310000f1000000 ACMP32 [R1 + 0x0],R3
       ram:00100800 1e40060000000000 JEQ R0,R4,0x00100838
       ram:00100808 bf03000000000000 MOV R3,R0
       ram:00100810 bf05000000000000 MOV R5,R0
       ram:00100818 5c23000000000000 AND R3,R2
       ram:00100820 a4030000ffffffff XOR R3,-0x1
-      ram:00100828 c3310000f1000000 STXXADDW [R1 + 0x0],R3
+      ram:00100828 c3310000f1000000 ACMP32 [R1 + 0x0],R3
       ram:00100830 5e50d0ff00000000 JNE R0,R5,0x001006b8
     LAB_ram_00100838:
       ram:00100838 bf30000000000000 MOV R0,R3
@@ -363,56 +363,56 @@ Listing:
       ram:00100860 5f23000000000000 AND R3,R2
       ram:00100868 bf04000000000000 MOV R4,R0
       ram:00100870 a7030000ffffffff XOR R3,-0x1
-      ram:00100878 db310000f1000000 STXXADDDW [R1 + 0x0],R3
+      ram:00100878 db310000f1000000 ACMP [R1 + 0x0],R3
       ram:00100880 1d50310000000000 JEQ R0,R5,0x00100a10
       ram:00100888 bf03000000000000 MOV R3,R0
       ram:00100890 bf09000000000000 MOV R9,R0
       ram:00100898 5f23000000000000 AND R3,R2
       ram:001008a0 bf04000000000000 MOV R4,R0
       ram:001008a8 a7030000ffffffff XOR R3,-0x1
-      ram:001008b0 db310000f1000000 STXXADDDW [R1 + 0x0],R3
+      ram:001008b0 db310000f1000000 ACMP [R1 + 0x0],R3
       ram:001008b8 1d902a0000000000 JEQ R0,R9,0x00100a10
       ram:001008c0 bf03000000000000 MOV R3,R0
       ram:001008c8 bf05000000000000 MOV R5,R0
       ram:001008d0 5f23000000000000 AND R3,R2
       ram:001008d8 bf04000000000000 MOV R4,R0
       ram:001008e0 a7030000ffffffff XOR R3,-0x1
-      ram:001008e8 db310000f1000000 STXXADDDW [R1 + 0x0],R3
+      ram:001008e8 db310000f1000000 ACMP [R1 + 0x0],R3
       ram:001008f0 1d50230000000000 JEQ R0,R5,0x00100a10
       ram:001008f8 bf03000000000000 MOV R3,R0
       ram:00100900 bf09000000000000 MOV R9,R0
       ram:00100908 5f23000000000000 AND R3,R2
       ram:00100910 bf04000000000000 MOV R4,R0
       ram:00100918 a7030000ffffffff XOR R3,-0x1
-      ram:00100920 db310000f1000000 STXXADDDW [R1 + 0x0],R3
+      ram:00100920 db310000f1000000 ACMP [R1 + 0x0],R3
       ram:00100928 1d901c0000000000 JEQ R0,R9,0x00100a10
       ram:00100930 bf03000000000000 MOV R3,R0
       ram:00100938 bf05000000000000 MOV R5,R0
       ram:00100940 5f23000000000000 AND R3,R2
       ram:00100948 bf04000000000000 MOV R4,R0
       ram:00100950 a7030000ffffffff XOR R3,-0x1
-      ram:00100958 db310000f1000000 STXXADDDW [R1 + 0x0],R3
+      ram:00100958 db310000f1000000 ACMP [R1 + 0x0],R3
       ram:00100960 1d50150000000000 JEQ R0,R5,0x00100a10
       ram:00100968 bf03000000000000 MOV R3,R0
       ram:00100970 bf09000000000000 MOV R9,R0
       ram:00100978 5f23000000000000 AND R3,R2
       ram:00100980 bf04000000000000 MOV R4,R0
       ram:00100988 a7030000ffffffff XOR R3,-0x1
-      ram:00100990 db310000f1000000 STXXADDDW [R1 + 0x0],R3
+      ram:00100990 db310000f1000000 ACMP [R1 + 0x0],R3
       ram:00100998 1d900e0000000000 JEQ R0,R9,0x00100a10
       ram:001009a0 bf03000000000000 MOV R3,R0
       ram:001009a8 bf05000000000000 MOV R5,R0
       ram:001009b0 5f23000000000000 AND R3,R2
       ram:001009b8 bf04000000000000 MOV R4,R0
       ram:001009c0 a7030000ffffffff XOR R3,-0x1
-      ram:001009c8 db310000f1000000 STXXADDDW [R1 + 0x0],R3
+      ram:001009c8 db310000f1000000 ACMP [R1 + 0x0],R3
       ram:001009d0 1d50070000000000 JEQ R0,R5,0x00100a10
       ram:001009d8 bf03000000000000 MOV R3,R0
       ram:001009e0 bf09000000000000 MOV R9,R0
       ram:001009e8 5f23000000000000 AND R3,R2
       ram:001009f0 bf04000000000000 MOV R4,R0
       ram:001009f8 a7030000ffffffff XOR R3,-0x1
-      ram:00100a00 db310000f1000000 STXXADDDW [R1 + 0x0],R3
+      ram:00100a00 db310000f1000000 ACMP [R1 + 0x0],R3
       ram:00100a08 5d90c8ff00000000 JNE R0,R9,0x00100850
     LAB_ram_00100a10:
       ram:00100a10 bf40000000000000 MOV R0,R4
@@ -424,49 +424,49 @@ Listing:
       ram:00100a30 bf04000000000000 MOV R4,R0
       ram:00100a38 5f23000000000000 AND R3,R2
       ram:00100a40 a7030000ffffffff XOR R3,-0x1
-      ram:00100a48 db310000f1000000 STXXADDDW [R1 + 0x0],R3
+      ram:00100a48 db310000f1000000 ACMP [R1 + 0x0],R3
       ram:00100a50 1d402a0000000000 JEQ R0,R4,0x00100ba8
       ram:00100a58 bf03000000000000 MOV R3,R0
       ram:00100a60 bf05000000000000 MOV R5,R0
       ram:00100a68 5f23000000000000 AND R3,R2
       ram:00100a70 a7030000ffffffff XOR R3,-0x1
-      ram:00100a78 db310000f1000000 STXXADDDW [R1 + 0x0],R3
+      ram:00100a78 db310000f1000000 ACMP [R1 + 0x0],R3
       ram:00100a80 1d50240000000000 JEQ R0,R5,0x00100ba8
       ram:00100a88 bf03000000000000 MOV R3,R0
       ram:00100a90 bf09000000000000 MOV R9,R0
       ram:00100a98 5f23000000000000 AND R3,R2
       ram:00100aa0 a7030000ffffffff XOR R3,-0x1
-      ram:00100aa8 db310000f1000000 STXXADDDW [R1 + 0x0],R3
+      ram:00100aa8 db310000f1000000 ACMP [R1 + 0x0],R3
       ram:00100ab0 1d901e0000000000 JEQ R0,R9,0x00100ba8
       ram:00100ab8 bf03000000000000 MOV R3,R0
       ram:00100ac0 bf04000000000000 MOV R4,R0
       ram:00100ac8 5f23000000000000 AND R3,R2
       ram:00100ad0 a7030000ffffffff XOR R3,-0x1
-      ram:00100ad8 db310000f1000000 STXXADDDW [R1 + 0x0],R3
+      ram:00100ad8 db310000f1000000 ACMP [R1 + 0x0],R3
       ram:00100ae0 1d40180000000000 JEQ R0,R4,0x00100ba8
       ram:00100ae8 bf03000000000000 MOV R3,R0
       ram:00100af0 bf05000000000000 MOV R5,R0
       ram:00100af8 5f23000000000000 AND R3,R2
       ram:00100b00 a7030000ffffffff XOR R3,-0x1
-      ram:00100b08 db310000f1000000 STXXADDDW [R1 + 0x0],R3
+      ram:00100b08 db310000f1000000 ACMP [R1 + 0x0],R3
       ram:00100b10 1d50120000000000 JEQ R0,R5,0x00100ba8
       ram:00100b18 bf03000000000000 MOV R3,R0
       ram:00100b20 bf09000000000000 MOV R9,R0
       ram:00100b28 5f23000000000000 AND R3,R2
       ram:00100b30 a7030000ffffffff XOR R3,-0x1
-      ram:00100b38 db310000f1000000 STXXADDDW [R1 + 0x0],R3
+      ram:00100b38 db310000f1000000 ACMP [R1 + 0x0],R3
       ram:00100b40 1d900c0000000000 JEQ R0,R9,0x00100ba8
       ram:00100b48 bf03000000000000 MOV R3,R0
       ram:00100b50 bf04000000000000 MOV R4,R0
       ram:00100b58 5f23000000000000 AND R3,R2
       ram:00100b60 a7030000ffffffff XOR R3,-0x1
-      ram:00100b68 db310000f1000000 STXXADDDW [R1 + 0x0],R3
+      ram:00100b68 db310000f1000000 ACMP [R1 + 0x0],R3
       ram:00100b70 1d40060000000000 JEQ R0,R4,0x00100ba8
       ram:00100b78 bf03000000000000 MOV R3,R0
       ram:00100b80 bf05000000000000 MOV R5,R0
       ram:00100b88 5f23000000000000 AND R3,R2
       ram:00100b90 a7030000ffffffff XOR R3,-0x1
-      ram:00100b98 db310000f1000000 STXXADDDW [R1 + 0x0],R3
+      ram:00100b98 db310000f1000000 ACMP [R1 + 0x0],R3
       ram:00100ba0 5d50d0ff00000000 JNE R0,R5,0x00100a28
     LAB_ram_00100ba8:
       ram:00100ba8 bf30000000000000 MOV R0,R3
@@ -567,11 +567,11 @@ bool atomic_compare_exchange64(longlong *param_1,longlong *param_2,longlong *par
   longlong lVar2;
   
   lVar2 = *param_2;
-  lVar1 = lVar2;
-  if (lVar2 != *param_1) {
-    lVar1 = *param_1;
+  lVar1 = *param_1;
+  if (lVar2 == lVar1) {
+    *param_1 = *param_3;
+    lVar1 = lVar2;
   }
-  *param_1 = *param_3;
   if (lVar1 != lVar2) {
     *param_2 = lVar1;
   }
@@ -586,11 +586,11 @@ bool atomic_compare_exchange_n64(longlong *param_1,longlong *param_2,longlong pa
   longlong lVar2;
   
   lVar1 = *param_2;
-  lVar2 = lVar1;
-  if (lVar1 != *param_1) {
-    lVar2 = *param_1;
+  lVar2 = *param_1;
+  if (lVar1 == lVar2) {
+    *param_1 = param_3;
+    lVar2 = lVar1;
   }
-  *param_1 = param_3;
   if (lVar2 != lVar1) {
     *param_2 = lVar2;
   }
@@ -628,11 +628,10 @@ bool atomic_compare_exchange32(int *param_1,int *param_2,int *param_3)
   int iVar2;
   
   iVar1 = *param_2;
-  iVar2 = iVar1;
-  if (iVar1 != *param_1) {
-    iVar2 = *param_1;
+  iVar2 = *param_1;
+  if (iVar1 == iVar2) {
+    *param_1 = *param_3;
   }
-  *param_1 = *param_3;
   if (iVar2 != iVar1) {
     *param_2 = iVar2;
   }
@@ -647,11 +646,10 @@ bool atomic_compare_exchange_n32(int *param_1,int *param_2,int param_3)
   int iVar2;
   
   iVar1 = *param_2;
-  iVar2 = iVar1;
-  if (iVar1 != *param_1) {
-    iVar2 = *param_1;
+  iVar2 = *param_1;
+  if (iVar1 == iVar2) {
+    *param_1 = param_3;
   }
-  *param_1 = param_3;
   if (iVar2 != iVar1) {
     *param_2 = iVar2;
   }
@@ -887,65 +885,57 @@ uint atomic_fetch_nand32(uint *param_1,uint param_2)
   
   uVar1 = *param_1;
   while( true ) {
-    uVar2 = uVar1;
-    if (uVar1 != *param_1) {
-      uVar2 = *param_1;
+    uVar2 = *param_1;
+    if (uVar1 == uVar2) {
+      *param_1 = uVar1 & param_2 ^ 0xffffffff;
     }
-    *param_1 = uVar1 & param_2 ^ 0xffffffff;
     if (uVar2 == uVar1) {
       return uVar1;
     }
-    uVar1 = uVar2;
-    if (uVar2 != *param_1) {
-      uVar1 = *param_1;
+    uVar1 = *param_1;
+    if (uVar2 == uVar1) {
+      *param_1 = uVar2 & param_2 ^ 0xffffffff;
     }
-    *param_1 = uVar2 & param_2 ^ 0xffffffff;
     if (uVar1 == uVar2) {
       return uVar2;
     }
-    uVar2 = uVar1;
-    if (uVar1 != *param_1) {
-      uVar2 = *param_1;
+    uVar2 = *param_1;
+    if (uVar1 == uVar2) {
+      *param_1 = uVar1 & param_2 ^ 0xffffffff;
     }
-    *param_1 = uVar1 & param_2 ^ 0xffffffff;
     if (uVar2 == uVar1) {
       return uVar1;
     }
-    uVar1 = uVar2;
-    if (uVar2 != *param_1) {
-      uVar1 = *param_1;
+    uVar1 = *param_1;
+    if (uVar2 == uVar1) {
+      *param_1 = uVar2 & param_2 ^ 0xffffffff;
     }
-    *param_1 = uVar2 & param_2 ^ 0xffffffff;
     if (uVar1 == uVar2) {
       return uVar2;
     }
-    uVar2 = uVar1;
-    if (uVar1 != *param_1) {
-      uVar2 = *param_1;
+    uVar2 = *param_1;
+    if (uVar1 == uVar2) {
+      *param_1 = uVar1 & param_2 ^ 0xffffffff;
     }
-    *param_1 = uVar1 & param_2 ^ 0xffffffff;
     if (uVar2 == uVar1) break;
-    uVar1 = uVar2;
-    if (uVar2 != *param_1) {
-      uVar1 = *param_1;
+    uVar1 = *param_1;
+    if (uVar2 == uVar1) {
+      *param_1 = uVar2 & param_2 ^ 0xffffffff;
     }
-    *param_1 = uVar2 & param_2 ^ 0xffffffff;
     if (uVar1 == uVar2) {
       return uVar2;
     }
-    uVar2 = uVar1;
-    if (uVar1 != *param_1) {
-      uVar2 = *param_1;
+    uVar2 = *param_1;
+    if (uVar1 == uVar2) {
+      *param_1 = uVar1 & param_2 ^ 0xffffffff;
     }
-    *param_1 = uVar1 & param_2 ^ 0xffffffff;
     if (uVar2 == uVar1) {
       return uVar1;
     }
-    uVar1 = uVar2;
-    if (uVar2 != *param_1) {
-      uVar1 = *param_1;
+    uVar1 = *param_1;
+    if (uVar2 == uVar1) {
+      *param_1 = uVar2 & param_2 ^ 0xffffffff;
     }
-    *param_1 = uVar2 & param_2 ^ 0xffffffff;
     if (uVar1 == uVar2) {
       return uVar2;
     }
@@ -961,80 +951,72 @@ uint atomic_nand_fetch32(uint *param_1,uint param_2)
   uint uVar2;
   uint uVar3;
   
-  uVar1 = *param_1;
+  uVar2 = *param_1;
   while( true ) {
-    uVar3 = uVar1 & param_2 ^ 0xffffffff;
-    uVar2 = uVar1;
-    if (uVar1 != *param_1) {
-      uVar2 = *param_1;
-    }
-    *param_1 = uVar3;
-    if (uVar2 == uVar1) {
-      return uVar3;
-    }
     uVar1 = uVar2 & param_2 ^ 0xffffffff;
-    uVar3 = uVar2;
-    if (uVar2 != *param_1) {
-      uVar3 = *param_1;
+    uVar3 = *param_1;
+    if (uVar2 == uVar3) {
+      *param_1 = uVar1;
     }
-    *param_1 = uVar1;
     if (uVar3 == uVar2) {
       return uVar1;
     }
-    uVar1 = uVar3 & param_2 ^ 0xffffffff;
-    uVar2 = uVar3;
-    if (uVar3 != *param_1) {
-      uVar2 = *param_1;
+    uVar2 = uVar3 & param_2 ^ 0xffffffff;
+    uVar1 = *param_1;
+    if (uVar3 == uVar1) {
+      *param_1 = uVar2;
     }
-    *param_1 = uVar1;
+    if (uVar1 == uVar3) {
+      return uVar2;
+    }
+    uVar2 = uVar1 & param_2 ^ 0xffffffff;
+    uVar3 = *param_1;
+    if (uVar1 == uVar3) {
+      *param_1 = uVar2;
+    }
+    if (uVar3 == uVar1) {
+      return uVar2;
+    }
+    uVar2 = uVar3 & param_2 ^ 0xffffffff;
+    uVar1 = *param_1;
+    if (uVar3 == uVar1) {
+      *param_1 = uVar2;
+    }
+    if (uVar1 == uVar3) {
+      return uVar2;
+    }
+    uVar2 = uVar1 & param_2 ^ 0xffffffff;
+    uVar3 = *param_1;
+    if (uVar1 == uVar3) {
+      *param_1 = uVar2;
+    }
+    if (uVar3 == uVar1) break;
+    uVar2 = uVar3 & param_2 ^ 0xffffffff;
+    uVar1 = *param_1;
+    if (uVar3 == uVar1) {
+      *param_1 = uVar2;
+    }
+    if (uVar1 == uVar3) {
+      return uVar2;
+    }
+    uVar2 = uVar1 & param_2 ^ 0xffffffff;
+    uVar3 = *param_1;
+    if (uVar1 == uVar3) {
+      *param_1 = uVar2;
+    }
+    if (uVar3 == uVar1) {
+      return uVar2;
+    }
+    uVar1 = uVar3 & param_2 ^ 0xffffffff;
+    uVar2 = *param_1;
+    if (uVar3 == uVar2) {
+      *param_1 = uVar1;
+    }
     if (uVar2 == uVar3) {
       return uVar1;
-    }
-    uVar1 = uVar2 & param_2 ^ 0xffffffff;
-    uVar3 = uVar2;
-    if (uVar2 != *param_1) {
-      uVar3 = *param_1;
-    }
-    *param_1 = uVar1;
-    if (uVar3 == uVar2) {
-      return uVar1;
-    }
-    uVar1 = uVar3 & param_2 ^ 0xffffffff;
-    uVar2 = uVar3;
-    if (uVar3 != *param_1) {
-      uVar2 = *param_1;
-    }
-    *param_1 = uVar1;
-    if (uVar2 == uVar3) break;
-    uVar1 = uVar2 & param_2 ^ 0xffffffff;
-    uVar3 = uVar2;
-    if (uVar2 != *param_1) {
-      uVar3 = *param_1;
-    }
-    *param_1 = uVar1;
-    if (uVar3 == uVar2) {
-      return uVar1;
-    }
-    uVar1 = uVar3 & param_2 ^ 0xffffffff;
-    uVar2 = uVar3;
-    if (uVar3 != *param_1) {
-      uVar2 = *param_1;
-    }
-    *param_1 = uVar1;
-    if (uVar2 == uVar3) {
-      return uVar1;
-    }
-    uVar3 = uVar2 & param_2 ^ 0xffffffff;
-    uVar1 = uVar2;
-    if (uVar2 != *param_1) {
-      uVar1 = *param_1;
-    }
-    *param_1 = uVar3;
-    if (uVar1 == uVar2) {
-      return uVar3;
     }
   }
-  return uVar1;
+  return uVar2;
 }
 
 /* Function atomic_fetch_nand64 at ram:00100848 */
@@ -1046,65 +1028,65 @@ ulonglong atomic_fetch_nand64(ulonglong *param_1,ulonglong param_2)
   
   uVar1 = *param_1;
   while( true ) {
-    uVar2 = uVar1;
-    if (uVar1 != *param_1) {
-      uVar2 = *param_1;
+    uVar2 = *param_1;
+    if (uVar1 == uVar2) {
+      *param_1 = uVar1 & param_2 ^ 0xffffffffffffffff;
+      uVar2 = uVar1;
     }
-    *param_1 = uVar1 & param_2 ^ 0xffffffffffffffff;
     if (uVar2 == uVar1) {
       return uVar1;
     }
-    uVar1 = uVar2;
-    if (uVar2 != *param_1) {
-      uVar1 = *param_1;
+    uVar1 = *param_1;
+    if (uVar2 == uVar1) {
+      *param_1 = uVar2 & param_2 ^ 0xffffffffffffffff;
+      uVar1 = uVar2;
     }
-    *param_1 = uVar2 & param_2 ^ 0xffffffffffffffff;
     if (uVar1 == uVar2) {
       return uVar2;
     }
-    uVar2 = uVar1;
-    if (uVar1 != *param_1) {
-      uVar2 = *param_1;
+    uVar2 = *param_1;
+    if (uVar1 == uVar2) {
+      *param_1 = uVar1 & param_2 ^ 0xffffffffffffffff;
+      uVar2 = uVar1;
     }
-    *param_1 = uVar1 & param_2 ^ 0xffffffffffffffff;
     if (uVar2 == uVar1) {
       return uVar1;
     }
-    uVar1 = uVar2;
-    if (uVar2 != *param_1) {
-      uVar1 = *param_1;
+    uVar1 = *param_1;
+    if (uVar2 == uVar1) {
+      *param_1 = uVar2 & param_2 ^ 0xffffffffffffffff;
+      uVar1 = uVar2;
     }
-    *param_1 = uVar2 & param_2 ^ 0xffffffffffffffff;
     if (uVar1 == uVar2) {
       return uVar2;
     }
-    uVar2 = uVar1;
-    if (uVar1 != *param_1) {
-      uVar2 = *param_1;
+    uVar2 = *param_1;
+    if (uVar1 == uVar2) {
+      *param_1 = uVar1 & param_2 ^ 0xffffffffffffffff;
+      uVar2 = uVar1;
     }
-    *param_1 = uVar1 & param_2 ^ 0xffffffffffffffff;
     if (uVar2 == uVar1) break;
-    uVar1 = uVar2;
-    if (uVar2 != *param_1) {
-      uVar1 = *param_1;
+    uVar1 = *param_1;
+    if (uVar2 == uVar1) {
+      *param_1 = uVar2 & param_2 ^ 0xffffffffffffffff;
+      uVar1 = uVar2;
     }
-    *param_1 = uVar2 & param_2 ^ 0xffffffffffffffff;
     if (uVar1 == uVar2) {
       return uVar2;
     }
-    uVar2 = uVar1;
-    if (uVar1 != *param_1) {
-      uVar2 = *param_1;
+    uVar2 = *param_1;
+    if (uVar1 == uVar2) {
+      *param_1 = uVar1 & param_2 ^ 0xffffffffffffffff;
+      uVar2 = uVar1;
     }
-    *param_1 = uVar1 & param_2 ^ 0xffffffffffffffff;
     if (uVar2 == uVar1) {
       return uVar1;
     }
-    uVar1 = uVar2;
-    if (uVar2 != *param_1) {
-      uVar1 = *param_1;
+    uVar1 = *param_1;
+    if (uVar2 == uVar1) {
+      *param_1 = uVar2 & param_2 ^ 0xffffffffffffffff;
+      uVar1 = uVar2;
     }
-    *param_1 = uVar2 & param_2 ^ 0xffffffffffffffff;
     if (uVar1 == uVar2) {
       return uVar2;
     }
@@ -1123,72 +1105,72 @@ ulonglong atomic_nand_fetch64(ulonglong *param_1,ulonglong param_2)
   uVar1 = *param_1;
   while( true ) {
     uVar3 = uVar1 & param_2 ^ 0xffffffffffffffff;
-    uVar2 = uVar1;
-    if (uVar1 != *param_1) {
-      uVar2 = *param_1;
+    uVar2 = *param_1;
+    if (uVar1 == uVar2) {
+      *param_1 = uVar3;
+      uVar2 = uVar1;
     }
-    *param_1 = uVar3;
     if (uVar2 == uVar1) {
       return uVar3;
     }
     uVar3 = uVar2 & param_2 ^ 0xffffffffffffffff;
-    uVar1 = uVar2;
-    if (uVar2 != *param_1) {
-      uVar1 = *param_1;
+    uVar1 = *param_1;
+    if (uVar2 == uVar1) {
+      *param_1 = uVar3;
+      uVar1 = uVar2;
     }
-    *param_1 = uVar3;
     if (uVar1 == uVar2) {
       return uVar3;
     }
     uVar3 = uVar1 & param_2 ^ 0xffffffffffffffff;
-    uVar2 = uVar1;
-    if (uVar1 != *param_1) {
-      uVar2 = *param_1;
+    uVar2 = *param_1;
+    if (uVar1 == uVar2) {
+      *param_1 = uVar3;
+      uVar2 = uVar1;
     }
-    *param_1 = uVar3;
     if (uVar2 == uVar1) {
       return uVar3;
     }
     uVar3 = uVar2 & param_2 ^ 0xffffffffffffffff;
-    uVar1 = uVar2;
-    if (uVar2 != *param_1) {
-      uVar1 = *param_1;
+    uVar1 = *param_1;
+    if (uVar2 == uVar1) {
+      *param_1 = uVar3;
+      uVar1 = uVar2;
     }
-    *param_1 = uVar3;
     if (uVar1 == uVar2) {
       return uVar3;
     }
     uVar3 = uVar1 & param_2 ^ 0xffffffffffffffff;
-    uVar2 = uVar1;
-    if (uVar1 != *param_1) {
-      uVar2 = *param_1;
+    uVar2 = *param_1;
+    if (uVar1 == uVar2) {
+      *param_1 = uVar3;
+      uVar2 = uVar1;
     }
-    *param_1 = uVar3;
     if (uVar2 == uVar1) break;
     uVar3 = uVar2 & param_2 ^ 0xffffffffffffffff;
-    uVar1 = uVar2;
-    if (uVar2 != *param_1) {
-      uVar1 = *param_1;
+    uVar1 = *param_1;
+    if (uVar2 == uVar1) {
+      *param_1 = uVar3;
+      uVar1 = uVar2;
     }
-    *param_1 = uVar3;
     if (uVar1 == uVar2) {
       return uVar3;
     }
     uVar3 = uVar1 & param_2 ^ 0xffffffffffffffff;
-    uVar2 = uVar1;
-    if (uVar1 != *param_1) {
-      uVar2 = *param_1;
+    uVar2 = *param_1;
+    if (uVar1 == uVar2) {
+      *param_1 = uVar3;
+      uVar2 = uVar1;
     }
-    *param_1 = uVar3;
     if (uVar2 == uVar1) {
       return uVar3;
     }
     uVar3 = uVar2 & param_2 ^ 0xffffffffffffffff;
-    uVar1 = uVar2;
-    if (uVar2 != *param_1) {
-      uVar1 = *param_1;
+    uVar1 = *param_1;
+    if (uVar2 == uVar1) {
+      *param_1 = uVar3;
+      uVar1 = uVar2;
     }
-    *param_1 = uVar3;
     if (uVar1 == uVar2) {
       return uVar3;
     }
