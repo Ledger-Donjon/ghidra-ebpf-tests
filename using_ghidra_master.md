@@ -45,11 +45,11 @@ apt-get install --no-install-recommends --no-install-suggests -y \
     openjdk-25-jdk
 
 (cd /opt && \
-    curl -sSL --output gradle.zip https://services.gradle.org/distributions/gradle-8.11.1-bin.zip && \
-    echo 'f397b287023acdba1e9f6fc5ea72d22dd63669d59ed4a289a29b1a76eee151c6  gradle.zip' | sha256sum -c && \
+    curl -sSL --output gradle.zip https://services.gradle.org/distributions/gradle-9.4.1-bin.zip && \
+    echo '2ab2958f2a1e51120c326cad6f385153bb11ee93b3c216c5fccebfdfbb7ec6cb  gradle.zip' | sha256sum -c && \
     unzip gradle.zip && \
     rm gradle.zip ) && \
-    export PATH="/opt/gradle-8.11.1/bin:$PATH"
+    export PATH="/opt/gradle-9.4.1/bin:$PATH"
 
 gradle -I gradle/support/fetchDependencies.gradle
 ```
