@@ -51,6 +51,10 @@ apt-get install --no-install-recommends --no-install-suggests -y \
     rm gradle.zip ) && \
     export PATH="/opt/gradle-9.4.1/bin:$PATH"
 
+# Ensure Gradle runs with an UTF-8 locale (select one from "locale -a")
+# If Gradle failed to unzip a jar file with unicode characters, define the local and stop the Gradle server: gradle --stop
+export LANG=C.utf8
+
 gradle -I gradle/support/fetchDependencies.gradle
 ```
 
