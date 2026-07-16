@@ -1,0 +1,86 @@
+Export of compiled/call_saving_regs.deb13-clangO2-be.ebpf by Ghidra 12.1.2 PUBLIC
+
+Symbols:
+  ram:00100000 modify_all_registers
+  ram:00100050 use_registers
+
+Listing:
+  Memory Block .text @ram:00100000..ram:00100147
+    modify_all_registers:
+      ram:00100000 b700000000000010 MOV R0,0x10
+      ram:00100008 b770000000000017 MOV R7,0x17
+      ram:00100010 b720000000000012 MOV R2,0x12
+      ram:00100018 b740000000000014 MOV R4,0x14
+      ram:00100020 b760000000000016 MOV R6,0x16
+      ram:00100028 b710000000000011 MOV R1,0x11
+      ram:00100030 b780000000000018 MOV R8,0x18
+      ram:00100038 b730000000000013 MOV R3,0x13
+      ram:00100040 b750000000000015 MOV R5,0x15
+      ram:00100048 9500000000000000 EXIT
+    use_registers:
+      ram:00100050 b710000000000001 MOV R1,0x1
+      ram:00100058 b780000000000008 MOV R8,0x8
+      ram:00100060 b730000000000003 MOV R3,0x3
+      ram:00100068 b750000000000005 MOV R5,0x5
+      ram:00100070 b770000000000007 MOV R7,0x7
+      ram:00100078 b720000000000002 MOV R2,0x2
+      ram:00100080 b790000000000009 MOV R9,0x9
+      ram:00100088 b740000000000004 MOV R4,0x4
+      ram:00100090 b760000000000006 MOV R6,0x6
+      ram:00100098 85010000ffffffec CALL 0x00100000
+      ram:001000a0 6770000000000008 LSH R7,0x8
+      ram:001000a8 678000000000000c LSH R8,0xc
+      ram:001000b0 0f87000000000000 ADD R8,R7
+      ram:001000b8 6700000000000004 LSH R0,0x4
+      ram:001000c0 a700000000000100 XOR R0,0x100
+      ram:001000c8 0f09000000000000 ADD R0,R9
+      ram:001000d0 6700000000000010 LSH R0,0x10
+      ram:001000d8 0f08000000000000 ADD R0,R8
+      ram:001000e0 6760000000000004 LSH R6,0x4
+      ram:001000e8 0f65000000000000 ADD R6,R5
+      ram:001000f0 0f60000000000000 ADD R6,R0
+      ram:001000f8 6730000000000008 LSH R3,0x8
+      ram:00100100 674000000000000c LSH R4,0xc
+      ram:00100108 0f43000000000000 ADD R4,R3
+      ram:00100110 6760000000000010 LSH R6,0x10
+      ram:00100118 0f64000000000000 ADD R6,R4
+      ram:00100120 6720000000000004 LSH R2,0x4
+      ram:00100128 0f21000000000000 ADD R2,R1
+      ram:00100130 0f26000000000000 ADD R2,R6
+      ram:00100138 bf02000000000000 MOV R0,R2
+      ram:00100140 9500000000000000 EXIT
+
+  Memory Block .rel.text @.rel.text::00000000...rel.text::0000000f
+    Elf64_Rel_ARRAY_.rel.text__00000000:
+      offset=0x98 info=0x20000000a (R_BPF_64_32)
+
+Decompiled functions:
+
+/* Function modify_all_registers at ram:00100000 */
+undefined8 modify_all_registers(void)
+
+{
+  return 0x10;
+}
+
+/* Function use_registers at ram:00100050 */
+longlong use_registers(void)
+
+{
+  longlong lVar1;
+  longlong lVar2;
+  longlong lVar3;
+  longlong lVar4;
+  longlong lVar5;
+  longlong lVar6;
+  
+  lVar2 = 1;
+  lVar4 = 3;
+  lVar6 = 5;
+  lVar3 = 2;
+  lVar5 = 4;
+  lVar1 = modify_all_registers(1,2,3,4,5);
+  return lVar3 * 0x10 + lVar2 +
+         (lVar6 + ((lVar1 << 4 ^ 0x100U) + 9) * 0x10000 + 0x8760) * 0x10000 +
+         lVar5 * 0x1000 + lVar4 * 0x100;
+}
