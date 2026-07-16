@@ -72,6 +72,15 @@ compile_clang -O2 -mcpu=v4 -mbig-endian -c byte_swap.c -o compiled/byte_swap.deb
 compile_gcc -O2 -mcpu=v4 -masm=normal -mlittle-endian -c byte_swap.c -o compiled/byte_swap.deb13-gccO2-le.ebpf
 compile_gcc -O2 -mcpu=v4 -masm=normal -mbig-endian -c byte_swap.c -o compiled/byte_swap.deb13-gccO2-be.ebpf
 
+compile_clang -O0 -mlittle-endian -c call_saving_regs.c -o compiled/call_saving_regs.deb13-clangO0-le.ebpf
+compile_clang -O2 -mlittle-endian -c call_saving_regs.c -o compiled/call_saving_regs.deb13-clangO2-le.ebpf
+compile_clang -O0 -mbig-endian -c call_saving_regs.c -o compiled/call_saving_regs.deb13-clangO0-be.ebpf
+compile_clang -O2 -mbig-endian -c call_saving_regs.c -o compiled/call_saving_regs.deb13-clangO2-be.ebpf
+compile_gcc -O0 -mlittle-endian -c call_saving_regs.c -o compiled/call_saving_regs.deb13-gccO0-le.ebpf
+compile_gcc -O2 -mlittle-endian -c call_saving_regs.c -o compiled/call_saving_regs.deb13-gccO2-le.ebpf
+compile_gcc -O0 -mbig-endian -c call_saving_regs.c -o compiled/call_saving_regs.deb13-gccO0-be.ebpf
+compile_gcc -O2 -mbig-endian -c call_saving_regs.c -o compiled/call_saving_regs.deb13-gccO2-be.ebpf
+
 compile_clang -O0 -c division.c -o compiled/division.deb13-clangO0.ebpf
 compile_gcc -O0 -c division.c -o compiled/division.deb13-gccO0.ebpf
 
