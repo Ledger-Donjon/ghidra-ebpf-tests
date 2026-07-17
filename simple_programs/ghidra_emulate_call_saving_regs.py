@@ -94,6 +94,10 @@ Example of successful output:
     ram:00100140 (EXIT                    ) r0=0x987654321 r1=0x1 r2=0x987654321 r3=0x300 r4=0x4300 r5=0x5 r6=0x987654300 r10=0x10ff8 StkTop-4176=0x1000a0 StkTop-8280=0x1
     Emulation complete, result is 0x987654321
     Test OK compiled/call_saving_regs.deb13-clangO2-le.ebpf
+
+This is being fixed with:
+https://github.com/NationalSecurityAgency/ghidra/pull/9381 ("Emulate function
+frames in eBPF specifications")
 """
 from __future__ import annotations
 

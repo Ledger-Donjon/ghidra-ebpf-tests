@@ -8,6 +8,10 @@ function (use_registers) which sets every register, call another function
 (modify_all_registers) and computes a checksum of the register values. If the
 registers were not restored correctly after the function returned, the checksum
 would not be the expected one (0x987654321).
+
+This is being fixed with:
+https://github.com/NationalSecurityAgency/ghidra/pull/9381 ("Emulate function
+frames in eBPF specifications")
 */
 
 unsigned long __attribute__((noinline)) modify_all_registers(void) {
