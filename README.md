@@ -208,6 +208,7 @@ Merged in [Ghidra 12.0.4](https://github.com/NationalSecurityAgency/ghidra/relea
 Not merged yet:
 
 - [#8860: Process more ELF relocation kinds for eBPF programs](https://github.com/NationalSecurityAgency/ghidra/pull/8860)
+- [#9381: Emulate function frames in eBPF specifications](https://github.com/NationalSecurityAgency/ghidra/pull/9381)
 
 ## License
 
