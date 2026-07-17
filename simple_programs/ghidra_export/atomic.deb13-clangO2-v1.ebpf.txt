@@ -1,4 +1,4 @@
-Export of compiled/atomic.deb13-clangO2-v1.ebpf by Ghidra 12.0.4 PUBLIC
+Export of compiled/atomic.deb13-clangO2-v1.ebpf by Ghidra 12.1.2 PUBLIC
 
 Symbols:
   ram:00100000 atomic_exchange64

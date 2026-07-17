@@ -1,4 +1,4 @@
-Export of compiled/byte_swap.deb13-gccO2-le.ebpf by Ghidra 12.0.4 PUBLIC
+Export of compiled/byte_swap.deb13-gccO2-le.ebpf by Ghidra 12.1.2 PUBLIC
 
 Symbols:
   ram:00100000 do_be16

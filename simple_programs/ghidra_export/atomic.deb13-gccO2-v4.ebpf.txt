@@ -1,4 +1,4 @@
-Export of compiled/atomic.deb13-gccO2-v4.ebpf by Ghidra 12.0.4 PUBLIC
+Export of compiled/atomic.deb13-gccO2-v4.ebpf by Ghidra 12.1.2 PUBLIC
 
 Symbols:
   ram:00100000 atomic_load32
