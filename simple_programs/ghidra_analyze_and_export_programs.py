@@ -118,6 +118,7 @@ def export_program(compiled_path: Path, flat_api: FlatProgramAPI, program: Progr
                         r_offset = reloc.getComponent(0).getValue().getUnsignedValue()
                         r_info = reloc.getComponent(1).getValue().getUnsignedValue()
                         r_type = {
+                            0: "R_BPF_NONE",
                             1: "R_BPF_64_64",
                             2: "R_BPF_64_ABS64",
                             3: "R_BPF_64_ABS32",

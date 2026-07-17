@@ -50,9 +50,70 @@ Listing:
       ram:00100138 bf02000000000000 MOV R0,R2
       ram:00100140 9500000000000000 EXIT
 
+  Memory Block .rel.BTF.ext @.rel.BTF.ext::00000000...rel.BTF.ext::000000cf
+    Elf64_Rel_ARRAY_.rel.BTF.ext__00000000:
+      offset=0x2c info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x34 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x48 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x58 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x68 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x78 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x88 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x98 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0xa8 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0xb8 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0xc8 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0xd8 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0xe8 info=0x200000004 (R_BPF_64_NODYLD32)
+
+  Memory Block .rel.debug_addr @.rel.debug_addr::00000000...rel.debug_addr::0000001f
+    Elf64_Rel_ARRAY_.rel.debug_addr__00000000:
+      offset=0x8 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x10 info=0x200000002 (R_BPF_64_ABS64)
+
+  Memory Block .rel.debug_frame @.rel.debug_frame::00000000...rel.debug_frame::0000003f
+    Elf64_Rel_ARRAY_.rel.debug_frame__00000000:
+      offset=0x14 info=0x800000003 (R_BPF_64_ABS32)
+      offset=0x18 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x2c info=0x800000003 (R_BPF_64_ABS32)
+      offset=0x30 info=0x200000002 (R_BPF_64_ABS64)
+
+  Memory Block .rel.debug_info @.rel.debug_info::00000000...rel.debug_info::0000004f
+    Elf64_Rel_ARRAY_.rel.debug_info__00000000:
+      offset=0x8 info=0x400000003 (R_BPF_64_ABS32)
+      offset=0x11 info=0x500000003 (R_BPF_64_ABS32)
+      offset=0x15 info=0x900000003 (R_BPF_64_ABS32)
+      offset=0x1f info=0x700000003 (R_BPF_64_ABS32)
+      offset=0x23 info=0x300000003 (R_BPF_64_ABS32)
+
+  Memory Block .rel.debug_line @.rel.debug_line::00000000...rel.debug_line::0000002f
+    Elf64_Rel_ARRAY_.rel.debug_line__00000000:
+      offset=0x22 info=0xa00000003 (R_BPF_64_ABS32)
+      offset=0x2e info=0xa00000003 (R_BPF_64_ABS32)
+      offset=0x4b info=0x200000002 (R_BPF_64_ABS64)
+
+  Memory Block .rel.debug_str_offsets @.rel.debug_str_offsets::00000000...rel.debug_str_offsets::000000ff
+    Elf64_Rel_ARRAY_.rel.debug_str_offsets__00000000:
+      offset=0x8 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0xc info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x10 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x14 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x18 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x1c info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x20 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x24 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x28 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x2c info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x30 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x34 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x38 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x3c info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x40 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x44 info=0x600000003 (R_BPF_64_ABS32)
+
   Memory Block .rel.text @.rel.text::00000000...rel.text::0000000f
     Elf64_Rel_ARRAY_.rel.text__00000000:
-      offset=0x98 info=0x20000000a (R_BPF_64_32)
+      offset=0x98 info=0xb0000000a (R_BPF_64_32)
 
 Decompiled functions:
 
