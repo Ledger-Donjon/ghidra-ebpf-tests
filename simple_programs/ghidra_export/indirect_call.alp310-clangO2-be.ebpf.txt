@@ -26,9 +26,244 @@ Listing:
     ptr_to_some_function:
       ram:00101000 (external) ?? ??
 
+  Memory Block .debug_loc @.debug_loc::00000000...debug_loc::000000b1
+    DAT_.debug_loc__00000000:
+      .debug_loc::00000000 00 ?? 00h
+      .debug_loc::00000001 00 ?? 00h
+      .debug_loc::00000002 00 ?? 00h
+      .debug_loc::00000003 00 ?? 00h
+      .debug_loc::00000004 00 ?? 00h
+      .debug_loc::00000005 00 ?? 00h
+      .debug_loc::00000006 00 ?? 00h
+      .debug_loc::00000007 28 ?? 28h    (
+      .debug_loc::00000008 00 ?? 00h
+      .debug_loc::00000009 00 ?? 00h
+      .debug_loc::0000000a 00 ?? 00h
+      .debug_loc::0000000b 00 ?? 00h
+      .debug_loc::0000000c 00 ?? 00h
+      .debug_loc::0000000d 00 ?? 00h
+      .debug_loc::0000000e 00 ?? 00h
+      .debug_loc::0000000f 30 ?? 30h    0
+      .debug_loc::00000010 00 ?? 00h
+      .debug_loc::00000011 01 ?? 01h
+      .debug_loc::00000012 51 ?? 51h    Q
+      .debug_loc::00000013 00 ?? 00h
+      .debug_loc::00000014 00 ?? 00h
+      .debug_loc::00000015 00 ?? 00h
+      .debug_loc::00000016 00 ?? 00h
+      .debug_loc::00000017 00 ?? 00h
+      .debug_loc::00000018 00 ?? 00h
+      .debug_loc::00000019 00 ?? 00h
+      .debug_loc::0000001a 30 ?? 30h    0
+      .debug_loc::0000001b 00 ?? 00h
+      .debug_loc::0000001c 00 ?? 00h
+      .debug_loc::0000001d 00 ?? 00h
+      .debug_loc::0000001e 00 ?? 00h
+      .debug_loc::0000001f 00 ?? 00h
+      .debug_loc::00000020 00 ?? 00h
+      .debug_loc::00000021 00 ?? 00h
+      .debug_loc::00000022 40 ?? 40h    @
+      .debug_loc::00000023 00 ?? 00h
+      .debug_loc::00000024 01 ?? 01h
+      .debug_loc::00000025 53 ?? 53h    S
+      .debug_loc::00000026 00 ?? 00h
+      .debug_loc::00000027 00 ?? 00h
+      .debug_loc::00000028 00 ?? 00h
+      .debug_loc::00000029 00 ?? 00h
+      .debug_loc::0000002a 00 ?? 00h
+      .debug_loc::0000002b 00 ?? 00h
+      .debug_loc::0000002c 00 ?? 00h
+      .debug_loc::0000002d 00 ?? 00h
+      .debug_loc::0000002e 00 ?? 00h
+      .debug_loc::0000002f 00 ?? 00h
+      .debug_loc::00000030 00 ?? 00h
+      .debug_loc::00000031 00 ?? 00h
+      .debug_loc::00000032 00 ?? 00h
+      .debug_loc::00000033 00 ?? 00h
+      .debug_loc::00000034 00 ?? 00h
+      .debug_loc::00000035 00 ?? 00h
+      .debug_loc::00000036 00 ?? 00h
+      .debug_loc::00000037 00 ?? 00h
+      .debug_loc::00000038 00 ?? 00h
+      .debug_loc::00000039 00 ?? 00h
+      .debug_loc::0000003a 00 ?? 00h
+      .debug_loc::0000003b 00 ?? 00h
+      .debug_loc::0000003c 00 ?? 00h
+      .debug_loc::0000003d 28 ?? 28h    (
+      .debug_loc::0000003e 00 ?? 00h
+      .debug_loc::0000003f 00 ?? 00h
+      .debug_loc::00000040 00 ?? 00h
+      .debug_loc::00000041 00 ?? 00h
+      .debug_loc::00000042 00 ?? 00h
+      .debug_loc::00000043 00 ?? 00h
+      .debug_loc::00000044 00 ?? 00h
+      .debug_loc::00000045 38 ?? 38h    8
+      .debug_loc::00000046 00 ?? 00h
+      .debug_loc::00000047 01 ?? 01h
+      .debug_loc::00000048 52 ?? 52h    R
+      .debug_loc::00000049 00 ?? 00h
+      .debug_loc::0000004a 00 ?? 00h
+      .debug_loc::0000004b 00 ?? 00h
+      .debug_loc::0000004c 00 ?? 00h
+      .debug_loc::0000004d 00 ?? 00h
+      .debug_loc::0000004e 00 ?? 00h
+      .debug_loc::0000004f 00 ?? 00h
+      .debug_loc::00000050 38 ?? 38h    8
+      .debug_loc::00000051 00 ?? 00h
+      .debug_loc::00000052 00 ?? 00h
+      .debug_loc::00000053 00 ?? 00h
+      .debug_loc::00000054 00 ?? 00h
+      .debug_loc::00000055 00 ?? 00h
+      .debug_loc::00000056 00 ?? 00h
+      .debug_loc::00000057 00 ?? 00h
+      .debug_loc::00000058 40 ?? 40h    @
+      .debug_loc::00000059 00 ?? 00h
+      .debug_loc::0000005a 01 ?? 01h
+      .debug_loc::0000005b 51 ?? 51h    Q
+      .debug_loc::0000005c 00 ?? 00h
+      .debug_loc::0000005d 00 ?? 00h
+      .debug_loc::0000005e 00 ?? 00h
+      .debug_loc::0000005f 00 ?? 00h
+      .debug_loc::00000060 00 ?? 00h
+      .debug_loc::00000061 00 ?? 00h
+      .debug_loc::00000062 00 ?? 00h
+      .debug_loc::00000063 00 ?? 00h
+      .debug_loc::00000064 00 ?? 00h
+      .debug_loc::00000065 00 ?? 00h
+      .debug_loc::00000066 00 ?? 00h
+      .debug_loc::00000067 00 ?? 00h
+      .debug_loc::00000068 00 ?? 00h
+      .debug_loc::00000069 00 ?? 00h
+      .debug_loc::0000006a 00 ?? 00h
+      .debug_loc::0000006b 00 ?? 00h
+      .debug_loc::0000006c 00 ?? 00h
+      .debug_loc::0000006d 00 ?? 00h
+      .debug_loc::0000006e 00 ?? 00h
+      .debug_loc::0000006f 00 ?? 00h
+      .debug_loc::00000070 00 ?? 00h
+      .debug_loc::00000071 00 ?? 00h
+      .debug_loc::00000072 00 ?? 00h
+      .debug_loc::00000073 48 ?? 48h    H
+      .debug_loc::00000074 00 ?? 00h
+      .debug_loc::00000075 00 ?? 00h
+      .debug_loc::00000076 00 ?? 00h
+      .debug_loc::00000077 00 ?? 00h
+      .debug_loc::00000078 00 ?? 00h
+      .debug_loc::00000079 00 ?? 00h
+      .debug_loc::0000007a 00 ?? 00h
+      .debug_loc::0000007b 50 ?? 50h    P
+      .debug_loc::0000007c 00 ?? 00h
+      .debug_loc::0000007d 01 ?? 01h
+      .debug_loc::0000007e 51 ?? 51h    Q
+      .debug_loc::0000007f 00 ?? 00h
+      .debug_loc::00000080 00 ?? 00h
+      .debug_loc::00000081 00 ?? 00h
+      .debug_loc::00000082 00 ?? 00h
+      .debug_loc::00000083 00 ?? 00h
+      .debug_loc::00000084 00 ?? 00h
+      .debug_loc::00000085 00 ?? 00h
+      .debug_loc::00000086 00 ?? 00h
+      .debug_loc::00000087 00 ?? 00h
+      .debug_loc::00000088 00 ?? 00h
+      .debug_loc::00000089 00 ?? 00h
+      .debug_loc::0000008a 00 ?? 00h
+      .debug_loc::0000008b 00 ?? 00h
+      .debug_loc::0000008c 00 ?? 00h
+      .debug_loc::0000008d 00 ?? 00h
+      .debug_loc::0000008e 00 ?? 00h
+      .debug_loc::0000008f 00 ?? 00h
+      .debug_loc::00000090 00 ?? 00h
+      .debug_loc::00000091 00 ?? 00h
+      .debug_loc::00000092 00 ?? 00h
+      .debug_loc::00000093 00 ?? 00h
+      .debug_loc::00000094 00 ?? 00h
+      .debug_loc::00000095 00 ?? 00h
+      .debug_loc::00000096 48 ?? 48h    H
+      .debug_loc::00000097 00 ?? 00h
+      .debug_loc::00000098 00 ?? 00h
+      .debug_loc::00000099 00 ?? 00h
+      .debug_loc::0000009a 00 ?? 00h
+      .debug_loc::0000009b 00 ?? 00h
+      .debug_loc::0000009c 00 ?? 00h
+      .debug_loc::0000009d 00 ?? 00h
+      .debug_loc::0000009e 50 ?? 50h    P
+      .debug_loc::0000009f 00 ?? 00h
+      .debug_loc::000000a0 01 ?? 01h
+      .debug_loc::000000a1 52 ?? 52h    R
+      .debug_loc::000000a2 00 ?? 00h
+      .debug_loc::000000a3 00 ?? 00h
+      .debug_loc::000000a4 00 ?? 00h
+      .debug_loc::000000a5 00 ?? 00h
+      .debug_loc::000000a6 00 ?? 00h
+      .debug_loc::000000a7 00 ?? 00h
+      .debug_loc::000000a8 00 ?? 00h
+      .debug_loc::000000a9 00 ?? 00h
+      .debug_loc::000000aa 00 ?? 00h
+      .debug_loc::000000ab 00 ?? 00h
+      .debug_loc::000000ac 00 ?? 00h
+      .debug_loc::000000ad 00 ?? 00h
+      .debug_loc::000000ae 00 ?? 00h
+      .debug_loc::000000af 00 ?? 00h
+      .debug_loc::000000b0 00 ?? 00h
+      .debug_loc::000000b1 00 ?? 00h
+
+  Memory Block .debug_macinfo @.debug_macinfo::00000000...debug_macinfo::00000000
+    DAT_.debug_macinfo__00000000:
+      .debug_macinfo::00000000 00 ?? 00h
+
+  Memory Block .rel.BTF.ext @.rel.BTF.ext::00000000...rel.BTF.ext::0000009f
+    Elf64_Rel_ARRAY_.rel.BTF.ext__00000000:
+      offset=0x24 info=0xb00000000 (R_BPF_NONE)
+      offset=0x2c info=0xb00000000 (R_BPF_NONE)
+      offset=0x34 info=0xb00000000 (R_BPF_NONE)
+      offset=0x48 info=0xb00000000 (R_BPF_NONE)
+      offset=0x58 info=0xb00000000 (R_BPF_NONE)
+      offset=0x68 info=0xb00000000 (R_BPF_NONE)
+      offset=0x78 info=0xb00000000 (R_BPF_NONE)
+      offset=0x88 info=0xb00000000 (R_BPF_NONE)
+      offset=0x98 info=0xb00000000 (R_BPF_NONE)
+      offset=0xa8 info=0xb00000000 (R_BPF_NONE)
+
+  Memory Block .rel.debug_frame @.rel.debug_frame::00000000...rel.debug_frame::0000005f
+    Elf64_Rel_ARRAY_.rel.debug_frame__00000000:
+      offset=0x14 info=0xe0000000a (R_BPF_64_32)
+      offset=0x18 info=0xb00000001 (R_BPF_64_64)
+      offset=0x2c info=0xe0000000a (R_BPF_64_32)
+      offset=0x30 info=0xb00000001 (R_BPF_64_64)
+      offset=0x44 info=0xe0000000a (R_BPF_64_32)
+      offset=0x48 info=0xb00000001 (R_BPF_64_64)
+
+  Memory Block .rel.debug_info @.rel.debug_info::00000000...rel.debug_info::0000014f
+    Elf64_Rel_ARRAY_.rel.debug_info__00000000:
+      offset=0x6 info=0xd0000000a (R_BPF_64_32)
+      offset=0xc info=0x30000000a (R_BPF_64_32)
+      offset=0x12 info=0x20000000a (R_BPF_64_32)
+      offset=0x16 info=0xf0000000a (R_BPF_64_32)
+      offset=0x1a info=0x50000000a (R_BPF_64_32)
+      offset=0x1e info=0xb00000001 (R_BPF_64_64)
+      offset=0x2b info=0xb00000001 (R_BPF_64_64)
+      offset=0x39 info=0x40000000a (R_BPF_64_32)
+      offset=0x40 info=0xb00000001 (R_BPF_64_64)
+      offset=0x4e info=0x70000000a (R_BPF_64_32)
+      offset=0x59 info=0xc0000000a (R_BPF_64_32)
+      offset=0x5d info=0x60000000a (R_BPF_64_32)
+      offset=0x68 info=0xc0000000a (R_BPF_64_32)
+      offset=0x6c info=0xa0000000a (R_BPF_64_32)
+      offset=0x78 info=0xb00000001 (R_BPF_64_64)
+      offset=0x86 info=0x90000000a (R_BPF_64_32)
+      offset=0x91 info=0xc0000000a (R_BPF_64_32)
+      offset=0x95 info=0xa0000000a (R_BPF_64_32)
+      offset=0xa0 info=0xc0000000a (R_BPF_64_32)
+      offset=0xa4 info=0x60000000a (R_BPF_64_32)
+      offset=0xb0 info=0x80000000a (R_BPF_64_32)
+
+  Memory Block .rel.debug_line @.rel.debug_line::00000000...rel.debug_line::0000000f
+    Elf64_Rel_ARRAY_.rel.debug_line__00000000:
+      offset=0x34 info=0xb00000001 (R_BPF_64_64)
+
   Memory Block .rel.text @.rel.text::00000000...rel.text::0000000f
     Elf64_Rel_ARRAY_.rel.text__00000000:
-      offset=0x0 info=0x500000001 (R_BPF_64_64)
+      offset=0x0 info=0x1300000001 (R_BPF_64_64)
 
 Decompiled functions:
 

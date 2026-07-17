@@ -50,6 +50,103 @@ Listing:
       ram:001000c8 d700000040000000 BSWAP64 R0
       ram:001000d0 9500000000000000 EXIT
 
+  Memory Block .rel.debug_aranges @.rel.debug_aranges::00000000...rel.debug_aranges::0000001f
+    Elf64_Rel_ARRAY_.rel.debug_aranges__00000000:
+      offset=0x6 info=0x500000003 (R_BPF_64_ABS32)
+      offset=0x10 info=0x200000002 (R_BPF_64_ABS64)
+
+  Memory Block .rel.debug_info @.rel.debug_info::00000000...rel.debug_info::0000020f
+    Elf64_Rel_ARRAY_.rel.debug_info__00000000:
+      offset=0x8 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0xd info=0xb00000003 (R_BPF_64_ABS32)
+      offset=0x12 info=0xc00000003 (R_BPF_64_ABS32)
+      offset=0x16 info=0xc00000003 (R_BPF_64_ABS32)
+      offset=0x1a info=0x900000003 (R_BPF_64_ABS32)
+      offset=0x26 info=0xa00000003 (R_BPF_64_ABS32)
+      offset=0x2b info=0xb00000003 (R_BPF_64_ABS32)
+      offset=0x35 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x5a info=0xb00000003 (R_BPF_64_ABS32)
+      offset=0x5f info=0xb00000003 (R_BPF_64_ABS32)
+      offset=0x69 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x8e info=0xb00000003 (R_BPF_64_ABS32)
+      offset=0x93 info=0xb00000003 (R_BPF_64_ABS32)
+      offset=0x9d info=0x200000002 (R_BPF_64_ABS64)
+      offset=0xc2 info=0xb00000003 (R_BPF_64_ABS32)
+      offset=0xc7 info=0xb00000003 (R_BPF_64_ABS32)
+      offset=0xd1 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0xf1 info=0x700000003 (R_BPF_64_ABS32)
+      offset=0xf7 info=0xb00000003 (R_BPF_64_ABS32)
+      offset=0x101 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x121 info=0x700000003 (R_BPF_64_ABS32)
+      offset=0x127 info=0xb00000003 (R_BPF_64_ABS32)
+      offset=0x131 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x151 info=0x700000003 (R_BPF_64_ABS32)
+      offset=0x157 info=0xb00000003 (R_BPF_64_ABS32)
+      offset=0x161 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x181 info=0x700000003 (R_BPF_64_ABS32)
+      offset=0x187 info=0xb00000003 (R_BPF_64_ABS32)
+      offset=0x191 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x1b1 info=0x700000003 (R_BPF_64_ABS32)
+      offset=0x1b7 info=0xb00000003 (R_BPF_64_ABS32)
+      offset=0x1c2 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x1de info=0x700000003 (R_BPF_64_ABS32)
+
+  Memory Block .rel.debug_line @.rel.debug_line::00000000...rel.debug_line::0000027f
+    Elf64_Rel_ARRAY_.rel.debug_line__00000000:
+      offset=0x22 info=0xc00000003 (R_BPF_64_ABS32)
+      offset=0x2c info=0xc00000003 (R_BPF_64_ABS32)
+      offset=0x31 info=0xc00000003 (R_BPF_64_ABS32)
+      offset=0x39 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x47 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x55 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x63 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x72 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x81 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x8f info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x9d info=0x200000002 (R_BPF_64_ABS64)
+      offset=0xac info=0x200000002 (R_BPF_64_ABS64)
+      offset=0xbb info=0x200000002 (R_BPF_64_ABS64)
+      offset=0xc9 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0xd7 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0xe6 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0xf5 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x103 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x111 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x120 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x12f info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x13d info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x14b info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x15a info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x169 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x177 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x185 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x194 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x1a3 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x1b1 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x1c0 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x1ce info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x1dd info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x1eb info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x1fa info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x208 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x217 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x225 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x234 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x242 info=0x200000002 (R_BPF_64_ABS64)
+
+  Memory Block .rel.debug_loclists @.rel.debug_loclists::00000000...rel.debug_loclists::0000005f
+    Elf64_Rel_ARRAY_.rel.debug_loclists__00000000:
+      offset=0xd info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x21 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x35 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x49 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x5d info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x71 info=0x200000002 (R_BPF_64_ABS64)
+
+  Memory Block .rel.debug_rnglists @.rel.debug_rnglists::00000000...rel.debug_rnglists::0000000f
+    Elf64_Rel_ARRAY_.rel.debug_rnglists__00000000:
+      offset=0xd info=0x200000002 (R_BPF_64_ABS64)
+
 Decompiled functions:
 
 /* Function do_be16 at ram:00100000 */

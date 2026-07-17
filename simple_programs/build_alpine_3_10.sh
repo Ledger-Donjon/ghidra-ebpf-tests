@@ -46,6 +46,7 @@ compile_clang() {
     # Compile with clang
     clang -target bpf \
         -Werror -Wall -Wextra \
+        -ggdb -fdebug-prefix-map="$PWD=." \
         "$@"
 }
 

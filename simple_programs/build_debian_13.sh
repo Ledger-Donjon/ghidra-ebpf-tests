@@ -50,12 +50,14 @@ compile_clang() {
     # Compile with clang
     clang -target bpf \
         -Werror -Wall -Wextra \
+        -ggdb -ffile-prefix-map="$PWD=." \
         "$@"
 }
 compile_gcc() {
     # Compile with gcc
     bpf-gcc \
         -Werror -Wall -Wextra \
+        -ggdb -ffile-prefix-map="$PWD=." \
         "$@"
 }
 

@@ -15,6 +15,36 @@ Listing:
       ram:00100020 c700000020000000 ARSH R0,0x20
       ram:00100028 9500000000000000 EXIT
 
+  Memory Block .rel.debug_aranges @.rel.debug_aranges::00000000...rel.debug_aranges::0000001f
+    Elf64_Rel_ARRAY_.rel.debug_aranges__00000000:
+      offset=0x6 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x10 info=0x200000002 (R_BPF_64_ABS64)
+
+  Memory Block .rel.debug_info @.rel.debug_info::00000000...rel.debug_info::0000008f
+    Elf64_Rel_ARRAY_.rel.debug_info__00000000:
+      offset=0x8 info=0x700000003 (R_BPF_64_ABS32)
+      offset=0xd info=0xa00000003 (R_BPF_64_ABS32)
+      offset=0x12 info=0xb00000003 (R_BPF_64_ABS32)
+      offset=0x16 info=0xb00000003 (R_BPF_64_ABS32)
+      offset=0x1a info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x2a info=0x900000003 (R_BPF_64_ABS32)
+      offset=0x2f info=0xa00000003 (R_BPF_64_ABS32)
+      offset=0x3a info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x60 info=0x200000002 (R_BPF_64_ABS64)
+
+  Memory Block .rel.debug_line @.rel.debug_line::00000000...rel.debug_line::0000009f
+    Elf64_Rel_ARRAY_.rel.debug_line__00000000:
+      offset=0x22 info=0xb00000003 (R_BPF_64_ABS32)
+      offset=0x2c info=0xb00000003 (R_BPF_64_ABS32)
+      offset=0x31 info=0xb00000003 (R_BPF_64_ABS32)
+      offset=0x39 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x47 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x55 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x63 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x71 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x7f info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x8d info=0x200000002 (R_BPF_64_ABS64)
+
 Decompiled functions:
 
 /* Function one at ram:00100000 */
