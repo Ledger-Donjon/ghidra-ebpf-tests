@@ -3,9 +3,13 @@ Export of compiled/call_saving_regs.deb13-clangO2-be.ebpf by Ghidra 12.1.2 PUBLI
 Symbols:
   ram:00100000 modify_all_registers
   ram:00100050 use_registers
+  ram:00100148 f1
+  ram:00100160 f2
+  ram:00100178 f3
+  ram:00100190 call_3_functions
 
 Listing:
-  Memory Block .text @ram:00100000..ram:00100147
+  Memory Block .text @ram:00100000..ram:00100207
     modify_all_registers:
       ram:00100000 b700000000000010 MOV R0,0x10
       ram:00100008 b770000000000017 MOV R7,0x17
@@ -49,13 +53,43 @@ Listing:
       ram:00100130 0f26000000000000 ADD R2,R6
       ram:00100138 bf02000000000000 MOV R0,R2
       ram:00100140 9500000000000000 EXIT
+    f1:
+      ram:00100148 bf01000000000000 MOV R0,R1
+      ram:00100150 0700000000000001 ADD R0,0x1
+      ram:00100158 9500000000000000 EXIT
+    f2:
+      ram:00100160 bf01000000000000 MOV R0,R1
+      ram:00100168 6700000000000001 LSH R0,0x1
+      ram:00100170 9500000000000000 EXIT
+    f3:
+      ram:00100178 bf01000000000000 MOV R0,R1
+      ram:00100180 07000000fffffffd ADD R0,-0x3
+      ram:00100188 9500000000000000 EXIT
+    call_3_functions:
+      ram:00100190 bf73000000000000 MOV R7,R3
+      ram:00100198 bf82000000000000 MOV R8,R2
+      ram:001001a0 bf68000000000000 MOV R6,R8
+      ram:001001a8 0f61000000000000 ADD R6,R1
+      ram:001001b0 0f67000000000000 ADD R6,R7
+      ram:001001b8 85010000fffffff1 CALL 0x00100148
+      ram:001001c0 0f60000000000000 ADD R6,R0
+      ram:001001c8 bf18000000000000 MOV R1,R8
+      ram:001001d0 85010000fffffff1 CALL 0x00100160
+      ram:001001d8 0f60000000000000 ADD R6,R0
+      ram:001001e0 bf17000000000000 MOV R1,R7
+      ram:001001e8 85010000fffffff1 CALL 0x00100178
+      ram:001001f0 0f60000000000000 ADD R6,R0
+      ram:001001f8 bf06000000000000 MOV R0,R6
+      ram:00100200 9500000000000000 EXIT
 
-  Memory Block .rel.BTF.ext @.rel.BTF.ext::00000000...rel.BTF.ext::000000cf
+  Memory Block .rel.BTF.ext @.rel.BTF.ext::00000000...rel.BTF.ext::0000023f
     Elf64_Rel_ARRAY_.rel.BTF.ext__00000000:
       offset=0x2c info=0x200000004 (R_BPF_64_NODYLD32)
       offset=0x34 info=0x200000004 (R_BPF_64_NODYLD32)
-      offset=0x48 info=0x200000004 (R_BPF_64_NODYLD32)
-      offset=0x58 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x3c info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x44 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x4c info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x54 info=0x200000004 (R_BPF_64_NODYLD32)
       offset=0x68 info=0x200000004 (R_BPF_64_NODYLD32)
       offset=0x78 info=0x200000004 (R_BPF_64_NODYLD32)
       offset=0x88 info=0x200000004 (R_BPF_64_NODYLD32)
@@ -65,18 +99,54 @@ Listing:
       offset=0xc8 info=0x200000004 (R_BPF_64_NODYLD32)
       offset=0xd8 info=0x200000004 (R_BPF_64_NODYLD32)
       offset=0xe8 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0xf8 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x108 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x118 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x128 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x138 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x148 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x158 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x168 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x178 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x188 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x198 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x1a8 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x1b8 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x1c8 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x1d8 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x1e8 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x1f8 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x208 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x218 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x228 info=0x200000004 (R_BPF_64_NODYLD32)
+      offset=0x238 info=0x200000004 (R_BPF_64_NODYLD32)
 
-  Memory Block .rel.debug_addr @.rel.debug_addr::00000000...rel.debug_addr::0000001f
+  Memory Block .rel.debug_addr @.rel.debug_addr::00000000...rel.debug_addr::0000008f
     Elf64_Rel_ARRAY_.rel.debug_addr__00000000:
       offset=0x8 info=0x200000002 (R_BPF_64_ABS64)
       offset=0x10 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x18 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x20 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x28 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x30 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x38 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x40 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x48 info=0x200000002 (R_BPF_64_ABS64)
 
-  Memory Block .rel.debug_frame @.rel.debug_frame::00000000...rel.debug_frame::0000003f
+  Memory Block .rel.debug_frame @.rel.debug_frame::00000000...rel.debug_frame::000000bf
     Elf64_Rel_ARRAY_.rel.debug_frame__00000000:
       offset=0x14 info=0x800000003 (R_BPF_64_ABS32)
       offset=0x18 info=0x200000002 (R_BPF_64_ABS64)
       offset=0x2c info=0x800000003 (R_BPF_64_ABS32)
       offset=0x30 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x44 info=0x800000003 (R_BPF_64_ABS32)
+      offset=0x48 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x5c info=0x800000003 (R_BPF_64_ABS32)
+      offset=0x60 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x74 info=0x800000003 (R_BPF_64_ABS32)
+      offset=0x78 info=0x200000002 (R_BPF_64_ABS64)
+      offset=0x8c info=0x800000003 (R_BPF_64_ABS32)
+      offset=0x90 info=0x200000002 (R_BPF_64_ABS64)
 
   Memory Block .rel.debug_info @.rel.debug_info::00000000...rel.debug_info::0000004f
     Elf64_Rel_ARRAY_.rel.debug_info__00000000:
@@ -92,7 +162,7 @@ Listing:
       offset=0x2e info=0xa00000003 (R_BPF_64_ABS32)
       offset=0x4b info=0x200000002 (R_BPF_64_ABS64)
 
-  Memory Block .rel.debug_str_offsets @.rel.debug_str_offsets::00000000...rel.debug_str_offsets::000000ff
+  Memory Block .rel.debug_str_offsets @.rel.debug_str_offsets::00000000...rel.debug_str_offsets::000001af
     Elf64_Rel_ARRAY_.rel.debug_str_offsets__00000000:
       offset=0x8 info=0x600000003 (R_BPF_64_ABS32)
       offset=0xc info=0x600000003 (R_BPF_64_ABS32)
@@ -110,10 +180,24 @@ Listing:
       offset=0x3c info=0x600000003 (R_BPF_64_ABS32)
       offset=0x40 info=0x600000003 (R_BPF_64_ABS32)
       offset=0x44 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x48 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x4c info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x50 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x54 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x58 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x5c info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x60 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x64 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x68 info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x6c info=0x600000003 (R_BPF_64_ABS32)
+      offset=0x70 info=0x600000003 (R_BPF_64_ABS32)
 
-  Memory Block .rel.text @.rel.text::00000000...rel.text::0000000f
+  Memory Block .rel.text @.rel.text::00000000...rel.text::0000003f
     Elf64_Rel_ARRAY_.rel.text__00000000:
       offset=0x98 info=0xb0000000a (R_BPF_64_32)
+      offset=0x1b8 info=0xd0000000a (R_BPF_64_32)
+      offset=0x1d0 info=0xe0000000a (R_BPF_64_32)
+      offset=0x1e8 info=0xf0000000a (R_BPF_64_32)
 
 Decompiled functions:
 
@@ -144,4 +228,39 @@ longlong use_registers(void)
   return lVar3 * 0x10 + lVar2 +
          (lVar6 + ((lVar1 << 4 ^ 0x100U) + 9) * 0x10000 + 0x8760) * 0x10000 +
          lVar5 * 0x1000 + lVar4 * 0x100;
+}
+
+/* Function f1 at ram:00100148 */
+longlong f1(longlong param_1)
+
+{
+  return param_1 + 1;
+}
+
+/* Function f2 at ram:00100160 */
+longlong f2(longlong param_1)
+
+{
+  return param_1 << 1;
+}
+
+/* Function f3 at ram:00100178 */
+longlong f3(longlong param_1)
+
+{
+  return param_1 + -3;
+}
+
+/* Function call_3_functions at ram:00100190 */
+longlong call_3_functions(longlong param_1,longlong param_2,longlong param_3)
+
+{
+  longlong lVar1;
+  longlong lVar2;
+  longlong lVar3;
+  
+  lVar1 = f1();
+  lVar2 = f2(param_2);
+  lVar3 = f3(param_3);
+  return param_2 + param_1 + param_3 + lVar1 + lVar2 + lVar3;
 }
