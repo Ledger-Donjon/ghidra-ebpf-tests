@@ -64,3 +64,23 @@ unsigned long use_registers(void) {
     r0 = (r0 << 4) + r1;
     return r0;
 }
+
+unsigned long __attribute__((noinline)) f1(unsigned long x) {
+    return x + 1;
+}
+unsigned long __attribute__((noinline)) f2(unsigned long x) {
+    return x * 2;
+}
+unsigned long __attribute__((noinline)) f3(unsigned long x) {
+    return x - 3;
+}
+
+// Call some functions, to test how Ghidra handles local variables saved on the stack accross calls
+unsigned long call_3_functions(unsigned long arg1, unsigned long arg2, unsigned long arg3) {
+    unsigned long result1, result2, result3;
+
+    result1 = f1(arg1);
+    result2 = f2(arg2);
+    result3 = f3(arg3);
+    return arg1 + arg2 + arg3 + result1 + result2 + result3;
+}
